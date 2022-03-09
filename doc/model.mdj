@@ -1330,7 +1330,7 @@
 											"top": 943,
 											"width": 131.00927734375,
 											"height": 13,
-											"text": "cb: Integer",
+											"text": "cb: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -3774,7 +3774,7 @@
 											"top": 430,
 											"width": 127.81640625,
 											"height": 13,
-											"text": "cb: Integer",
+											"text": "cb: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4634,7 +4634,7 @@
 								"$ref": "AAAAAAF/ZUp8D5SjR0w="
 							},
 							"name": "cb",
-							"type": "Integer"
+							"type": "String"
 						}
 					]
 				},
@@ -4870,7 +4870,7 @@
 								"$ref": "AAAAAAF/b3YYGZeZq2k="
 							},
 							"name": "cb",
-							"type": "Integer"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
