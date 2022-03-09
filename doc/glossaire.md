@@ -15,7 +15,8 @@ avec un tarif reduit.
 ### Code 
 Cf. *[A16] [A20]*\
 Un **[code](#Code)** est un identifiant unique qui permet a chaque **[usager](#Usager)** de s’identifier afin de
-remettre une **[location](#Location)** à une **[Station](#Station).
+remettre une **[location](#Location)** à une **[Station](#Station)**. Il peut est unique à **[abonné](#Abonné)** ou à
+la **[location](#Location)** si il s'agit d'un **[usager](#Usager)** non abonné.
 
 ### Crédit-temps
 Cf. *[A28] [A29]*\
@@ -73,13 +74,14 @@ Cf. *[A1] [A2] [A3]*\
 Emplacement composé d'une **[borne](#borne)** et de plusieurs **[bornettes](#Bornette)** pouvant héberger 
 des **[vélo](#Vélo)** situé à une adresse précise l'identifiant.
 
-## u
+## U
 ### Usager
 Cf. *[A12] [A15] [A16] [A20] [A21] [A26] [A28] [A29]*\
 Un **[Usager](#Usager)** est une personne qui utilise le service VéPick. Il peut être un **[abonné](#abonné)** ou un non.
 
 ## V
 ### Vélo
+Cf. *[A4]*\
 Un **[vélo](#Vélo)** (abréviation du mot *vélocipède*), est un véhicule terrestre à propulsion humaine entrant dans 
 la catégorie des cycles et composé de deux roues alignées, qui lui donnent son nom. La force motrice est fournie par 
 son conducteur (appelé « cycliste »), en position le plus souvent assise, par l'intermédiaire de deux pédales entraînant
