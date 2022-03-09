@@ -74,7 +74,7 @@ Cf. *[A1] [A2] [A3]*\
 Emplacement composé d'une **[borne](#borne)** et de plusieurs **[bornettes](#Bornette)** pouvant héberger 
 des **[vélo](#Vélo)** situé à une adresse précise l'identifiant.
 
-## u
+## U
 ### Usager
 Cf. *[A12] [A15] [A16] [A20] [A21] [A26] [A28] [A29]*\
 Un **[Usager](#Usager)** est une personne qui utilise le service VéPick. Il peut être un **[abonné](#abonné)** ou un non.
