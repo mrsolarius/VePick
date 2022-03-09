@@ -15,7 +15,8 @@ avec un tarif reduit.
 ### Code 
 Cf. *[A16] [A20]*\
 Un **[code](#Code)** est un identifiant unique qui permet a chaque **[usager](#Usager)** de s’identifier afin de
-remettre une **[location](#Location)** à une **[Station](#Station)**.
+remettre une **[location](#Location)** à une **[Station](#Station)**. Il peut est unique à **[abonné](#Abonné)** ou à
+la **[location](#Location)** si il s'agit d'un **[usager](#Usager)** non abonné.
 
 ### Crédit-temps
 Cf. *[A28] [A29]*\
