@@ -3535,7 +3535,7 @@
 											"top": 581,
 											"width": 131.7392578125,
 											"height": 13,
-											"text": "dateDepart: DateTime",
+											"text": "depart: DateTime",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4823,7 +4823,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF/b3XZgpZBB2M="
 							},
-							"name": "dateDepart",
+							"name": "depart",
 							"visibility": "private",
 							"type": "DateTime"
 						},
