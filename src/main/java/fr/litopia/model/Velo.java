@@ -22,6 +22,17 @@ public class Velo {
     @Column(name = "modele", nullable = false)
     private String modele;
 
+    @OneToOne(mappedBy = "velo")
+    private Bornette bornette;
+
+    public Bornette getBornette() {
+        return bornette;
+    }
+
+    public void setBornette(Bornette bornette) {
+        this.bornette = bornette;
+    }
+
     public String getModele() {
         return modele;
     }

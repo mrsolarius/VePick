@@ -19,6 +19,18 @@ public class Bornette {
     @JoinColumn(name = "station_adresse", nullable = false)
     private Station station;
 
+    @OneToOne
+    @JoinColumn(name = "velo_numero")
+    private Velo velo;
+
+    public Velo getVelo() {
+        return velo;
+    }
+
+    public void setVelo(Velo velo) {
+        this.velo = velo;
+    }
+
     public Station getStation() {
         return station;
     }
