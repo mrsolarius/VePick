@@ -3765,22 +3765,6 @@
 				},
 				{
 					"_type": "UMLClass",
-					"_id": "AAAAAAF/ZT+l8I3u2+8=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Class2"
-				},
-				{
-					"_type": "UMLClass",
-					"_id": "AAAAAAF/ZT+qQo4X5XM=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Class3"
-				},
-				{
-					"_type": "UMLClass",
 					"_id": "AAAAAAF/ZT+3AI5Ab+Y=",
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
@@ -3883,30 +3867,6 @@
 							"type": "Etat"
 						}
 					]
-				},
-				{
-					"_type": "UMLClass",
-					"_id": "AAAAAAF/ZT/LYY5pGtM=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Class5"
-				},
-				{
-					"_type": "UMLClass",
-					"_id": "AAAAAAF/ZT/TAY6SRcE=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Class6"
-				},
-				{
-					"_type": "UMLClass",
-					"_id": "AAAAAAF/ZT/nT467R2U=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Class7"
 				},
 				{
 					"_type": "UMLClass",
@@ -4179,14 +4139,6 @@
 							"name": "AUTRE"
 						}
 					]
-				},
-				{
-					"_type": "UMLEnumeration",
-					"_id": "AAAAAAF/ZXGeeKpwN78=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Enumeration1"
 				},
 				{
 					"_type": "UMLEnumeration",
