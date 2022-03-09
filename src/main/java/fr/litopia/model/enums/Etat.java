@@ -1,6 +1,6 @@
 package fr.litopia.model.enums;
 
-public enum State {
+public enum Etat {
     OK,
     HS
 }

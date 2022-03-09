@@ -1,6 +1,6 @@
 package fr.litopia.model;
 
-import fr.litopia.model.enums.State;
+import fr.litopia.model.enums.Etat;
 
 import javax.persistence.*;
 
@@ -12,8 +12,8 @@ public class Bornette {
     private Long numero;
 
     @Enumerated
-    @Column(name = "state", nullable = false)
-    private State state;
+    @Column(name = "etat", nullable = false)
+    private Etat etat;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "station_adresse", nullable = false)
@@ -35,11 +35,11 @@ public class Bornette {
         this.numero = numero;
     }
 
-    public State getState() {
-        return state;
+    public Etat getEtat() {
+        return etat;
     }
 
-    public void setState(State state) {
-        this.state = state;
+    public void setEtat(Etat etat) {
+        this.etat = etat;
     }
 }
