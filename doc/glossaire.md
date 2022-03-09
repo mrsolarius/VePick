@@ -70,7 +70,7 @@ sur leur station habituelle.
 
 ### Station 
 Cf. *[A1] [A2] [A3]*\
-Emplacement composé d'une **(borne)[#borne]** et de plusieurs **[bornettes](#Bornette)** pouvant héberger 
+Emplacement composé d'une **[borne](#borne)** et de plusieurs **[bornettes](#Bornette)** pouvant héberger 
 des **[vélo](#Vélo)** situé à une adresse précise l'identifiant.
 
 ## u
