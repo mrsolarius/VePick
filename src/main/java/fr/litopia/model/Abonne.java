@@ -1,10 +1,9 @@
 package fr.litopia.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "LesAbonnes")
@@ -33,6 +32,17 @@ public class Abonne {
 
     @Column(name = "cb", length = 16)
     private String cb;
+
+    @OneToMany(mappedBy = "abonne")
+    private Set<LocationAbonne> locationAbonnes = new LinkedHashSet<>();
+
+    public Set<LocationAbonne> getLocationAbonnes() {
+        return locationAbonnes;
+    }
+
+    public void setLocationAbonnes(Set<LocationAbonne> locationAbonnes) {
+        this.locationAbonnes = locationAbonnes;
+    }
 
     public String getCb() {
         return cb;
