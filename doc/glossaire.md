@@ -81,6 +81,7 @@ Un **[Usager](#Usager)** est une personne qui utilise le service VéPick. Il peu
 
 ## V
 ### Vélo
+Cf. *[A4]*\
 Un **[vélo](#Vélo)** (abréviation du mot *vélocipède*), est un véhicule terrestre à propulsion humaine entrant dans 
 la catégorie des cycles et composé de deux roues alignées, qui lui donnent son nom. La force motrice est fournie par 
 son conducteur (appelé « cycliste »), en position le plus souvent assise, par l'intermédiaire de deux pédales entraînant
