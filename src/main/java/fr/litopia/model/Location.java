@@ -20,6 +20,18 @@ public class Location {
     @Column(name = "depart")
     private LocalDateTime depart;
 
+    @ManyToOne
+    @JoinColumn(name = "velo_numero")
+    private Velo velo;
+
+    public Velo getVelo() {
+        return velo;
+    }
+
+    public void setVelo(Velo velo) {
+        this.velo = velo;
+    }
+
     public LocalDateTime getDepart() {
         return depart;
     }

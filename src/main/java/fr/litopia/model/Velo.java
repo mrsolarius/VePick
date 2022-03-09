@@ -4,6 +4,8 @@ import fr.litopia.model.enums.Etat;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "LesVelos")
@@ -24,6 +26,17 @@ public class Velo {
 
     @OneToOne(mappedBy = "velo")
     private Bornette bornette;
+
+    @OneToMany(mappedBy = "velo")
+    private Set<Location> locations = new LinkedHashSet<>();
+
+    public Set<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Set<Location> locations) {
+        this.locations = locations;
+    }
 
     public Bornette getBornette() {
         return bornette;
