@@ -21,8 +21,8 @@ public class Abonne {
     @Column(name = "adresse")
     private String adresse;
 
-    @Column(name = "code")
-    private String code;
+    @Column(name = "mdp", length = 20)
+    private String mdp;
 
     @Column(name = "date_fin")
     private Date dateFin;
@@ -35,6 +35,17 @@ public class Abonne {
 
     @OneToMany(mappedBy = "abonne")
     private Set<LocationAbonne> locationAbonnes = new LinkedHashSet<>();
+
+    @Column(name = "renouv_auto")
+    private Boolean renouvAuto;
+
+    public Boolean getRenouvAuto() {
+        return renouvAuto;
+    }
+
+    public void setRenouvAuto(Boolean renouvAuto) {
+        this.renouvAuto = renouvAuto;
+    }
 
     public Set<LocationAbonne> getLocationAbonnes() {
         return locationAbonnes;
@@ -68,12 +79,12 @@ public class Abonne {
         this.dateFin = dateFin;
     }
 
-    public String getCode() {
-        return code;
+    public String getMdp() {
+        return mdp;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setMdp(String code) {
+        this.mdp = code;
     }
 
     public String getAdresse() {

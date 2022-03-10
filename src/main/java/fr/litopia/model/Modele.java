@@ -14,6 +14,17 @@ public class Modele {
     @OneToMany(mappedBy = "modele", orphanRemoval = true)
     private Set<Velo> velos = new LinkedHashSet<>();
 
+    @Column(name = "prix_horaire")
+    private Double prixHoraire;
+
+    public Double getPrixHoraire() {
+        return prixHoraire;
+    }
+
+    public void setPrixHoraire(Double prixHoraire) {
+        this.prixHoraire = prixHoraire;
+    }
+
     public Set<Velo> getVelos() {
         return velos;
     }
