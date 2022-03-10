@@ -133,4 +133,4 @@ L'algorithme de VePick va prioriser les **[station](#Station)** ayant un **[VSta
 le **[VStatus](#VStatus)** VPlus.
 De même l'algorithme de VePick va vider les **[station](#Station)** ayant un **[VStatus](#VStatus)** VMoins. En proposant
 au **[abonné](#Abonné)** un **[credit-temps](#Crédit-temps)** s'il récupère leur vélo sur une **[station](#Station)**
-ayant le **[VStatus](#VStatus)** VMoins.
+ayant le **[VStatus](#VStatus)** VMoins Lolilol.
