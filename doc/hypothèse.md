@@ -35,7 +35,7 @@ On suppose ici qu'un **[modèle](glossaire.md#Modèle)** de **[vélo](glossaire.
 
 ## [H7] Hypothèse 7
 Cf. *[A2] \
-On utilise la cardinalité 2..* car il est précisé dans le sujet qu'une **[station](glossaire.md#Station)** contient **plusieurs** **[bornettes](glossaire.md#Bornette)**, donc au moins deux.
+On utilise la cardinalité 2..\* car il est précisé dans le sujet qu'une **[station](glossaire.md#Station)** contient **plusieurs** **[bornettes](glossaire.md#Bornette)**, donc au moins deux.
 
 ## [H8] Hypothèse 8
 Cf. *[A5]*\
