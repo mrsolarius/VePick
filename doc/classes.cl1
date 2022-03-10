@@ -36,6 +36,7 @@ class Velo
         numeros : Integer
         miseService : String
         etat : Etat
+        modele : String
 end
 
 class Abonne
@@ -47,33 +48,34 @@ class Abonne
         code : String
         dateFin : String
         creditTemps : Integer
-        cb : Integer
+        cb : String
 end
 
 class LocationAbonne < Location
 end
 
-class Modele
-    attributes
-        prixModele : Real
-end
-
 abstract class Location
     attributes
         temps : Integer
-        dateDepart : String
+        depart : String
         prix : Real
 end
 
 class LocationNonAbonne < Location
     attributes
-        cb : Integer
+        cb : String
         code : String
 end
 
 class VePick
     attributes
         reducAbo : Real
+end
+
+class Modele
+    attributes
+        nom : String
+        prixHoraire : Real
 end
 
 association Possede
@@ -88,21 +90,21 @@ association Accueille
         Velo[0..1] role velo
 end
 
-association EstUn
+association EstDu
     between
-        Velo[0..*] role velos
+        Velo[0..*] role velo
         Modele[1] role modele
-end
-
-association MobiliseUn
-    between
-        Location[0..*] role locations
-        Velo[1] role velo
 end
 
 association SouscritA
     between
         Abonne[1] role abonne
         LocationAbonne[0..*] role locations
+end
+
+association MobiliseUn
+    between
+        Location[0..*] role locations
+        Velo[1] role velo
 end
 
