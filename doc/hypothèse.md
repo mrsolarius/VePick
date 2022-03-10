@@ -43,3 +43,7 @@ On suppose ici qu'un **[vélo](glossaire.md#Vélo)** et une **[bornette](glossai
 ## [H9] Hypothèse 9
 Cf. *[A14]*\
 On suppose ici qu'un **[abonnement](glossaire.md#abonnement)** de un an est automatiquement renouvelé à la fin de l'année, toutefois les **[abonnés](glossaire.md#abonné)** pourront désactiver le renouvellement automatique s'ils ne souhaitent pas renouveler leurs **[abonnements](glossaire.md#abonnement)**.
+
+## [H10] Hypothèse 10
+Cf. *[A16] [A20]*\
+On estime ici que la taille maximal autorisé pour un **[mot de passe](glossaire.md#mot-de-passe)** ou un **[code](glossaire.md#code)** est de 20 caractères.
