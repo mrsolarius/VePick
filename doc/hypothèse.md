@@ -40,3 +40,7 @@ On utilise la cardinalité 2..* car il est précisé dans le sujet qu'une **[sta
 ## [H8] Hypothèse 8
 Cf. *[A5]*\
 On suppose ici qu'un **[vélo](glossaire.md#Vélo)** et une **[bornette](glossaire.md#Bornette)** pourront avoir un nouvel **[état](glossaire.md#État)** différent de OK ou HS : maintenance. Le sujet ne laisse pas de doute concernant la possibilité d'effectuer une maintenance sur un vélo, cependant nous avons décidé d'ajouter la possibilité de maintenance pour une **[bornette](glossaire.md#Bornette)** HS.
+
+## [H9] Hypothèse 9
+Cf. *[A14]*\
+On suppose ici qu'un **[abonnement](glossaire.md#abonnement)** de un an est automatiquement renouvelé à la fin de l'année, toutefois les **[abonnés](glossaire.md#abonné)** pourront désactiver le renouvellement automatique s'ils ne souhaitent pas renouveler leurs **[abonnements](glossaire.md#abonnement).
