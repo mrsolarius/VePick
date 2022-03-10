@@ -7,17 +7,12 @@ import javax.persistence.*;
 @Entity
 @Table(name = "LesBornettes")
 public class Bornette {
-    @Id
-    @Column(name = "numero", nullable = false)
-    private Long numero;
+    @EmbeddedId
+    private BornettePK pk;
 
     @Enumerated
     @Column(name = "etat", nullable = false)
     private Etat etat;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "station_adresse", nullable = false)
-    private Station station;
 
     @OneToOne
     @JoinColumn(name = "velo_numero")
@@ -32,19 +27,11 @@ public class Bornette {
     }
 
     public Station getStation() {
-        return station;
-    }
-
-    public void setStation(Station station) {
-        this.station = station;
+        return pk.getStation();
     }
 
     public Long getNumero() {
-        return numero;
-    }
-
-    public void setNumero(Long numero) {
-        this.numero = numero;
+        return pk.getNumero();
     }
 
     public Etat getEtat() {

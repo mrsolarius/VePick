@@ -16,8 +16,7 @@ public class Station {
     @Enumerated
     @Column(name = "v_status", nullable = false)
     private VStatus vStatus;
-
-    @OneToMany(mappedBy = "station", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "pk.station", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     //@Todo ATTENTION ICI IL ET POSSIBLE DE NE PAS AVOIR DE BORNETTE ASSOCIER OR LA SPEC EN DEMANDE AU MOINS 2 PAR STATIONS A GERER PLUS TARD !!!
     private Set<Bornette> bornettes = new LinkedHashSet<>();
 
