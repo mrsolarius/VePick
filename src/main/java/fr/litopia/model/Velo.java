@@ -21,14 +21,23 @@ public class Velo {
     @Column(name = "etat", nullable = false)
     private Etat etat;
 
-    @Column(name = "modele", nullable = false)
-    private String modele;
-
     @OneToOne(mappedBy = "velo")
     private Bornette bornette;
 
     @OneToMany(mappedBy = "velo")
     private Set<Location> locations = new LinkedHashSet<>();
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "modele_name", nullable = false)
+    private Modele modele;
+
+    public Modele getModele() {
+        return modele;
+    }
+
+    public void setModele(Modele modele) {
+        this.modele = modele;
+    }
 
     public Set<Location> getLocations() {
         return locations;
@@ -44,14 +53,6 @@ public class Velo {
 
     public void setBornette(Bornette bornette) {
         this.bornette = bornette;
-    }
-
-    public String getModele() {
-        return modele;
-    }
-
-    public void setModele(String modele) {
-        this.modele = modele;
     }
 
     public Etat getEtat() {
