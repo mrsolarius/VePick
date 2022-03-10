@@ -13,8 +13,8 @@ public class Station {
     @Column(name = "adresse", nullable = false)
     private String adresse;
 
-    @Enumerated
-    @Column(name = "v_status", nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "v_status", length = 6,nullable = false)
     private VStatus vStatus;
     @OneToMany(mappedBy = "pk.station", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     //@Todo ATTENTION ICI IL ET POSSIBLE DE NE PAS AVOIR DE BORNETTE ASSOCIER OR LA SPEC EN DEMANDE AU MOINS 2 PAR STATIONS A GERER PLUS TARD !!!

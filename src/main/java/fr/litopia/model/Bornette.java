@@ -10,8 +10,8 @@ public class Bornette {
     @EmbeddedId
     private BornettePK pk;
 
-    @Enumerated
-    @Column(name = "etat", nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "etat",length = 11, nullable = false)
     private Etat etat;
 
     @OneToOne

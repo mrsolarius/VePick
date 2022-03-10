@@ -17,8 +17,8 @@ public class Velo {
     @Column(name = "mise_en_service", nullable = false, updatable = false)
     private Date miseEnService;
 
-    @Enumerated
-    @Column(name = "etat", nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "etat",length = 11, nullable = false)
     private Etat etat;
 
     @OneToOne(mappedBy = "velo")
