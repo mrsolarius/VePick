@@ -31,4 +31,4 @@ Et générera dans le SI autant de **[location](glossaire.md#Location)** que de 
 
 ## [H6] Hypothèse 6
 Cf *[A4] [A9]*\
-On considère ici que un modèle
+On suppose ici qu'un **[modèle](glossaire.md#Modèle)** de **[vélo](glossaire.md#Vélo)** dispose d'un noms qui fait office d'identifiant unique.
