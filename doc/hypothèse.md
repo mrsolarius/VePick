@@ -30,9 +30,13 @@ On considère ici qu'une interface graphique bien conçue pour l'**[usager](glos
 Et générera dans le SI autant de **[location](glossaire.md#Location)** que de **[vélo](glossaire.md#Vélo)** louer.
 
 ## [H6] Hypothèse 6
-Cf *[A4] [A9]*\
+Cf. *[A4] [A9]*\
 On suppose ici qu'un **[modèle](glossaire.md#Modèle)** de **[vélo](glossaire.md#Vélo)** dispose d'un noms qui fait office d'identifiant unique.
 
 ## [H7] Hypothèse 7
 Cf. *[A2] \
 On utilise la cardinalité 2..* car il est précisé dans le sujet qu'une **[station](glossaire.md#Station)** contient **plusieurs** **[bornettes](glossaire.md#Bornette)**, donc au moins deux.
+
+## [H8] Hypothèse 8
+Cf. *[A5]*\
+On suppose ici qu'un **[vélo](glossaire.md#Vélo)** et une **[bornette](glossaire.md#Bornette)** pourront avoir un nouvel **[état](glossaire.md#État)** différent de OK ou HS : maintenance. Le sujet ne laisse pas de doute concernant la possibilité d'effectuer une maintenance sur un vélo, cependant nous avons décidé d'ajouter la possibilité de maintenance pour une **[bornette](glossaire.md#Bornette)** HS.
