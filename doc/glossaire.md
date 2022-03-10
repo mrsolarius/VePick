@@ -74,8 +74,8 @@ Et de bénéficier d’une réduction de location. Ainsi que d'un **[credit-temp
 
 ### Modèle
 
-Cf. _[A4] [A9] [[H6]](hypothèse.md#[H6] Hypothèse 6)_\
-Le modèle d’un **[vélo](#Vélo)** correspond à un type de vélo du parc VéPick, il est associé à un nom qui l'identifie [[H6]](hypothèse.md#[H6] Hypothèse 6) et à un prix.
+Cf. _[A4] [A9] [[H6]](hypothèse.md#h6-Hypothèse-6)_\
+Le modèle d’un **[vélo](#Vélo)** correspond à un type de vélo du parc VéPick, il est associé à un nom qui l'identifie [[H6]](hypothèse.md#h6-Hypothèse-6) et à un prix.
 
 ### Mot De Passe
 
