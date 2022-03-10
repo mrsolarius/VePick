@@ -4,7 +4,8 @@ model M
 
 enum Etat {
     ok,
-    hs
+    hs,
+    maintenance
 }
 
 enum Sexe {
@@ -27,13 +28,13 @@ end
 
 class Bornette
     attributes
-        numeros : Integer
+        numero : Integer
         etat : Etat
 end
 
 class Velo
     attributes
-        numeros : Integer
+        numero : Integer
         miseService : String
         etat : Etat
         modele : String
@@ -45,10 +46,11 @@ class Abonne
         prenoms : String
         sexe : Sexe
         adresse : String
-        code : String
+        mdp : String
         dateFin : String
         creditTemps : Integer
         cb : String
+        renouvAuto : Boolean
 end
 
 class LocationAbonne < Location
@@ -92,7 +94,7 @@ end
 
 association EstDu
     between
-        Velo[0..*] role velo
+        Velo[0..*] role velos
         Modele[1] role modele
 end
 
