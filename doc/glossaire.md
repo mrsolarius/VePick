@@ -74,8 +74,8 @@ Et de bénéficier d’une réduction de location. Ainsi que d'un **[credit-temp
 
 ### Modèle
 
-Cf. _[A4] [A9] [[H6]](hyposthèse.md#[H6]-Hypothèse-6)_\
-Le modèle d’un **[vélo](#Vélo)** correspond à un type de vélo du parc VéPick, il est associé à un nom qui l'identifie [[H6]](hyposthèse.md#[H6]-Hypothèse-6) et à un prix.
+Cf. _[A4] [A9] [[H6]](hypothèse.md#h6-Hypothèse-6)_\
+Le modèle d’un **[vélo](#Vélo)** correspond à un type de vélo du parc VéPick, il est associé à un nom qui l'identifie [[H6]](hypothèse.md#h6-Hypothèse-6) et à un prix.
 
 ### Mot De Passe
 
@@ -132,5 +132,4 @@ Le **[VStatus](#VStatus)** est le statut d'une **[station](#Station)** il est de
 L'algorithme de VePick va prioriser les **[station](#Station)** ayant un **[VStatus](#VStatus)** VPlus. En proposant à l'**[abonné](#Abonné)** un **[credit-temps](#Crédit-temps)** s'il dépose leur vélo sur une **[station](#Station)** ayant
 le **[VStatus](#VStatus)** VPlus.
 De même l'algorithme de VePick va vider les **[station](#Station)** ayant un **[VStatus](#VStatus)** VMoins. En proposant
-au **[abonné](#Abonné)** un **[credit-temps](#Crédit-temps)** s'il récupère leur vélo sur une **[station](#Station)**
-ayant le **[VStatus](#VStatus)** VMoins+.
+au **[abonné](#Abonné)** un **[credit-temps](#Crédit-temps)** s'il récupère leur vélo sur une **[station](#Station)** ayant le **[VStatus](#VStatus)** VMoins.
