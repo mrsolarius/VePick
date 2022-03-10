@@ -58,6 +58,12 @@ Une **[Location Abonné](#Location-Abonné)** est défini par une date de dépar
 Elle permet à un **[usager](#Usager)** abonné de louer un **[vélo](#Vélo)** plus facilement. 
 Et de bénéficier d’une réduction de location. Ainsi que d'un **[credit-temps](#Crédit-temps)** grace au système de **[régulation citoyenne](#régulation-citoyenne)**.
 
+## M
+### Modèle
+Cf. *[A4] [A9] [[H6]](hyposthèse.md#[H6]-Hypothèse-6)*\
+Le modèle d’un **[vélo](#Vélo)** correspond à un type de vélo du parc VéPick, il est associé à un nom qui l'identifie [[H6]](hyposthèse.md#[H6]-Hypothèse-6) et à un prix.
+
+
 ## R
 ### Régulation Citoyenne
 Cf. *[A28] [A29]*\
@@ -86,7 +92,7 @@ Un **[vélo](#Vélo)** (abréviation du mot *vélocipède*), est un véhicule te
 la catégorie des cycles et composé de deux roues alignées, qui lui donnent son nom. La force motrice est fournie par 
 son conducteur (appelé « cycliste »), en position le plus souvent assise, par l'intermédiaire de deux pédales entraînant
 la roue arrière par une chaîne à rouleaux. Ici un **[vélo](#Vélo)** à un numéro unique, une date de mise en circulation 
-ainsi qu’un **[état](#État)**.
+ainsi qu’un **[état](#État)** et un **[modèle](#Modèle)**.
 
 ### VStatus
 Cf. *[A27] [A28] [A29] [A30] [A31] [A32]*\
