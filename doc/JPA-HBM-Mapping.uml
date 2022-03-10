@@ -4,26 +4,26 @@
   <OriginalElement>JavaeeElement:/4538d84c/JPA-HBM/ProjetBDD.main/jpa/JPA/PersistenceModel</OriginalElement>
   <nodes>
     <node x="354.25" y="225.0">LocationAbonne#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/LocationAbonne.java</node>
-    <node x="195.24999999999997" y="37.5">Modele#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Modele.java</node>
+    <node x="152.71666666666673" y="-24.879166666666606">Modele#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Modele.java</node>
     <node x="533.25" y="225.0">LocationNonAbonne#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/LocationNonAbonne.java</node>
-    <node x="200.75" y="378.1187499999999">Bornette#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Bornette.java</node>
-    <node x="134.49687499999996" y="497.0">Station#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Station.java</node>
-    <node x="1.2177083333332916" y="378.1187499999999">BornettePK#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/BornettePK.java</node>
+    <node x="180.7166666666667" y="334.35833333333323">Bornette#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Bornette.java</node>
+    <node x="114.46354166666666" y="453.2395833333333">Station#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Station.java</node>
+    <node x="-18.81562500000001" y="334.35833333333323">BornettePK#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/BornettePK.java</node>
     <node x="350.25" y="347.0">Abonne#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Abonne.java</node>
     <node x="438.7875" y="0.0">Location#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Location.java</node>
-    <node x="171.24999999999997" y="186.0">Velo#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Velo.java</node>
+    <node x="151.21666666666667" y="142.23958333333331">Velo#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Velo.java</node>
   </nodes>
   <notes />
   <edges>
     <edge source="Velo#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Velo.java" target="Location#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Location.java" relationship="RELATION">
       <point x="70.05729166666666" y="-43.90625" />
-      <point x="322.80729166666663" y="98.65624999999999" />
-      <point x="481.2875" y="98.65624999999999" />
+      <point x="302.7739583333333" y="78.26874999999998" />
+      <point x="481.2875" y="78.26874999999998" />
       <point x="-42.5" y="67.0" />
     </edge>
     <edge source="BornettePK#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/BornettePK.java" target="Station#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Station.java" relationship="RELATION">
       <point x="0.0" y="29.5" />
-      <point x="63.21770833333329" y="539.0" />
+      <point x="43.18437499999999" y="495.2395833333333" />
       <point x="-67.0" y="0.0" />
     </edge>
     <edge source="Station#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Station.java" target="Bornette#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Bornette.java" relationship="RELATION">
@@ -56,10 +56,12 @@
     </edge>
     <edge source="Velo#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Velo.java" target="Modele#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Modele.java" relationship="RELATION">
       <point x="0.0" y="-54.5" />
+      <point x="232.71666666666667" y="161.6208333333334" />
+      <point x="232.71666666666673" y="161.6208333333334" />
       <point x="0.0" y="29.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.7986688851913477" showDependencies="false" x="364.0" y="290.5" />
+  <settings layout="Hierarchic" zoom="0.7986688851913477" showDependencies="false" x="599.0" y="359.0" />
   <SelectedNodes />
   <Categories>
     <Category>Embeddables</Category>

@@ -3,17 +3,17 @@
   <ID>DATABASE</ID>
   <OriginalElement>623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.SCHEMA:vepick</OriginalElement>
   <nodes>
-    <node x="222.375" y="0.0">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesModeles</node>
+    <node x="219.375" y="0.0">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesModeles</node>
     <node x="561.9333333333332" y="356.5">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesAbonnes</node>
     <node x="211.375" y="526.86875">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesStations</node>
     <node x="185.375" y="325.9125">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesBornettes</node>
-    <node x="195.375" y="124.95625000000004">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesVelos</node>
+    <node x="195.375" y="134.95625000000004">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesVelos</node>
     <node x="554.4333333333332" y="7.854166666666686">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesLocations</node>
   </nodes>
   <notes />
   <edges>
     <edge source="623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesLocations" target="623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesVelos" relationship="REFERENCES">
-      <point x="-90.0" y="54.602083333333354" />
+      <point x="-90.0" y="57.102083333333354" />
       <point x="103.5" y="0.0" />
     </edge>
     <edge source="623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesBornettes" target="623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesStations" relationship="REFERENCES">
@@ -33,7 +33,7 @@
       <point x="0.0" y="29.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.759493670886076" showDependencies="false" x="461.99999999999994" y="306.0" />
+  <settings layout="Hierarchic" zoom="0.9382530120481928" showDependencies="false" x="459.99999999999994" y="322.0" />
   <SelectedNodes />
   <Categories>
     <Category>Columns</Category>
