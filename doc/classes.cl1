@@ -14,7 +14,7 @@ enum Sexe {
     autre
 }
 
-enum VStatus {
+enum VStatut {
     vplus,
     vmoins,
     vnul
@@ -23,7 +23,7 @@ enum VStatus {
 class Station
     attributes
         adresse : String
-        vStatus : VStatus
+        vStatut : VStatut
 end
 
 class Bornette

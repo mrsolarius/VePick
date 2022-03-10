@@ -160,7 +160,7 @@
 											"top": 261,
 											"width": 127,
 											"height": 13,
-											"text": "vStatus: VStatus",
+											"text": "vStatut: VStatut",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2526,7 +2526,7 @@
 											"top": 308,
 											"width": 92.46907043457031,
 											"height": 13,
-											"text": "VStatus"
+											"text": "VStatut"
 										},
 										{
 											"_type": "LabelView",
@@ -5846,9 +5846,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF/ZTzwMI2TBYY="
 							},
-							"name": "vStatus",
+							"name": "vStatut",
 							"visibility": "private",
-							"type": "VStatus"
+							"type": "VStatut"
 						}
 					]
 				},
@@ -6274,7 +6274,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "VStatus",
+					"name": "VStatut",
 					"literals": [
 						{
 							"_type": "UMLEnumerationLiteral",
