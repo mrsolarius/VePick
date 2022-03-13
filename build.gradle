@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'application'
 }
 
 group 'fr.litopia'
@@ -21,4 +21,20 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+application {
+    mainClassName ='fr.litopia.Launch'
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes(
+                'Main-Class': 'fr.litopia.Launch'
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
