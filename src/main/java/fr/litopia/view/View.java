@@ -1,31 +1,39 @@
 package fr.litopia.view;
-import fr.litopia.controler.Controler;
+
+import fr.litopia.view.enums.ViewStates;
 
 public abstract class View {
-    private ViewState state;
-    protected Controler controler;
+    protected ViewStates state;
 
     /**
      * Constructeur de toutes vue necessite un controlleur permettant d'interagir avec le model
-     * @param controler controller de la vue
      */
-    public View(Controler controler){
-        this.state = ViewState.INIT;
-        this.controler = controler;
+    public View(){
+        this.state = ViewStates.INIT;
         this.init();
+        this.clean();
     }
 
     /**
      * Permet de lancer la vue
      */
-    private void run(){
-        this.state = ViewState.RUNNING;
-        while (this.state != ViewState.END){
+    public void run(){
+        this.state = ViewStates.RUNNING;
+        while (this.state != ViewStates.END){
+            this.clean();
             this.display();
             this.update();
         }
+        this.close();
     }
 
+    /**
+     * Permet de nettoyer la console
+     */
+    protected void clean(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
 
     /**
      * Permet d'initialiser la vue
@@ -46,4 +54,11 @@ public abstract class View {
      * Permet de fermer la vue
      */
     protected abstract void close();
+
+    /**
+     * Permet de stopper la vue
+     */
+    public void stop(){
+        this.state = ViewStates.END;
+    }
 }

@@ -2,14 +2,17 @@ package fr.litopia.utils;
 
 import java.io.Console;
 
+import static org.hibernate.query.criteria.internal.ValueHandlerFactory.isNumeric;
+
 public class ReadingConsole {
 
     /**
      * Fonction qui va attendre que l'utilisateur ecrive une chaine de caracteres dans la console
      * avant de la retourner.
+     *
      * @return String la chaine de caracteres ecrit par l'utilisateur
      */
-    public String readLine() {
+    public static String readLine() {
         Console console = System.console();
         if (console == null) {
             System.out.println("Unable to fetch console");
@@ -19,11 +22,72 @@ public class ReadingConsole {
     }
 
     /**
+     * Fonction qui va attendre que l'utilise ecrive une chaine de caracter de longueur n dans la console
+     * avant de la retourner.
+     * @param n la longueur de la chaine de caractere
+     *          n est obligatoire et doit etre superieur a 0
+     */
+    public static String readLine(int n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException("n must be positive");
+        }
+        String s = null;
+        while (s == null) {
+            s = readLine();
+            if (s.length() != n) {
+                System.out.println("Veuillez saisir une chaine de caractere de longueur " + n + ".");
+                s = null;
+            }
+        }
+        return s;
+    }
+
+    /**
+     * Fonction qui va attendre que l'utilisateur ecrive une chaine de caracters numérique dans la console
+     * avant de la retourner.
+     * @return String la chaine de caracteres numérique ecrit par l'utilisateur
+     */
+    public static String readLineNumeric() {
+        String s = null;
+        while (s == null) {
+            s = readLine();
+            if (!isNumeric(s)) {
+                System.out.println("Veuillez saisir une chaine de character numeric.");
+                s = null;
+            }
+        }
+        return s;
+    }
+
+    /**
+     * Fonction qui va attendre que l'utilisateur ecrive une chaine de caracters numérique dans la console
+     * avant de la retourner.
+     * @param n la longueur de la chaine de caractere
+     *          n est obligatoire et doit etre superieur a 0
+     * @return String la chaine de caracteres numérique ecrit par l'utilisateur
+     */
+    public static String readLineNumeric(int n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException("n must be positive");
+        }
+        String s = null;
+        while (s == null) {
+            s = readLineNumeric();
+            if (s.length() != n) {
+                System.out.println("Veuillez saisir une chaine de character numeric de longueur " + n + ".");
+                s = null;
+            }
+        }
+        return s;
+    }
+
+    /**
      * Fonction qui va attendre que l'utilisateur ecrive un entier dans la console
      * avant de le retourner.
+     *
      * @return Integer l'entier écrit par l'utilisateur
      */
-    public Integer readInt() {
+    public static Integer readInt() {
         Integer i = null;
         while (i == null) {
             try {
@@ -38,9 +102,10 @@ public class ReadingConsole {
     /**
      * Fonction qui attend que l'utilisateur ecrive un integer compris entre min et max
      * avant de le retourner.
+     *
      * @return Integer l'entier compris entre min et max
      */
-    public Integer readInt(Integer min, Integer max) {
+    public static Integer readInt(Integer min, Integer max) {
         Integer i = null;
         while (i == null || i < min || i > max) {
             i = readInt();
@@ -54,9 +119,10 @@ public class ReadingConsole {
     /**
      * Fonction qui va attendre que l'utilisateur ecrive un double dans la console
      * avant de le retourner.
+     *
      * @return Double l'entier écrit par l'utilisateur
      */
-    public Double readDouble() {
+    public static Double readDouble() {
         Double d = null;
         while (d == null) {
             try {
@@ -71,9 +137,10 @@ public class ReadingConsole {
     /**
      * Fonction qui attend que l'utilisateur ecrive un double compris entre min et max
      * avant de le retourner.
+     *
      * @return Double l'entier compris entre min et max
      */
-    public Double readDouble(Double min, Double max) {
+    public static Double readDouble(Double min, Double max) {
         Double d = null;
         while (d == null || d < min || d > max) {
             d = readDouble();
@@ -87,9 +154,10 @@ public class ReadingConsole {
     /**
      * Fonction qui va attendre que l'utilisateur ecrive un boolean dans la console
      * avant de le retourner.
+     *
      * @return Boolean écrit par l'utilisateur
      */
-    public Boolean readBoolean() {
+    public static Boolean readBoolean() {
         Boolean b = null;
         while (b == null) {
             String s = readLine().toLowerCase();
@@ -107,10 +175,11 @@ public class ReadingConsole {
     /**
      * Fonction qui va attendre que l'utilisateur ecrive une des valeur de l'enum passer en parametre
      * avant de la retourner.
+     *
      * @param <T> l'enum
      * @return T la valeur de l'enum
      **/
-    public <T extends Enum<T>> T readEnum(Class<T> enumClass) {
+    public static <T extends Enum<T>> T readEnum(Class<T> enumClass) {
         T t = null;
         while (t == null) {
             String s = readLine().toLowerCase();
@@ -125,8 +194,6 @@ public class ReadingConsole {
         }
         return t;
     }
-
-
 
 
 }
