@@ -37,7 +37,7 @@ public class DataBDDControler extends Controler{
     veloRepository=daoFactory.newVeloRepository(entityManager);
     }
 
-   public Station allStations(){
+   public Set<Station> allStations(){
     /*------------------------------------------------------------------*/
     //   station victor hugo
     /*------------------------------------------------------------------*/
@@ -113,7 +113,7 @@ public class DataBDDControler extends Controler{
 
 
 
-        return (Station) stations;
+        return stations;
    }
 
 
@@ -125,7 +125,7 @@ public class DataBDDControler extends Controler{
 
         entityManager.getTransaction().begin();
 
-        for(Station stat:lesStations()){
+        for(Station stat:allStations()){
             stationRepository.save(stat);
         }
         entityManager.getTransaction().commit();
