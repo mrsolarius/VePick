@@ -9,10 +9,10 @@ Application de gestion de vélo en libre services
 
 
 ### Windows
-Lancer le fichier `db.bat` pour démarer la base de donnée sur un docker puis le fichier `start.bat` pour compiler et lancer l'application
+Lancer le fichier `db.bat` pour démarer la base de donnée sur un docker puis le fichier `run.bat` pour compiler et lancer l'application
 
 ### Linux 
-Lancer le fichier `db.sh` pour démarer la base de donnée sur un docker puis le fichier `start.sh` pour compiler et lancer l'application
+Lancer le fichier `db.sh` pour démarer la base de donnée sur un docker puis le fichier `run.sh` pour compiler et lancer l'application
 
 ## Documentation
 Toute la documentation de l'application se trouve [ici](doc)\
