@@ -14,21 +14,23 @@ public class LocationAbonneRepositoryImpl extends BaseRepositoryImpl implements 
 
     @Override
     public void save(LocationAbonne entity) {
-
+        entityManager.persist(entity);
     }
 
     @Override
     public void delete(LocationAbonne entity) {
-
+        entityManager.remove(entity);
     }
 
     @Override
     public LocationAbonne findById(Long id) {
-        return null;
+        return entityManager.find(LocationAbonne.class,id);
     }
 
     @Override
     public Set<LocationAbonne> getAll() {
-        return null;
+        return Set.copyOf(
+                entityManager.createQuery("SELECT LocationAbonne FROM LocationAbonne ",LocationAbonne.class)
+                        .getResultList());
     }
 }

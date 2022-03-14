@@ -1,6 +1,7 @@
 package fr.litopia.respository.impl;
 
-import fr.litopia.model.LocationAbonne;
+import fr.litopia.model.Abonne;
+import fr.litopia.model.LocationNonAbonne;
 import fr.litopia.respository.api.LocationNonAbonneRepository;
 
 import javax.persistence.EntityManager;
@@ -13,22 +14,24 @@ public class LocationNonAbonneRepositoryImpl extends BaseRepositoryImpl implemen
     }
 
     @Override
-    public void save(LocationAbonne entity) {
-
+    public void save(LocationNonAbonne entity) {
+        entityManager.persist(entity);
     }
 
     @Override
-    public void delete(LocationAbonne entity) {
-
+    public void delete(LocationNonAbonne entity) {
+        entityManager.remove(entity);
     }
 
     @Override
-    public LocationAbonne findById(Long id) {
-        return null;
+    public LocationNonAbonne findById(Long id) {
+        return entityManager.find(LocationNonAbonne.class,id);
     }
 
     @Override
-    public Set<LocationAbonne> getAll() {
-        return null;
+    public Set<LocationNonAbonne> getAll() {
+        return Set.copyOf(
+                entityManager.createQuery("SELECT LocationNonAbonne FROM LocationNonAbonne ",LocationNonAbonne.class)
+                        .getResultList());
     }
 }

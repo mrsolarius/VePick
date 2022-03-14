@@ -14,21 +14,23 @@ public class VeloRepositoryImpl extends BaseRepositoryImpl implements VeloReposi
 
     @Override
     public void save(Velo entity) {
-
+        entityManager.persist(entity);
     }
 
     @Override
     public void delete(Velo entity) {
-
+        entityManager.remove(entity);
     }
 
     @Override
     public Velo findById(Long id) {
-        return null;
+        return entityManager.find(Velo.class,id);
     }
 
     @Override
     public Set<Velo> getAll() {
-        return null;
+        return Set.copyOf(
+                entityManager.createQuery("SELECT Velo FROM Velo ",Velo.class)
+                        .getResultList());
     }
 }
