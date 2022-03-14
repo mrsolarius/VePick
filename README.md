@@ -15,7 +15,7 @@ Lancer le fichier `db.bat` pour démarer la base de donnée sur un docker puis l
 Lancer le fichier `db.sh` pour démarer la base de donnée sur un docker puis le fichier `start.sh` pour compiler et lancer l'application
 
 ## Documentation
-Toute la documentation de l'application se trouve [ici](doc)
+Toute la documentation de l'application se trouve [ici](doc)\
 Elle contiens : 
 - [Glossaire](doc/glossaire.md)
 - [Fichier d'hypothèse](doc/hypothèse.md)
