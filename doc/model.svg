@@ -1,6 +1,5 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
      width="1173.35986328125" height="961">
-    <rect width="100%" height="100%" fill="white"/>
     <defs/>
     <g>
         <g transform="translate(-70,-94) scale(1,1)">
@@ -193,14 +192,14 @@
             <path fill="none" stroke="#000000" d="M 568 258 L 606 351" stroke-miterlimit="10" stroke-dasharray="3"/>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
-            <rect fill="#C0C0C0" stroke="none" x="343" y="815" width="152.81884765625" height="167" opacity="0.2"/>
+            <rect fill="#C0C0C0" stroke="none" x="343" y="815" width="152.81884765625" height="182" opacity="0.2"/>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
-            <rect fill="#f6ec9f" stroke="none" x="336" y="808" width="152.81884765625" height="167"/>
+            <rect fill="#f6ec9f" stroke="none" x="336" y="808" width="152.81884765625" height="182"/>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
             <path fill="none" stroke="#450f0f"
-                  d="M 336 808 L 488.81884765625 808 L 488.81884765625 975 L 336 975 L 336 808 Z Z"
+                  d="M 336 808 L 488.81884765625 808 L 488.81884765625 990 L 336 990 L 336 808 Z Z"
                   stroke-miterlimit="10"/>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
@@ -218,7 +217,7 @@
             <g>
                 <path fill="none" stroke="none"/>
                 <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal"
-                      font-weight="normal" text-decoration="none" x="341" y="850.5">nom: String
+                      font-weight="normal" text-decoration="none" x="341" y="850.5">login: String {id}
                 </text>
             </g>
         </g>
@@ -226,7 +225,7 @@
             <g>
                 <path fill="none" stroke="none"/>
                 <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal"
-                      font-weight="normal" text-decoration="none" x="341" y="865.5">prenoms: String
+                      font-weight="normal" text-decoration="none" x="341" y="865.5">nom: String
                 </text>
             </g>
         </g>
@@ -234,7 +233,7 @@
             <g>
                 <path fill="none" stroke="none"/>
                 <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal"
-                      font-weight="normal" text-decoration="none" x="341" y="880.5">sexe: Sexe
+                      font-weight="normal" text-decoration="none" x="341" y="880.5">prenoms: String
                 </text>
             </g>
         </g>
@@ -242,7 +241,7 @@
             <g>
                 <path fill="none" stroke="none"/>
                 <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal"
-                      font-weight="normal" text-decoration="none" x="341" y="895.5">adresse: String
+                      font-weight="normal" text-decoration="none" x="341" y="895.5">sexe: Sexe
                 </text>
             </g>
         </g>
@@ -250,7 +249,7 @@
             <g>
                 <path fill="none" stroke="none"/>
                 <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal"
-                      font-weight="normal" text-decoration="none" x="341" y="910.5">mdp: String
+                      font-weight="normal" text-decoration="none" x="341" y="910.5">adresse: String
                 </text>
             </g>
         </g>
@@ -258,7 +257,7 @@
             <g>
                 <path fill="none" stroke="none"/>
                 <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal"
-                      font-weight="normal" text-decoration="none" x="341" y="925.5">dateFin: Date
+                      font-weight="normal" text-decoration="none" x="341" y="925.5">mdp: String
                 </text>
             </g>
         </g>
@@ -266,7 +265,7 @@
             <g>
                 <path fill="none" stroke="none"/>
                 <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal"
-                      font-weight="normal" text-decoration="none" x="341" y="940.5">creditTemps: Integer
+                      font-weight="normal" text-decoration="none" x="341" y="940.5">dateFin: Date
                 </text>
             </g>
         </g>
@@ -274,7 +273,7 @@
             <g>
                 <path fill="none" stroke="none"/>
                 <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal"
-                      font-weight="normal" text-decoration="none" x="341" y="955.5">cb: String
+                      font-weight="normal" text-decoration="none" x="341" y="955.5">creditTemps: Integer
                 </text>
             </g>
         </g>
@@ -282,7 +281,15 @@
             <g>
                 <path fill="none" stroke="none"/>
                 <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal"
-                      font-weight="normal" text-decoration="none" x="341" y="970.5">renouvAuto: Boolean
+                      font-weight="normal" text-decoration="none" x="341" y="970.5">cb: String
+                </text>
+            </g>
+        </g>
+        <g transform="translate(-70,-94) scale(1,1)">
+            <g>
+                <path fill="none" stroke="none"/>
+                <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal"
+                      font-weight="normal" text-decoration="none" x="341" y="985.5">renouvAuto: Boolean
                 </text>
             </g>
         </g>
@@ -998,19 +1005,19 @@
             </g>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
-            <path fill="none" stroke="#000000" d="M 490 898 L 527 902" stroke-miterlimit="10" stroke-dasharray="3"/>
+            <path fill="none" stroke="#000000" d="M 490 903 L 527 905" stroke-miterlimit="10" stroke-dasharray="3"/>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
-            <path fill="none" stroke="#000000" d="M 526 753 L 482 807" stroke-miterlimit="10" stroke-dasharray="3"/>
+            <path fill="none" stroke="#000000" d="M 527 753 L 484 807" stroke-miterlimit="10" stroke-dasharray="3"/>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
-            <path fill="none" stroke="#000000" d="M 519 875 L 490 879" stroke-miterlimit="10" stroke-dasharray="3"/>
+            <path fill="none" stroke="#000000" d="M 519 877 L 490 883" stroke-miterlimit="10" stroke-dasharray="3"/>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
-            <path fill="none" stroke="#000000" d="M 528 849 L 490 863" stroke-miterlimit="10" stroke-dasharray="3"/>
+            <path fill="none" stroke="#000000" d="M 533 849 L 490 867" stroke-miterlimit="10" stroke-dasharray="3"/>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
-            <path fill="none" stroke="#000000" d="M 510 819 L 490 834" stroke-miterlimit="10" stroke-dasharray="3"/>
+            <path fill="none" stroke="#000000" d="M 512 819 L 490 836" stroke-miterlimit="10" stroke-dasharray="3"/>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
             <path fill="#ffffff" stroke="none" d="M 520 928 L 637 928 L 647 938 L 647 951 L 520 951 L 520 928"/>
@@ -1031,7 +1038,7 @@
             </g>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
-            <path fill="none" stroke="#000000" d="M 538 927 L 490 913" stroke-miterlimit="10" stroke-dasharray="3"/>
+            <path fill="none" stroke="#000000" d="M 529 927 L 490 918" stroke-miterlimit="10" stroke-dasharray="3"/>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
             <path fill="#ffffff" stroke="none" d="M 880 320 L 973 320 L 983 330 L 983 343 L 880 343 L 880 320"/>
@@ -1234,7 +1241,7 @@
             </g>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
-            <path fill="none" stroke="#000000" d="M 545 967 L 490 935" stroke-miterlimit="10" stroke-dasharray="3"/>
+            <path fill="none" stroke="#000000" d="M 543 967 L 490 939" stroke-miterlimit="10" stroke-dasharray="3"/>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
             <path fill="#ffffff" stroke="none"
@@ -1527,7 +1534,7 @@
             </g>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
-            <path fill="none" stroke="#000000" d="M 130 529 L 347 807" stroke-miterlimit="10" stroke-dasharray="3"/>
+            <path fill="none" stroke="#000000" d="M 130 529 L 342 807" stroke-miterlimit="10" stroke-dasharray="3"/>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
             <path fill="none" stroke="#000000" d="M 147 508 L 335 452" stroke-miterlimit="10" stroke-dasharray="3"/>
@@ -1555,7 +1562,7 @@
             </g>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
-            <path fill="none" stroke="#000000" d="M 470 1007 L 455 976" stroke-miterlimit="10" stroke-dasharray="3"/>
+            <path fill="none" stroke="#000000" d="M 470 1007 L 461 991" stroke-miterlimit="10" stroke-dasharray="3"/>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
             <path fill="#ffffff" stroke="none" d="M 744 816 L 885 816 L 895 826 L 895 893 L 744 893 L 744 816"/>
@@ -1618,7 +1625,7 @@
             <path fill="none" stroke="#000000" d="M 131 553 L 335 463" stroke-miterlimit="10" stroke-dasharray="3"/>
         </g>
         <g transform="translate(-70,-94) scale(1,1)">
-            <path fill="none" stroke="#000000" d="M 117 577 L 335 809" stroke-miterlimit="10" stroke-dasharray="3"/>
+            <path fill="none" stroke="#000000" d="M 117 577 L 335 815" stroke-miterlimit="10" stroke-dasharray="3"/>
         </g>
     </g>
 </svg>
