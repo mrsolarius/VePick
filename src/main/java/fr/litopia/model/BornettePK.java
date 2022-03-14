@@ -1,9 +1,6 @@
 package fr.litopia.model;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Embeddable
@@ -12,6 +9,7 @@ public class BornettePK implements Serializable {
     @JoinColumn(name = "station_adresse", nullable = false)
     private Station station;
 
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "numero", nullable = false, updatable = false)
     private Long numero;
 
@@ -19,7 +17,13 @@ public class BornettePK implements Serializable {
         return this.station;
     }
 
+    public void setStation(Station station) {
+        this.station = station;
+    }
+
     public Long getNumero() {
         return this.numero;
     }
+
+
 }

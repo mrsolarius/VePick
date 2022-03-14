@@ -12,7 +12,7 @@ public class Bornette {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "etat",length = 11, nullable = false)
-    private Etat etat;
+    private Etat etat = Etat.OK;
 
     @OneToOne
     @JoinColumn(name = "velo_numero")
@@ -40,5 +40,9 @@ public class Bornette {
 
     public void setEtat(Etat etat) {
         this.etat = etat;
+    }
+
+    public void setPk(BornettePK pk) {
+        this.pk = pk;
     }
 }

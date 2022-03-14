@@ -2,6 +2,7 @@ package fr.litopia.controler;
 
 import fr.litopia.model.Abonne;
 import fr.litopia.model.Bornette;
+import fr.litopia.model.BornettePK;
 import fr.litopia.model.Station;
 import fr.litopia.model.enums.Etat;
 import fr.litopia.model.enums.VStatus;
@@ -37,6 +38,20 @@ public class DataBDDControler extends Controler{
     veloRepository=daoFactory.newVeloRepository(entityManager);
     }
 
+    private Set<Bornette> getBornettes(int nb, Station s){
+        Set<Bornette> lesBornettes = new HashSet<>();
+        for (int i = 0; i < nb; i++) {
+            Bornette b = new Bornette();
+            BornettePK bpk = new BornettePK();
+            bpk.setStation(s);
+            b.setPk(bpk);
+            System.out.println("Id "+b.getNumero());
+            lesBornettes.add(b);
+        }
+        return lesBornettes;
+    }
+
+
    public Set<Station> allStations(){
     /*------------------------------------------------------------------*/
     //   station victor hugo
@@ -48,21 +63,7 @@ public class DataBDDControler extends Controler{
         victor_hugo.setAdresse("12 place felix poulat 38000");
 
     /*----------les bornettes de victor hugo---------------------------*/
-        Set<Bornette> bornettes_victor_hugo=new HashSet<>();
-
-        Bornette bornette1_victor_hugo=new Bornette();
-        Bornette bornette2_victor_hugo=new Bornette();
-        Bornette bornette3_victor_hugo=new Bornette();
-
-        bornette1_victor_hugo.setEtat(Etat.OK);
-        bornette2_victor_hugo.setEtat(Etat.HS);
-        bornette3_victor_hugo.setEtat(Etat.OK);
-
-        bornettes_victor_hugo.add(bornette1_victor_hugo);
-        bornettes_victor_hugo.add(bornette2_victor_hugo);
-        bornettes_victor_hugo.add(bornette3_victor_hugo);
-
-        victor_hugo.setBornettes(bornettes_victor_hugo);
+        victor_hugo.setBornettes(this.getBornettes(3, victor_hugo));
         stations.add(victor_hugo);
    /*-----------------------------------------------------------------------------*/
    /*-----------------------------------------------------------------------------*/
@@ -70,23 +71,7 @@ public class DataBDDControler extends Controler{
        Station  malherbe = new Station();
         malherbe.setAdresse("7 rue des invalide 38000");
         malherbe.setVStatus(VStatus.VNUL);
-
-       Set<Bornette> bornettes_malherbe=new HashSet<>();
-
-       Bornette bornette1_malherbe=new Bornette();
-       Bornette bornette2_malherbe=new Bornette();
-       Bornette bornette3_malherbe=new Bornette();
-
-
-       bornette1_malherbe.setEtat(Etat.OK);
-       bornette2_malherbe.setEtat(Etat.OK);
-       bornette3_malherbe.setEtat(Etat.OK);
-
-       bornettes_malherbe.add(bornette1_malherbe);
-       bornettes_malherbe.add(bornette2_malherbe);
-       bornettes_malherbe.add(bornette3_malherbe);
-
-       malherbe.setBornettes(bornettes_malherbe);
+       malherbe.setBornettes(this.getBornettes(6, malherbe));
        stations.add(malherbe);
 
 
@@ -94,20 +79,7 @@ public class DataBDDControler extends Controler{
         Station gare = new Station();
         gare.setVStatus(VStatus.VPLUS);
         gare.setAdresse("19 rue paul janet 38000");
-
-       Set<Bornette> bornettes_gare=new HashSet<>();
-       Bornette bornette1_gare=new Bornette();
-       Bornette bornette2_gare=new Bornette();
-       Bornette bornette3_gare=new Bornette();
-
-       bornette1_gare.setEtat(Etat.OK);
-       bornette2_gare.setEtat(Etat.OK);
-       bornette3_gare.setEtat(Etat.OK);
-
-       bornettes_gare.add(bornette1_gare);
-       bornettes_gare.add(bornette2_gare);
-       bornettes_gare.add(bornette3_gare);
-       gare.setBornettes(bornettes_gare);
+       gare.setBornettes(this.getBornettes(10,gare));
 
         stations.add(gare);
 
@@ -121,17 +93,16 @@ public class DataBDDControler extends Controler{
 
 
     public void initializeData() {
+        System.out.println("Là");
         //@TODO initialize toutes les données de la BDD
 
         entityManager.getTransaction().begin();
-
+        System.out.println("allStation : "+ allStations().size());
         for(Station stat:allStations()){
+            System.out.println("Station : "+stat.getAdresse()+" nb:"+stat.getBornettes().size());
             stationRepository.save(stat);
         }
         entityManager.getTransaction().commit();
-
-
-
     }
 
     public void deleteData() {
