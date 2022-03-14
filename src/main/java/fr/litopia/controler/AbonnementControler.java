@@ -22,6 +22,8 @@ public class AbonnementControler extends Controler{
     }
 
     public void createAbonne(Abonne abo) {
+        this.entityManager.getTransaction().begin();
         this.aboRepository.save(abo);
+        this.entityManager.getTransaction().commit();
     }
 }

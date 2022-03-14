@@ -37,7 +37,7 @@ public class Abonne {
     private Set<LocationAbonne> locationAbonnes = new LinkedHashSet<>();
 
     @Column(name = "renouv_auto")
-    private Boolean renouvAuto;
+    private Boolean renouvAuto = true;
 
     public Boolean getRenouvAuto() {
         return renouvAuto;
