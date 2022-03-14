@@ -2,6 +2,8 @@ package fr.litopia.model;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -25,7 +27,7 @@ public class Abonne {
     private String mdp;
 
     @Column(name = "date_fin")
-    private Date dateFin;
+    private Date dateFin = addOneYear();
 
     @Column(name = "credit_temps")
     private Integer creditTemps = 0;
@@ -116,4 +118,10 @@ public class Abonne {
     }
 
     public void setLogin(String login) { this.login = login; }
+
+    private Date addOneYear(){
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.YEAR,1);
+        return new Date(c.getTimeInMillis());
+    }
 }
