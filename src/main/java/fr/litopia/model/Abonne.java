@@ -9,8 +9,8 @@ import java.util.Set;
 @Table(name = "LesAbonnes")
 public class Abonne {
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
-    private Long id;
+    @Column(name = "login", nullable = false, updatable = false)
+    private String login;
 
     @Column(name = "nom", length = 50)
     private String nom;
@@ -111,7 +111,9 @@ public class Abonne {
         this.nom = nom;
     }
 
-    public Long getId() {
-        return id;
+    public String getLogin() {
+        return login;
     }
+
+    public void setLogin(String login) { this.login = login; }
 }
