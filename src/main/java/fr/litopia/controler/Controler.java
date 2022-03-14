@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import java.util.Set;
 
-public abstract class Controler<T extends Controler> {
+public abstract class Controler {
     protected EntityManager entityManager;
     protected RepositoryFactory daoFactory = new RepositoryFactory();
     private final View view;

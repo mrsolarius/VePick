@@ -2,16 +2,13 @@ package fr.litopia.view;
 
 import fr.litopia.controler.DataBDDControler;
 import fr.litopia.utils.ReadingConsole;
-import fr.litopia.view.enums.DataBDDViewStates;
 
-public class DataBDDView extends ViewWithControler<DataBDDControler>{
+public class DataBDDView extends View{
     private DataBDDControler controler;
-    private DataBDDViewStates dataBDDStates;
 
     @Override
     protected void init() {
         controler = new DataBDDControler(this);
-        dataBDDStates = DataBDDViewStates.MAIN_MENU;
     }
 
     @Override
@@ -26,29 +23,23 @@ public class DataBDDView extends ViewWithControler<DataBDDControler>{
         System.out.println("Votre choix : ");
         Integer choice = ReadingConsole.readInt(1,3);
         switch (choice) {
-            case 1 -> dataBDDStates = DataBDDViewStates.INITIALIZE_DATA;
-            case 2 -> dataBDDStates = DataBDDViewStates.DELETE_DATA;
+            case 1 -> {
+                controler.initializeData();
+                System.out.println("Données initialisées");
+                System.out.println("Appuyez sur une touche pour continuer");
+                ReadingConsole.readLine();
+                this.close();
+            }
+            case 2 -> {
+                controler.deleteData();
+                System.out.println("Données supprimées");
+                System.out.println("Appuyez sur une touche pour retourner au menu");
+                ReadingConsole.readLine();
+                this.close();
+            }
             case 3 -> {
-                dataBDDStates = DataBDDViewStates.MAIN_MENU;
                 this.stop();
             }
-        }
-    }
-
-    @Override
-    protected void update() {
-        if (dataBDDStates == DataBDDViewStates.INITIALIZE_DATA) {
-            controler.initializeData();
-            System.out.println("Données initialisées");
-            System.out.println("Appuyez sur une touche pour continuer");
-            ReadingConsole.readLine();
-            this.close();
-        }else if (dataBDDStates == DataBDDViewStates.DELETE_DATA) {
-            controler.deleteData();
-            System.out.println("Données supprimées");
-            System.out.println("Appuyez sur une touche pour retourner au menu");
-            ReadingConsole.readLine();
-            this.close();
         }
     }
 

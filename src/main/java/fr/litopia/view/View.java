@@ -22,7 +22,6 @@ public abstract class View {
         while (this.state != ViewStates.END){
             this.clean();
             this.display();
-            this.update();
         }
         this.close();
     }
@@ -44,11 +43,6 @@ public abstract class View {
      * Permet d'afficher la vue
      */
     protected abstract void display();
-
-    /**
-     * Permet de mettre a jour la vue
-     */
-    protected abstract void update();
 
     /**
      * Permet de fermer la vue

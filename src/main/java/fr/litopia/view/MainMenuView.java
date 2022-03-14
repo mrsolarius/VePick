@@ -53,11 +53,6 @@ public class MainMenuView extends View{
     }
 
     @Override
-    protected void update() {
-
-    }
-
-    @Override
     protected void close() {
 
     }

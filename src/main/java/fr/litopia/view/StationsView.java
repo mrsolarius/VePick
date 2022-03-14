@@ -7,15 +7,16 @@ import fr.litopia.utils.ReadingConsole;
 import java.util.ArrayList;
 import java.util.Set;
 
-public class StationsView extends ViewWithControler<StationControler>{
+public class StationsView extends View{
 
     private Set<Station> stationSet;
     private BornView bornView;
+    private StationControler controler;
 
     @Override
     protected void init() {
         this.controler = new StationControler(this);
-        this.stationSet = this.getCastedControler().getAllStations();
+        this.stationSet = this.controler.getAllStations();
         bornView = new BornView();
     }
 
@@ -37,11 +38,6 @@ public class StationsView extends ViewWithControler<StationControler>{
             bornView.setStation(stationList.get(selectedStation));
             bornView.run();
         }
-    }
-
-    @Override
-    protected void update() {
-
     }
 
     @Override
