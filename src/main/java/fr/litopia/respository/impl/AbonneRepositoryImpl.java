@@ -14,21 +14,24 @@ public class AbonneRepositoryImpl extends BaseRepositoryImpl implements AbonneRe
 
     @Override
     public void save(Abonne entity) {
-
+        entityManager.persist(entity);
     }
 
     @Override
     public void delete(Abonne entity) {
-
+        entityManager.remove(entity);
     }
 
     @Override
-    public Abonne findById(Long id) {
-        return null;
+    public Abonne findById(String id) {
+        return entityManager.find(Abonne.class,id);
     }
 
     @Override
     public Set<Abonne> getAll() {
-        return null;
+        //ici on doit transformer en Set car notre modélisation se base dessus (pas de doublons et pas de supression)
+        return Set.copyOf(
+                entityManager.createQuery("SELECT Abonne FROM Abonne",Abonne.class)
+                        .getResultList());
     }
 }

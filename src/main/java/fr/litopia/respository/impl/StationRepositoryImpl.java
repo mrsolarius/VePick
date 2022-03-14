@@ -14,17 +14,18 @@ public class StationRepositoryImpl extends BaseRepositoryImpl implements Station
 
     @Override
     public void save(Station entity) {
-
+        entityManager.persist(entity);
     }
 
     @Override
     public void delete(Station entity) {
-
+        entityManager.remove(entity);
     }
 
     @Override
-    public Station findById(String id) {
-        return null;
+    public Station findById(String adresse)
+    {
+        return entityManager.find(Station.class, adresse);
     }
 
     @Override

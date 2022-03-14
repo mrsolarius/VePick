@@ -42,6 +42,7 @@ end
 
 class Abonne
     attributes
+        login : String
         nom : String
         prenoms : String
         sexe : Sexe
