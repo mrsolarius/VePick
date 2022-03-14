@@ -6,11 +6,13 @@ import fr.litopia.view.enums.ViewStates;
 public class MainMenuView extends View{
 
     private StationsView stationView;
+    private AbonnementView abonnementView;
     private DataBDDView dataBDDView;
 
     @Override
     protected void init() {
         stationView = new StationsView();
+        abonnementView = new AbonnementView();
         dataBDDView = new DataBDDView();
     }
 
@@ -33,13 +35,14 @@ public class MainMenuView extends View{
 
         switch (choice) {
             case 1 -> stationView.run();
-            case 2 -> {
+            /*case 2 -> {
                 //@TODO Faire la vue d'abonnement
                 this.clean();
                 System.out.println("Vous êtes désormais abonné au service VePick (c'est faux)");
                 System.out.println("Appuyer sur enter pour continuer");
                 ReadingConsole.readLine();
-            }
+            }*/
+            case 2 -> abonnementView.run();
             case 3 -> {
                 //@TODO Faire la vue d'administration
                 this.clean();

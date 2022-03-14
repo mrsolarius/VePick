@@ -2,6 +2,8 @@ package fr.litopia.model;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -9,8 +11,8 @@ import java.util.Set;
 @Table(name = "LesAbonnes")
 public class Abonne {
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
-    private Long id;
+    @Column(name = "login", nullable = false, updatable = false)
+    private String login;
 
     @Column(name = "nom", length = 50)
     private String nom;
@@ -25,10 +27,10 @@ public class Abonne {
     private String mdp;
 
     @Column(name = "date_fin")
-    private Date dateFin;
+    private Date dateFin = addOneYear();
 
     @Column(name = "credit_temps")
-    private Integer creditTemps;
+    private Integer creditTemps = 0;
 
     @Column(name = "cb", length = 16)
     private String cb;
@@ -37,7 +39,7 @@ public class Abonne {
     private Set<LocationAbonne> locationAbonnes = new LinkedHashSet<>();
 
     @Column(name = "renouv_auto")
-    private Boolean renouvAuto;
+    private Boolean renouvAuto = true;
 
     public Boolean getRenouvAuto() {
         return renouvAuto;
@@ -111,7 +113,15 @@ public class Abonne {
         this.nom = nom;
     }
 
-    public Long getId() {
-        return id;
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) { this.login = login; }
+
+    private Date addOneYear(){
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.YEAR,1);
+        return new Date(c.getTimeInMillis());
     }
 }

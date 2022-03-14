@@ -23,7 +23,7 @@ public class AbonneRepositoryImpl extends BaseRepositoryImpl implements AbonneRe
     }
 
     @Override
-    public Abonne findById(Long id) {
+    public Abonne findById(String id) {
         return entityManager.find(Abonne.class,id);
     }
 
