@@ -28,7 +28,7 @@ public class Abonne {
     private Date dateFin;
 
     @Column(name = "credit_temps")
-    private Integer creditTemps;
+    private Integer creditTemps = 0;
 
     @Column(name = "cb", length = 16)
     private String cb;
