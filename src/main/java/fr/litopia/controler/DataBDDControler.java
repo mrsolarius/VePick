@@ -1,16 +1,13 @@
 package fr.litopia.controler;
 
-import fr.litopia.model.Abonne;
 import fr.litopia.model.Bornette;
 import fr.litopia.model.BornettePK;
 import fr.litopia.model.Station;
-import fr.litopia.model.enums.Etat;
 import fr.litopia.model.enums.VStatus;
 import fr.litopia.respository.api.*;
 import fr.litopia.view.View;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class DataBDDControler extends Controler{
@@ -44,6 +41,7 @@ public class DataBDDControler extends Controler{
             Bornette b = new Bornette();
             BornettePK bpk = new BornettePK();
             bpk.setStation(s);
+            bpk.autoGenerateNumero(this.entityManager);
             b.setPk(bpk);
             System.out.println("Id "+b.getNumero());
             lesBornettes.add(b);
