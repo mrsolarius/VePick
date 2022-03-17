@@ -4,6 +4,7 @@ import fr.litopia.model.enums.VStatus;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -42,5 +43,17 @@ public class Station {
 
     public void setAdresse(String adresse) {
         this.adresse = adresse;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Station other = (Station) obj;
+        return Objects.equals(this.adresse, other.adresse);
     }
 }

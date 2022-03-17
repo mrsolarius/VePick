@@ -2,7 +2,7 @@ package fr.litopia.respository.impl;
 
 import fr.litopia.model.Bornette;
 import fr.litopia.model.BornettePK;
-import fr.litopia.model.LocationAbonne;
+import fr.litopia.model.Station;
 import fr.litopia.respository.api.BornetteRepository;
 
 import javax.persistence.EntityManager;
@@ -34,5 +34,12 @@ public class BornetteRepositoryImpl extends BaseRepositoryImpl implements Bornet
         return Set.copyOf(
                 entityManager.createQuery("SELECT Bornette FROM Bornette ",Bornette.class)
                         .getResultList());
+    }
+
+    @Override
+    public long getLastIdInStation(Station s) {
+        return entityManager.createQuery("SELECT b.pk.numero from Bornette b where b.pk.station = :station order by b.pk.numero desc")
+                .setParameter("station", s)
+                .getFirstResult();
     }
 }
