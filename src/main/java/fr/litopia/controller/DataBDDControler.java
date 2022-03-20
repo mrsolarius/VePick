@@ -1,16 +1,16 @@
-package fr.litopia.controler;
+package fr.litopia.controller;
 
+import fr.litopia.controller.impl.ControlerImp;
 import fr.litopia.model.Bornette;
 import fr.litopia.model.BornettePK;
 import fr.litopia.model.Station;
 import fr.litopia.model.enums.VStatus;
 import fr.litopia.respository.api.*;
-import fr.litopia.view.View;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class DataBDDControler extends Controler{
+public class DataBDDControler extends ControlerImp {
     private AbonneRepository abonneRepository;
     private BornetteRepository bornetteRepository;
     private LocationAbonneRepository locationAbonneRepository;
@@ -19,20 +19,20 @@ public class DataBDDControler extends Controler{
     private StationRepository stationRepository;
     private VeloRepository veloRepository;
 
-    public DataBDDControler(View view) {
-        super(view);
+    public DataBDDControler() {
+        super();
     }
 
 
     @Override
     public void init() {
-    abonneRepository =daoFactory.newAbonneRepository(entityManager);
-    bornetteRepository=daoFactory.newBornetteRepository(entityManager);
-    locationAbonneRepository=daoFactory.newLocationAbonneRepository(entityManager);
-    locationNonAbonneRepository=daoFactory.newLocationNonAbonneRepository(entityManager);
-    modeleRepository=daoFactory.newModeleRepository(entityManager);
-    stationRepository=daoFactory.newStationRepository(entityManager);
-    veloRepository=daoFactory.newVeloRepository(entityManager);
+    abonneRepository =getRepositoryFactory().newAbonneRepository(getEntityManager());
+    bornetteRepository=getRepositoryFactory().newBornetteRepository(getEntityManager());
+    locationAbonneRepository=getRepositoryFactory().newLocationAbonneRepository(getEntityManager());
+    locationNonAbonneRepository=getRepositoryFactory().newLocationNonAbonneRepository(getEntityManager());
+    modeleRepository=getRepositoryFactory().newModeleRepository(getEntityManager());
+    stationRepository=getRepositoryFactory().newStationRepository(getEntityManager());
+    veloRepository=getRepositoryFactory().newVeloRepository(getEntityManager());
     }
 
     private Set<Bornette> getBornettes(int nb, Station s){
@@ -41,7 +41,7 @@ public class DataBDDControler extends Controler{
             Bornette b = new Bornette();
             BornettePK bpk = new BornettePK();
             bpk.setStation(s);
-            bpk.autoGenerateNumero(this.entityManager);
+            bpk.autoGenerateNumero(getEntityManager());
             b.setPk(bpk);
             System.out.println("Id "+b.getNumero());
             lesBornettes.add(b);
@@ -94,13 +94,13 @@ public class DataBDDControler extends Controler{
         System.out.println("Là");
         //@TODO initialize toutes les données de la BDD
 
-        entityManager.getTransaction().begin();
+        getEntityManager().getTransaction().begin();
         System.out.println("allStation : "+ allStations().size());
         for(Station stat:allStations()){
             System.out.println("Station : "+stat.getAdresse()+" nb:"+stat.getBornettes().size());
             stationRepository.save(stat);
         }
-        entityManager.getTransaction().commit();
+        getEntityManager().getTransaction().commit();
     }
 
     public void deleteData() {

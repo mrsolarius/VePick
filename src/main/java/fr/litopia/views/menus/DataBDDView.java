@@ -1,14 +1,28 @@
-package fr.litopia.view;
+package fr.litopia.views.menus;
 
-import fr.litopia.controler.DataBDDControler;
+import fr.litopia.controller.DataBDDControler;
 import fr.litopia.utils.ReadingConsole;
+import fr.litopia.views.struct.api.View;
+import fr.litopia.views.struct.impl.ViewImpl;
 
-public class DataBDDView extends View{
+public class DataBDDView extends ViewImpl {
     private DataBDDControler controler;
+
+    /**
+     * @param parent la vue parente
+     */
+    public DataBDDView(View parent) {
+        super(parent);
+    }
+
+    @Override
+    protected void onContextSet() {
+
+    }
 
     @Override
     protected void init() {
-        controler = new DataBDDControler(this);
+        controler = new DataBDDControler();
     }
 
     @Override
@@ -37,9 +51,7 @@ public class DataBDDView extends View{
                 ReadingConsole.readLine();
                 this.close();
             }
-            case 3 -> {
-                this.stop();
-            }
+            case 3 -> this.stop();
         }
     }
 

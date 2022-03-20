@@ -1,4 +1,4 @@
-package fr.litopia.view.enums;
+package fr.litopia.views.struct.enums;
 
 public enum ViewStates {
     INIT,

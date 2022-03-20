@@ -1,8 +1,7 @@
 package fr.litopia.utils;
 
 import java.io.Console;
-
-import static org.hibernate.query.criteria.internal.ValueHandlerFactory.isNumeric;
+import java.util.regex.Pattern;
 
 public class ReadingConsole {
 
@@ -193,6 +192,14 @@ public class ReadingConsole {
             }
         }
         return t;
+    }
+
+    public static boolean isNumeric(String strNum) {
+        final Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
+        if (strNum == null) {
+            return false;
+        }
+        return pattern.matcher(strNum).matches();
     }
 
 

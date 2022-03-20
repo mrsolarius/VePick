@@ -1,19 +1,39 @@
-package fr.litopia.view;
+package fr.litopia.views.menus;
 
 import fr.litopia.utils.ReadingConsole;
-import fr.litopia.view.enums.ViewStates;
+import fr.litopia.views.struct.api.View;
+import fr.litopia.views.struct.api.ViewContext;
+import fr.litopia.views.struct.enums.ViewStates;
+import fr.litopia.views.struct.impl.ViewContextImpl;
+import fr.litopia.views.struct.impl.ViewImpl;
 
-public class MainMenuView extends View{
+public class VepickView extends ViewImpl {
 
-    private StationsView stationView;
+    private StationsChooserView stationView;
     private AbonnementView abonnementView;
     private DataBDDView dataBDDView;
 
+    /**
+     * @param parent la vue parente
+     */
+    public VepickView(View parent) {
+        super(parent);
+    }
+
+    @Override
+    protected void onContextSet() {
+
+    }
+
     @Override
     protected void init() {
-        stationView = new StationsView();
-        abonnementView = new AbonnementView();
-        dataBDDView = new DataBDDView();
+        ViewContext context = new ViewContextImpl(this.name);
+        stationView = new StationsChooserView(this);
+        abonnementView = new AbonnementView(this);
+        dataBDDView = new DataBDDView(this);
+        stationView.setContext(context);
+        abonnementView.setContext(context);
+        dataBDDView.setContext(context);
     }
 
     @Override
@@ -35,13 +55,6 @@ public class MainMenuView extends View{
 
         switch (choice) {
             case 1 -> stationView.run();
-            /*case 2 -> {
-                //@TODO Faire la vue d'abonnement
-                this.clean();
-                System.out.println("Vous êtes désormais abonné au service VePick (c'est faux)");
-                System.out.println("Appuyer sur enter pour continuer");
-                ReadingConsole.readLine();
-            }*/
             case 2 -> abonnementView.run();
             case 3 -> {
                 //@TODO Faire la vue d'administration

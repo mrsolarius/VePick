@@ -1,15 +1,31 @@
-package fr.litopia.view;
+package fr.litopia.views.menus;
 
-import fr.litopia.controler.AbonnementControler;
+import fr.litopia.controller.api.AbonneControler;
+import fr.litopia.controller.ControlerFactory;
 import fr.litopia.model.Abonne;
 import fr.litopia.utils.ReadingConsole;
+import fr.litopia.views.struct.api.View;
+import fr.litopia.views.struct.impl.ViewImpl;
 
-public class AbonnementView extends View{
+public class AbonnementView extends ViewImpl {
 
-    private AbonnementControler controler;
+    private AbonneControler controler;
+
+    /**
+     * @param parent la vue parente
+     */
+    public AbonnementView(View parent) {
+        super(parent);
+    }
+
+    @Override
+    protected void onContextSet() {
+
+    }
+
     @Override
     protected void init() {
-        this.controler = new AbonnementControler(this);
+        this.controler = ControlerFactory.getAbonneControler();
     }
 
     @Override
@@ -24,14 +40,14 @@ public class AbonnementView extends View{
         displayAdresse(abo);
         displayMdp(abo);
         displayCb(abo);
-        controler.createAbonne(abo);
+        controler.saveAbonne(abo);
         this.stop();
     }
 
     private void displayLogin(Abonne abo) {
         System.out.println("Choisissez un login :");
         String login = ReadingConsole.readLine();
-        while (controler.LoginExists(login)) {
+        while (controler.loginExist(login)) {
             System.out.println("Ce login existe déjà, choisissez un nouveau login :");
             login = ReadingConsole.readLine();
         }
