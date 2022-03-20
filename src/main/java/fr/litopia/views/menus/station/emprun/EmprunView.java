@@ -4,6 +4,7 @@ import fr.litopia.controler.ControlerFactory;
 import fr.litopia.controler.api.EmprunControler;
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
+import fr.litopia.views.struct.api.View;
 import fr.litopia.views.struct.api.ViewContext;
 import fr.litopia.views.struct.impl.ViewContextImpl;
 import fr.litopia.views.struct.impl.ViewImpl;
@@ -15,6 +16,13 @@ public class EmprunView extends ViewImpl {
     private EmprunNonAboView emprunNonAboView;
     private EmprunControler emprunControler;
     private EmprunAboView emprunAboView;
+
+    /**
+     * @param parent la vue parente
+     */
+    public EmprunView(View parent) {
+        super(parent);
+    }
 
 
     @Override
@@ -37,10 +45,10 @@ public class EmprunView extends ViewImpl {
 
         ViewContext viewContext = new ViewContextImpl(this.name,context);
 
-        emprunNonAboView = new EmprunNonAboView();
+        emprunNonAboView = new EmprunNonAboView(this);
         emprunNonAboView.setContext(viewContext);
 
-        emprunAboView = new EmprunAboView();
+        emprunAboView = new EmprunAboView(this);
         emprunAboView.setContext(viewContext);
     }
 
@@ -65,7 +73,7 @@ public class EmprunView extends ViewImpl {
         switch (choice){
             case 1 -> emprunAboView.run();
             case 2 -> emprunNonAboView.run();
-            case 3 -> this.close();
+            case 3 -> this.stop();
         }
     }
 
@@ -76,7 +84,7 @@ public class EmprunView extends ViewImpl {
         System.out.println("Vous ne pouvez plus emprunter de vélo à cette station");
         System.out.println("Appuyez sur une touche pour revenir au menu");
         ReadingConsole.readLine();
-        this.close();
+        this.stop();
     }
 
     @Override

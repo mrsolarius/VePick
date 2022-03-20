@@ -5,11 +5,19 @@ import fr.litopia.controler.impl.AbonneControlerImpl;
 import fr.litopia.controler.ControlerFactory;
 import fr.litopia.model.Abonne;
 import fr.litopia.utils.ReadingConsole;
+import fr.litopia.views.struct.api.View;
 import fr.litopia.views.struct.impl.ViewImpl;
 
 public class AbonnementView extends ViewImpl {
 
     private AbonneControler controler;
+
+    /**
+     * @param parent la vue parente
+     */
+    public AbonnementView(View parent) {
+        super(parent);
+    }
 
     @Override
     protected void onContextSet() {

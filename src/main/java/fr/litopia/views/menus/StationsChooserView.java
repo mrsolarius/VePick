@@ -6,6 +6,7 @@ import fr.litopia.controler.impl.StationsControlerImpl;
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.menus.station.StationView;
+import fr.litopia.views.struct.api.View;
 import fr.litopia.views.struct.api.ViewContext;
 import fr.litopia.views.struct.impl.ViewContextImpl;
 import fr.litopia.views.struct.impl.ViewImpl;
@@ -18,6 +19,13 @@ public class StationsChooserView extends ViewImpl {
     private ArrayList<Station> stationList;
     private StationView bornView;
 
+    /**
+     * @param parent la vue parente
+     */
+    public StationsChooserView(View parent) {
+        super(parent);
+    }
+
     @Override
     protected void onContextSet() {
 
@@ -27,7 +35,7 @@ public class StationsChooserView extends ViewImpl {
     protected void init() {
         StationsControler controler = ControlerFactory.getStationsControler();
         this.stationList = new ArrayList<>(controler.getAllStations());
-        bornView = new StationView();
+        bornView = new StationView(this);
     }
 
     @Override

@@ -22,23 +22,30 @@ public class LoginTinyView extends TinyViewImpl<Abonne> {
         System.out.println("Veuillez vous identifier");
         System.out.println("==========================");
         getLogin();
-        checkPassword();
     }
 
     private void getLogin() {
         System.out.println("Login (-1 pour annuler) : ");
         login = ReadingConsole.readLine();
-        if(login.equals("-1")) this.cancel();
+        if(login.equals("-1")) {
+            this.cancel();
+            return;
+        }
         if(!abonneControler.loginExist(login)) {
             System.out.println("Login incorrect");
             getLogin();
+        }else {
+            checkPassword();
         }
     }
 
     private void checkPassword() {
         System.out.println("Mot de passe (-1 pour annuler) : ");
         String password = ReadingConsole.readLine();
-        if(password.equals("-1")) this.cancel();
+        if(password.equals("-1")) {
+            this.cancel();
+            return;
+        }
         if(!abonneControler.checkPassword(login, password)) {
             System.out.println("Mot de passe incorrect");
             checkPassword();

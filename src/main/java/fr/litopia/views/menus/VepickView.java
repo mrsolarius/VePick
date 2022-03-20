@@ -1,6 +1,7 @@
 package fr.litopia.views.menus;
 
 import fr.litopia.utils.ReadingConsole;
+import fr.litopia.views.struct.api.View;
 import fr.litopia.views.struct.api.ViewContext;
 import fr.litopia.views.struct.enums.ViewStates;
 import fr.litopia.views.struct.impl.ViewContextImpl;
@@ -12,6 +13,13 @@ public class VepickView extends ViewImpl {
     private AbonnementView abonnementView;
     private DataBDDView dataBDDView;
 
+    /**
+     * @param parent la vue parente
+     */
+    public VepickView(View parent) {
+        super(parent);
+    }
+
     @Override
     protected void onContextSet() {
 
@@ -20,10 +28,9 @@ public class VepickView extends ViewImpl {
     @Override
     protected void init() {
         ViewContext context = new ViewContextImpl(this.name);
-        stationView = new StationsChooserView();
-        abonnementView = new AbonnementView();
-        dataBDDView = new DataBDDView();
-
+        stationView = new StationsChooserView(this);
+        abonnementView = new AbonnementView(this);
+        dataBDDView = new DataBDDView(this);
         stationView.setContext(context);
         abonnementView.setContext(context);
         dataBDDView.setContext(context);

@@ -3,10 +3,15 @@ package fr.litopia.views.menus.station.emprun;
 import fr.litopia.model.Abonne;
 import fr.litopia.model.LocationAbonne;
 import fr.litopia.utils.ReadingConsole;
+import fr.litopia.views.struct.api.View;
 import fr.litopia.views.tinyView.LoginTinyView;
 
 public class EmprunAboView extends EmprunComonContext {
     private LoginTinyView login;
+
+    public EmprunAboView(View view) {
+        super(view);
+    }
 
     @Override
     protected void init() {

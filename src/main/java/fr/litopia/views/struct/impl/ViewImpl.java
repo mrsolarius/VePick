@@ -4,7 +4,10 @@ import fr.litopia.views.struct.api.View;
 import fr.litopia.views.struct.api.ViewContext;
 import fr.litopia.views.struct.enums.ViewStates;
 
+import java.util.Objects;
+
 public abstract class ViewImpl implements View {
+    protected final View parentView;
     protected ViewStates state;
     protected ViewContext viewContext;
     protected final String name;
@@ -17,7 +20,8 @@ public abstract class ViewImpl implements View {
      * Appel la methode init
      * Nettoye la console
      */
-    public ViewImpl(){
+    public ViewImpl(View parent){
+        this.parentView = parent;
         this.name = this.getClass().getSimpleName();
         this.state = ViewStates.INIT;
         this.init();
@@ -76,10 +80,10 @@ public abstract class ViewImpl implements View {
 
     /**
      * Permet de stopper la vue
-     * @return la vue elle meme pour pouvoir chainer les methodes
+     * @return la vue parente si elle existe ou elle meme sinon
      */
     public View stop(){
         this.state = ViewStates.END;
-        return this;
+        return Objects.requireNonNullElse(this.parentView, this);
     }
 }

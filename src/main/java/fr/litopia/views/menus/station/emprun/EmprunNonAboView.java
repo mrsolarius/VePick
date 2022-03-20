@@ -2,8 +2,13 @@ package fr.litopia.views.menus.station.emprun;
 
 import fr.litopia.model.LocationNonAbonne;
 import fr.litopia.utils.ReadingConsole;
+import fr.litopia.views.struct.api.View;
 
 public class EmprunNonAboView extends EmprunComonContext {
+
+    public EmprunNonAboView(View view) {
+        super(view);
+    }
 
     @Override
     protected void init() {

@@ -11,7 +11,7 @@ public class EmprunControlerImpl extends ControlerImp implements EmprunControler
 
     @Override
     public boolean peutEmprunter(Station station) {
-        return false;
+        return true;
     }
 
     @Override
