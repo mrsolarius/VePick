@@ -19,7 +19,7 @@ public abstract class  EmprunComonContext extends ViewImpl {
         this.station = (Station) this.viewContext.getContext().get("station");
         this.emprunControler = (EmprunControler) this.viewContext.getContext().get("emprunControler");
         if(this.station == null || this.emprunControler == null) {
-            System.out.println("Erreur : EmprunNonAboView n'a pas pu récupérer le contexte");
+            System.out.println("Erreur : EmprunComonContext n'a pas pu récupérer le contexte");
             ReadingConsole.readLine();
             this.stop();
         }

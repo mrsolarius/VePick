@@ -3,6 +3,7 @@ package fr.litopia.views.menus.station;
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.menus.station.emprun.EmprunView;
+import fr.litopia.views.menus.station.retrait.ReturnView;
 import fr.litopia.views.struct.api.View;
 import fr.litopia.views.struct.api.ViewContext;
 import fr.litopia.views.struct.impl.ViewContextImpl;
@@ -13,6 +14,7 @@ import java.util.HashMap;
 public class StationView extends ViewImpl {
     private Station station;
     private EmprunView emprunView;
+    private ReturnView returnView;
 
     /**
      * @param parent la vue parente
@@ -43,6 +45,9 @@ public class StationView extends ViewImpl {
 
         emprunView = new EmprunView(this);
         emprunView.setContext(viewContext);
+
+        returnView = new ReturnView(this);
+        returnView.setContext(viewContext);
     }
 
     @Override
@@ -57,7 +62,7 @@ public class StationView extends ViewImpl {
         Integer choice = ReadingConsole.readInt(1,3);
         switch (choice) {
             case 1 -> emprunView.run();
-            case 2 -> this.stop();
+            case 2 -> returnView.run();
             case 3 -> this.stop();
         }
     }
