@@ -2,8 +2,9 @@ package fr.litopia.view;
 
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.view.enums.ViewStates;
+import fr.litopia.view.impl.ViewImpl;
 
-public class MainMenuView extends View{
+public class VepickView extends ViewImpl {
 
     private StationsView stationView;
     private AbonnementView abonnementView;

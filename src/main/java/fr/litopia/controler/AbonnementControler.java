@@ -1,20 +1,21 @@
 package fr.litopia.controler;
 
+import fr.litopia.controler.impl.ControlerImp;
 import fr.litopia.model.Abonne;
 import fr.litopia.respository.api.AbonneRepository;
-import fr.litopia.view.View;
+import fr.litopia.view.impl.ViewImpl;
 
-public class AbonnementControler extends Controler{
+public class AbonnementControler extends ControlerImp {
 
     private AbonneRepository aboRepository;
 
-    public AbonnementControler(View view) {
+    public AbonnementControler(ViewImpl view) {
         super(view);
     }
 
     @Override
     public void init() {
-        aboRepository = daoFactory.newAbonneRepository(entityManager);
+        aboRepository = getRepositoryFactory().newAbonneRepository(getEntityManager());
     }
 
     public boolean LoginExists(String login) {
@@ -22,8 +23,8 @@ public class AbonnementControler extends Controler{
     }
 
     public void createAbonne(Abonne abo) {
-        this.entityManager.getTransaction().begin();
+        this.getEntityManager().getTransaction().begin();
         this.aboRepository.save(abo);
-        this.entityManager.getTransaction().commit();
+        this.getEntityManager().getTransaction().commit();
     }
 }

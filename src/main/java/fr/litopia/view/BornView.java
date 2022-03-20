@@ -5,8 +5,9 @@ import fr.litopia.model.LocationNonAbonne;
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.view.enums.BornViewStates;
+import fr.litopia.view.impl.ViewImpl;
 
-public class BornView extends View {
+public class BornView extends ViewImpl {
     BornControler controler;
     BornViewStates localState;
 
@@ -24,19 +25,10 @@ public class BornView extends View {
     @Override
     protected void display() {
         switch (this.localState) {
-            case MAIN_MENU:
-                this.displayMainMenu();
-                break;
-            case EMPRUNTER_VELO:
-                this.emprunterVelo();
-                break;
-            case EMPRUNTER_VELO_ABONNE:
-                this.emprunterVeloAbonne();
-                break;
-            case EMPRUNTER_VELO_NON_ABONNE:
-                this.emprunterVeloNonAbonne();
-                break;
-
+            case MAIN_MENU -> this.displayMainMenu();
+            case EMPRUNTER_VELO -> this.emprunterVelo();
+            case EMPRUNTER_VELO_ABONNE -> this.emprunterVeloAbonne();
+            case EMPRUNTER_VELO_NON_ABONNE -> this.emprunterVeloNonAbonne();
         }
     }
 

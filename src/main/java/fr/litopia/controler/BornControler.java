@@ -1,12 +1,13 @@
 package fr.litopia.controler;
 
+import fr.litopia.controler.impl.ControlerImp;
 import fr.litopia.model.LocationNonAbonne;
 import fr.litopia.model.Station;
-import fr.litopia.view.View;
+import fr.litopia.view.impl.ViewImpl;
 
-public class BornControler extends Controler{
+public class BornControler extends ControlerImp {
     private Station station;
-    public BornControler(View view) {
+    public BornControler(ViewImpl view) {
         super(view);
     }
 

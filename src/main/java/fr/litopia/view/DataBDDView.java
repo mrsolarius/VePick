@@ -2,8 +2,9 @@ package fr.litopia.view;
 
 import fr.litopia.controler.DataBDDControler;
 import fr.litopia.utils.ReadingConsole;
+import fr.litopia.view.impl.ViewImpl;
 
-public class DataBDDView extends View{
+public class DataBDDView extends ViewImpl {
     private DataBDDControler controler;
 
     @Override
@@ -37,9 +38,7 @@ public class DataBDDView extends View{
                 ReadingConsole.readLine();
                 this.close();
             }
-            case 3 -> {
-                this.stop();
-            }
+            case 3 -> this.stop();
         }
     }
 

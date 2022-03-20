@@ -3,11 +3,12 @@ package fr.litopia.view;
 import fr.litopia.controler.StationControler;
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
+import fr.litopia.view.impl.ViewImpl;
 
 import java.util.ArrayList;
 import java.util.Set;
 
-public class StationsView extends View{
+public class StationsView extends ViewImpl {
 
     private Set<Station> stationSet;
     private BornView bornView;
@@ -25,7 +26,7 @@ public class StationsView extends View{
         System.out.println("==========================");
         System.out.println("Liste des stations");
         System.out.println("==========================\n");
-        ArrayList<Station> stationList = new ArrayList<Station>(this.stationSet);
+        ArrayList<Station> stationList = new ArrayList<>(this.stationSet);
         for (int i = 0; i < stationList.size(); i++) {
             System.out.println(i + " : " + stationList.get(i).getVStatus()+" "+stationList.get(i).getAdresse());
         }

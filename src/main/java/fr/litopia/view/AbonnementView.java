@@ -3,8 +3,9 @@ package fr.litopia.view;
 import fr.litopia.controler.AbonnementControler;
 import fr.litopia.model.Abonne;
 import fr.litopia.utils.ReadingConsole;
+import fr.litopia.view.impl.ViewImpl;
 
-public class AbonnementView extends View{
+public class AbonnementView extends ViewImpl {
 
     private AbonnementControler controler;
     @Override

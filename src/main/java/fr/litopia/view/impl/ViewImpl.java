@@ -1,21 +1,43 @@
-package fr.litopia.view;
+package fr.litopia.view.impl;
 
+import fr.litopia.view.api.View;
+import fr.litopia.view.api.ViewContext;
 import fr.litopia.view.enums.ViewStates;
 
-public abstract class View {
+public abstract class ViewImpl implements View {
     protected ViewStates state;
+    protected ViewContext viewContext;
+    protected final String name;
+
+
 
     /**
-     * Constructeur de toutes vue necessite un controlleur permettant d'interagir avec le model
+     * Constructeur de toutes vues
+     * Inisialise le state a INIT
+     * Appel la methode init
+     * Nettoye la console
      */
-    public View(){
+    public ViewImpl(){
+        this.name = this.getClass().getSimpleName();
         this.state = ViewStates.INIT;
         this.init();
         this.clean();
     }
 
     /**
+     * Permet de definir le context de la vue
+     * Ne peut etre appele que lors de l'initialisation
+     * @param viewContext le context de la vue
+     */
+    public void setContext(ViewContext viewContext){
+        if (this.state == ViewStates.INIT) {
+            this.viewContext = viewContext;
+        }
+    }
+
+    /**
      * Permet de lancer la vue
+     * La vue reste active tant que le state est different de END
      */
     public void run(){
         this.state = ViewStates.RUNNING;
