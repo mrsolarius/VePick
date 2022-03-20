@@ -1,6 +1,6 @@
-package fr.litopia.controler.impl;
+package fr.litopia.controller.impl;
 
-import fr.litopia.controler.api.StationsControler;
+import fr.litopia.controller.api.StationsControler;
 import fr.litopia.model.Station;
 import fr.litopia.respository.api.StationRepository;
 

@@ -1,4 +1,4 @@
-package fr.litopia.controler.api;
+package fr.litopia.controller.api;
 
 import fr.litopia.model.Abonne;
 

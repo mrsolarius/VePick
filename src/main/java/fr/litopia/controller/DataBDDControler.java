@@ -1,6 +1,6 @@
-package fr.litopia.controler;
+package fr.litopia.controller;
 
-import fr.litopia.controler.impl.ControlerImp;
+import fr.litopia.controller.impl.ControlerImp;
 import fr.litopia.model.Bornette;
 import fr.litopia.model.BornettePK;
 import fr.litopia.model.Station;

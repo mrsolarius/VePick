@@ -1,8 +1,7 @@
 package fr.litopia.views.menus;
 
-import fr.litopia.controler.ControlerFactory;
-import fr.litopia.controler.api.StationsControler;
-import fr.litopia.controler.impl.StationsControlerImpl;
+import fr.litopia.controller.ControlerFactory;
+import fr.litopia.controller.api.StationsControler;
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.menus.station.StationView;

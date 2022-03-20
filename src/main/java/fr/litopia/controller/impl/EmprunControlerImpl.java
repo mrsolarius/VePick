@@ -1,6 +1,6 @@
-package fr.litopia.controler.impl;
+package fr.litopia.controller.impl;
 
-import fr.litopia.controler.api.EmprunControler;
+import fr.litopia.controller.api.EmprunControler;
 import fr.litopia.model.*;
 
 public class EmprunControlerImpl extends ControlerImp implements EmprunControler {
