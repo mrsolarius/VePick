@@ -4,8 +4,6 @@ import fr.litopia.controller.ControlerFactory;
 import fr.litopia.controller.api.RetraitControler;
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
-import fr.litopia.views.menus.station.emprun.EmprunAboView;
-import fr.litopia.views.menus.station.emprun.EmprunNonAboView;
 import fr.litopia.views.struct.api.View;
 import fr.litopia.views.struct.api.ViewContext;
 import fr.litopia.views.struct.impl.ViewContextImpl;
@@ -55,7 +53,7 @@ public class ReturnView extends ViewImpl {
 
     @Override
     protected void display() {
-        if(retraitControler.peutRetirer(this.station)){
+        if(retraitControler.peutRendre(this.station)){
             displayMenu();
         }else {
             displayError();
