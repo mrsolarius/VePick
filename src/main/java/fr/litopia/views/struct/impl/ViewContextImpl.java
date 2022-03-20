@@ -1,6 +1,6 @@
-package fr.litopia.view.impl;
+package fr.litopia.views.struct.impl;
 
-import fr.litopia.view.api.ViewContext;
+import fr.litopia.views.struct.api.ViewContext;
 
 import java.util.HashMap;
 

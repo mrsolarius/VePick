@@ -1,4 +1,4 @@
-package fr.litopia.view.api;
+package fr.litopia.views.struct.api;
 
 import java.util.HashMap;
 

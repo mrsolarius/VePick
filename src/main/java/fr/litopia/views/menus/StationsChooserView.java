@@ -1,11 +1,14 @@
-package fr.litopia.view;
+package fr.litopia.views.menus;
 
-import fr.litopia.controler.StationControler;
+import fr.litopia.controler.ControlerFactory;
+import fr.litopia.controler.api.StationsControler;
+import fr.litopia.controler.impl.StationsControlerImpl;
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
-import fr.litopia.view.api.ViewContext;
-import fr.litopia.view.impl.ViewContextImpl;
-import fr.litopia.view.impl.ViewImpl;
+import fr.litopia.views.menus.station.StationView;
+import fr.litopia.views.struct.api.ViewContext;
+import fr.litopia.views.struct.impl.ViewContextImpl;
+import fr.litopia.views.struct.impl.ViewImpl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +25,7 @@ public class StationsChooserView extends ViewImpl {
 
     @Override
     protected void init() {
-        StationControler controler = new StationControler();
+        StationsControler controler = ControlerFactory.getStationsControler();
         this.stationList = new ArrayList<>(controler.getAllStations());
         bornView = new StationView();
     }
@@ -38,7 +41,7 @@ public class StationsChooserView extends ViewImpl {
             this.stop();
         }else {
             HashMap <String, Object> context = new HashMap<>();
-            context.put("selectedStation", stationList.get(selectedStation));
+            context.put("station", stationList.get(selectedStation));
             ViewContext viewContext = new ViewContextImpl(this.name,context);
             bornView.setContext(viewContext);
             bornView.run();

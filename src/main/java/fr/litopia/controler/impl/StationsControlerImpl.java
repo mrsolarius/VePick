@@ -1,17 +1,16 @@
-package fr.litopia.controler;
+package fr.litopia.controler.impl;
 
-import fr.litopia.controler.impl.ControlerImp;
+import fr.litopia.controler.api.StationsControler;
 import fr.litopia.model.Station;
 import fr.litopia.respository.api.StationRepository;
-import fr.litopia.view.impl.ViewImpl;
 
 import java.util.Set;
 
-public class StationControler extends ControlerImp {
+public class StationsControlerImpl extends ControlerImp implements StationsControler {
 
     private StationRepository stationRepository;
 
-    public StationControler() {
+    public StationsControlerImpl() {
         super();
     }
 
@@ -20,6 +19,7 @@ public class StationControler extends ControlerImp {
         stationRepository = getRepositoryFactory().newStationRepository(getEntityManager());
     }
 
+    @Override
     public Set<Station> getAllStations() {
         return stationRepository.getAll();
     }

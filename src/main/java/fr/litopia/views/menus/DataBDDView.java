@@ -1,8 +1,8 @@
-package fr.litopia.view;
+package fr.litopia.views.menus;
 
 import fr.litopia.controler.DataBDDControler;
 import fr.litopia.utils.ReadingConsole;
-import fr.litopia.view.impl.ViewImpl;
+import fr.litopia.views.struct.impl.ViewImpl;
 
 public class DataBDDView extends ViewImpl {
     private DataBDDControler controler;

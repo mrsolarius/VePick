@@ -1,6 +1,6 @@
 package fr.litopia;
 
-import fr.litopia.view.VepickView;
+import fr.litopia.views.menus.VepickView;
 
 import javax.persistence.Persistence;
 

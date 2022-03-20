@@ -1,4 +1,4 @@
-package fr.litopia.view.api;
+package fr.litopia.views.struct.api;
 
 public interface View {
     /**
@@ -15,6 +15,7 @@ public interface View {
 
     /**
      * Permet de stopper la vue
+     * @return View : lui meme pour chainage
      */
-    void stop();
+    View stop();
 }

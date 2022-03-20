@@ -1,10 +1,10 @@
-package fr.litopia.view;
+package fr.litopia.views.menus;
 
 import fr.litopia.utils.ReadingConsole;
-import fr.litopia.view.api.ViewContext;
-import fr.litopia.view.enums.ViewStates;
-import fr.litopia.view.impl.ViewContextImpl;
-import fr.litopia.view.impl.ViewImpl;
+import fr.litopia.views.struct.api.ViewContext;
+import fr.litopia.views.struct.enums.ViewStates;
+import fr.litopia.views.struct.impl.ViewContextImpl;
+import fr.litopia.views.struct.impl.ViewImpl;
 
 public class VepickView extends ViewImpl {
 
@@ -48,13 +48,6 @@ public class VepickView extends ViewImpl {
 
         switch (choice) {
             case 1 -> stationView.run();
-            /*case 2 -> {
-                //@TODO Faire la vue d'abonnement
-                this.clean();
-                System.out.println("Vous êtes désormais abonné au service VePick (c'est faux)");
-                System.out.println("Appuyer sur enter pour continuer");
-                ReadingConsole.readLine();
-            }*/
             case 2 -> abonnementView.run();
             case 3 -> {
                 //@TODO Faire la vue d'administration

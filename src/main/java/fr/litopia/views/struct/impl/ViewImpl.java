@@ -1,8 +1,8 @@
-package fr.litopia.view.impl;
+package fr.litopia.views.struct.impl;
 
-import fr.litopia.view.api.View;
-import fr.litopia.view.api.ViewContext;
-import fr.litopia.view.enums.ViewStates;
+import fr.litopia.views.struct.api.View;
+import fr.litopia.views.struct.api.ViewContext;
+import fr.litopia.views.struct.enums.ViewStates;
 
 public abstract class ViewImpl implements View {
     protected ViewStates state;
@@ -76,8 +76,10 @@ public abstract class ViewImpl implements View {
 
     /**
      * Permet de stopper la vue
+     * @return la vue elle meme pour pouvoir chainer les methodes
      */
-    public void stop(){
+    public View stop(){
         this.state = ViewStates.END;
+        return this;
     }
 }
