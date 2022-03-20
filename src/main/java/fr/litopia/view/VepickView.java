@@ -1,20 +1,32 @@
 package fr.litopia.view;
 
 import fr.litopia.utils.ReadingConsole;
+import fr.litopia.view.api.ViewContext;
 import fr.litopia.view.enums.ViewStates;
+import fr.litopia.view.impl.ViewContextImpl;
 import fr.litopia.view.impl.ViewImpl;
 
 public class VepickView extends ViewImpl {
 
-    private StationsView stationView;
+    private StationsChooserView stationView;
     private AbonnementView abonnementView;
     private DataBDDView dataBDDView;
 
     @Override
+    protected void onContextSet() {
+
+    }
+
+    @Override
     protected void init() {
-        stationView = new StationsView();
+        ViewContext context = new ViewContextImpl(this.name);
+        stationView = new StationsChooserView();
         abonnementView = new AbonnementView();
         dataBDDView = new DataBDDView();
+
+        stationView.setContext(context);
+        abonnementView.setContext(context);
+        dataBDDView.setContext(context);
     }
 
     @Override

@@ -20,8 +20,8 @@ public class DataBDDControler extends ControlerImp {
     private StationRepository stationRepository;
     private VeloRepository veloRepository;
 
-    public DataBDDControler(ViewImpl view) {
-        super(view);
+    public DataBDDControler() {
+        super();
     }
 
 

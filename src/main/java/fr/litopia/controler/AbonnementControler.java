@@ -9,8 +9,8 @@ public class AbonnementControler extends ControlerImp {
 
     private AbonneRepository aboRepository;
 
-    public AbonnementControler(ViewImpl view) {
-        super(view);
+    public AbonnementControler() {
+        super();
     }
 
     @Override

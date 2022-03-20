@@ -4,23 +4,26 @@ import fr.litopia.controler.BornControler;
 import fr.litopia.model.LocationNonAbonne;
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
+import fr.litopia.view.api.ViewContext;
 import fr.litopia.view.enums.BornViewStates;
 import fr.litopia.view.impl.ViewImpl;
 
-public class BornView extends ViewImpl {
+public class StationView extends ViewImpl {
     BornControler controler;
     BornViewStates localState;
 
     @Override
     protected void init() {
-        this.controler = new BornControler(this);
+        this.controler = new BornControler();
         this.controler.init();
         this.localState = BornViewStates.MAIN_MENU;
     }
 
-    public void setStation(Station station) {
-        this.controler.setStation(station);
+    @Override
+    protected void onContextSet() {
+
     }
+
 
     @Override
     protected void display() {

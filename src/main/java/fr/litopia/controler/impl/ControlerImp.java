@@ -11,7 +11,7 @@ public abstract class ControlerImp implements Controler {
     private final EntityManager entityManager;
     private final RepositoryFactory daoFactory = new RepositoryFactory();
 
-    public ControlerImp(ViewImpl view) {
+    public ControlerImp() {
         entityManager = Persistence.createEntityManagerFactory("VePick").createEntityManager();
         this.init();
     }

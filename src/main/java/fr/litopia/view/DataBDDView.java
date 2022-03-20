@@ -8,8 +8,13 @@ public class DataBDDView extends ViewImpl {
     private DataBDDControler controler;
 
     @Override
+    protected void onContextSet() {
+
+    }
+
+    @Override
     protected void init() {
-        controler = new DataBDDControler(this);
+        controler = new DataBDDControler();
     }
 
     @Override

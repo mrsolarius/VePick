@@ -7,8 +7,8 @@ import fr.litopia.view.impl.ViewImpl;
 
 public class BornControler extends ControlerImp {
     private Station station;
-    public BornControler(ViewImpl view) {
-        super(view);
+    public BornControler() {
+        super();
     }
 
     public void init() {

@@ -11,8 +11,8 @@ public class StationControler extends ControlerImp {
 
     private StationRepository stationRepository;
 
-    public StationControler(ViewImpl view) {
-        super(view);
+    public StationControler() {
+        super();
     }
 
     @Override

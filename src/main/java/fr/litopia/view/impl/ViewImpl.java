@@ -32,8 +32,11 @@ public abstract class ViewImpl implements View {
     public void setContext(ViewContext viewContext){
         if (this.state == ViewStates.INIT) {
             this.viewContext = viewContext;
+            this.onContextSet();
         }
     }
+
+    protected abstract void onContextSet();
 
     /**
      * Permet de lancer la vue

@@ -8,9 +8,15 @@ import fr.litopia.view.impl.ViewImpl;
 public class AbonnementView extends ViewImpl {
 
     private AbonnementControler controler;
+
+    @Override
+    protected void onContextSet() {
+
+    }
+
     @Override
     protected void init() {
-        this.controler = new AbonnementControler(this);
+        this.controler = new AbonnementControler();
     }
 
     @Override
