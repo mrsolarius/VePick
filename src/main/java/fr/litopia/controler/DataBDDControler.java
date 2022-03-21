@@ -100,7 +100,7 @@ public class DataBDDControler extends Controler {
     /*-------------------------------------------------------Velo---------------------------------------------------*/
     /*--------------------------------------------------------------------------------------------------------------*/
 
-    private Set<Velo> getVelos(int nb, Modele m) {
+    public Set<Velo> getVelos(int nb, Modele m) {
         Set<Velo> lesVelos = new HashSet<>();
         for (int i = 0; i < nb; i++) {
             Velo v = new Velo();
@@ -125,9 +125,9 @@ public class DataBDDControler extends Controler {
     public Set<Modele> allModele() {
 
         Set<Modele> velo_modeles = new HashSet<>();
-        double  val_non_null_prix=5.0;
-        String tupeModels[] = {"Vélo électrique", "velo tout terrain",
-                "Vélo de ville", "vélo pour enfant", "vélo de descente"};
+        double val_non_null_prix = 5.0;
+        String tupeModels[] = {"Velo électrique", "velo tout terrain",
+                "Velo de ville", "velo pour enfant", "velo de descente"};
 
         for (int i = 0; i < tupeModels.length; i++) {
             Modele model = new Modele();
@@ -141,7 +141,6 @@ public class DataBDDControler extends Controler {
     }
 
 
-
     public void initializeData() {
         System.out.println("Là");
         //@TODO initialize toutes les données de la BDD
@@ -152,23 +151,28 @@ public class DataBDDControler extends Controler {
         //les stations
 
         for (Station stat : allStations()) {
-            System.out.println("Station : " + stat.getAdresse() + " nb:" + stat.getBornettes().size());
+            //System.out.println("Station : " + stat.getAdresse() + " nb:" + stat.getBornettes().size());
             stationRepository.save(stat);
         }
 
         for (Modele mod : allModele()) {
             modeleRepository.save(mod);
-            for (Velo v : getVelos(10,mod)){
+            for (Velo v : getVelos(10, mod)) {
                 veloRepository.save(v);
             }
         }
 
-        /*
-        for(Location loc :allLocations()){
-            loca
+        Set<Abonne> abos = lesAbonnees(15);
+        for (Abonne abo : abos) {
+            abonneRepository.save(abo);
+        }
+        for (LocationAbonne locAbo : allLocationsAbonne(11,abos)) {
+            locationAbonneRepository.save(locAbo);
+
+        }
+        /*for (LocationNonAbonne locNonAbo : allLocationsNonAbonne(11)) {
+            locationNonAbonneRepository.save(locNonAbo);
         }*/
-
-
 
 
 
@@ -181,6 +185,10 @@ public class DataBDDControler extends Controler {
 
 
 
+    /*-------------------------------------------------------------------------------------------------------------*/
+    /*---------------------------------les abonnées-----------------------------------------------------------------*/
+    /*-------------------------------------------------------------------------------------------------------------*/
+
 
 
 
@@ -190,23 +198,72 @@ public class DataBDDControler extends Controler {
     //---------------------------------Location---------------------------------------------------------------------
     /*--------------------------------------------------------------------------------------------------------------*/
 
-    public Set<Location> allLocations() {
-
-        Set<Location> locations = new HashSet<>();
-        Location location_1 = new Location();
-       // Location location_2 = new Location();
-       // Location location_3 = new Location();
-
-        LocalDateTime now = LocalDateTime.now();
-        location_1.setDepart(now);
-        location_1.setPrix(22.0);
-        location_1.setTemps(12);
+    public Set<LocationAbonne> allLocationsAbonne(int n, Set<Abonne> lesAbos  ) {
 
 
-        locations.add(location_1);
+        Set<LocationAbonne> locations = new HashSet<>();
+
+        for(Abonne abo: lesAbos){
+            LocationAbonne locAbo=new LocationAbonne();
+            locAbo.setAbonne(abo);
+            LocalDateTime now = LocalDateTime.now();
+            locAbo.setDepart(now);
+            locAbo.setPrix(22.0);
+            locAbo.setTemps(12);
+            locations.add(locAbo);
+        }
 
         return locations;
+    }
 
+
+    /*public Set<LocationNonAbonne> allLocationsNonAbonne(int n) {
+
+        Set<LocationNonAbonne> locations = new HashSet<>();
+        LocationNonAbonne locNonAbo_1 = new LocationNonAbonne();
+        Velo velo = new Velo();
+        Abonne abonne = new Abonne();
+
+        abonne.setCb("67555387638763");
+        abonne.setMdp("68T8355395579");
+
+
+        LocalDateTime now = LocalDateTime.now();
+        locNonAbo_1.setDepart(now);
+        locNonAbo_1.setPrix(22.0);
+        locNonAbo_1.setTemps(12);
+
+        locNonAbo_1.setVelo(velo);
+
+        locations.add(locNonAbo_1);
+
+
+        return locations;
+    }*/
+
+    /*-------------------------------------------------------------------------------------------------------------*/
+    //---------------------------------les Abonnée---------------------------------------------------------------------
+    /*--------------------------------------------------------------------------------------------------------------*/
+
+    public Set<Abonne> lesAbonnees(int n) {
+        Set<Abonne> abonnes = new HashSet<>();
+
+
+        for (int i = 0; i < n; i++) {
+            Abonne abo = new Abonne();
+            abo.setLogin("0"+i);
+            abo.setMdp(i + "vepikOk" + i + 1 + "--");
+            abo.setAdresse(i + "12 rue des calendars 38000");
+            abo.setCreditTemps(3 + i);
+            abo.setNom(i + i + i + "Macron" + i + i);
+            abo.setPrenom(i + i + i + "thomas" + i + i);
+            abo.setCb("8785765326986980");
+
+            abonnes.add(abo);
+        }
+
+
+        return abonnes;
     }
 
 

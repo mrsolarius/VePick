@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 public class Location {
     @Id
     @Column(name = "id", nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "temps")
