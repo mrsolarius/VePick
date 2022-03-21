@@ -1,8 +1,8 @@
 package fr.litopia.controller.api;
 
-import fr.litopia.model.Bornette;
-import fr.litopia.model.LocationNonAbonne;
-import fr.litopia.model.Station;
+import fr.litopia.model.*;
+
+import java.util.Set;
 
 public interface RetraitControler extends Controler{
     /**
@@ -20,11 +20,25 @@ public interface RetraitControler extends Controler{
     LocationNonAbonne checkCode(String code);
 
     /**
-     * gère le dépot du vélo à la bornette spécifiée
+     * gère le dépot du vélo dans le cadre d'une location non abonné à la bornette spécifiée (calcul du prix, calcul du temps de trajet, cloture de la location)
      * @TODO possibilité à l'utilisateur de signaler une panne du vélo rendu.[A22]
      * @todo Si ce vélo est rendu depuis moins de  min, cela annule la location.[A23]
      * @param bornette la bornette qui attend le vélo
      * @param loc la location à cloturer
      */
-    void clotureLocation(Bornette bornette, LocationNonAbonne loc);
+    void clotureLocationNonAbonne(Bornette bornette, LocationNonAbonne loc);
+
+    /**
+     * @param abonne un abonné
+     * @return un set des locations de l'abonné en cours. */
+    Set<LocationAbonne> getLocationsEnCours(Abonne abonne);
+
+    /**
+     * gère le dépot du vélo dans le cadre d'une location abonné à la bornette spécifiée (calcul du prix, calcul du temps de trajet, cloture de la location)
+     * @TODO possibilité à l'utilisateur de signaler une panne du vélo rendu.[A22]
+     * @todo Si ce vélo est rendu depuis moins de  min, cela annule la location.[A23]
+     * @param bornette la bornette qui attend le vélo
+     * @param loc la location à cloturer
+     */
+    void clotureLocationAbonne(Bornette bornette, LocationAbonne loc);
 }
