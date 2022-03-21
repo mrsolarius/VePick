@@ -106,6 +106,7 @@ public class DataBDDControler extends Controler {
             Velo v = new Velo();
             int t = new Random().nextInt(Etat.values().length);
             v.setEtat(Etat.values()[t]);
+            v.setModele(m);
             lesVelos.add(v);
         }
         return lesVelos;
@@ -125,8 +126,7 @@ public class DataBDDControler extends Controler {
 
         Set<Modele> velo_modeles = new HashSet<>();
         double  val_non_null_prix=5.0;
-        int val_non_null_velo =5;
-        String tupeModels[] = {"Vélo électrique", "velo tout terrain", "",
+        String tupeModels[] = {"Vélo électrique", "velo tout terrain",
                 "Vélo de ville", "vélo pour enfant", "vélo de descente"};
 
         for (int i = 0; i < tupeModels.length; i++) {
@@ -134,7 +134,6 @@ public class DataBDDControler extends Controler {
 
             model.setName(tupeModels[i]);
             model.setPrixHoraire(i * 2 + val_non_null_prix);
-            model.setVelos(this.getVelos(i + val_non_null_velo, model));
             velo_modeles.add(model);
         }
 
@@ -155,13 +154,22 @@ public class DataBDDControler extends Controler {
         for (Station stat : allStations()) {
             System.out.println("Station : " + stat.getAdresse() + " nb:" + stat.getBornettes().size());
             stationRepository.save(stat);
-
-
         }
 
         for (Modele mod : allModele()) {
             modeleRepository.save(mod);
+            for (Velo v : getVelos(10,mod)){
+                veloRepository.save(v);
+            }
         }
+
+        /*
+        for(Location loc :allLocations()){
+            loca
+        }*/
+
+
+
 
 
         entityManager.getTransaction().commit();
@@ -186,8 +194,8 @@ public class DataBDDControler extends Controler {
 
         Set<Location> locations = new HashSet<>();
         Location location_1 = new Location();
-        Location location_2 = new Location();
-        Location location_3 = new Location();
+       // Location location_2 = new Location();
+       // Location location_3 = new Location();
 
         LocalDateTime now = LocalDateTime.now();
         location_1.setDepart(now);
