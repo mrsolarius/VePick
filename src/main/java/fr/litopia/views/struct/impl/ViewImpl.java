@@ -24,7 +24,6 @@ public abstract class ViewImpl implements View {
         this.parentView = parent;
         this.name = this.getClass().getSimpleName();
         this.state = ViewStates.INIT;
-        this.init();
         this.clean();
     }
 
@@ -47,6 +46,7 @@ public abstract class ViewImpl implements View {
      * La vue reste active tant que le state est different de END
      */
     public void run(){
+        this.init();
         this.state = ViewStates.RUNNING;
         while (this.state != ViewStates.END){
             this.clean();

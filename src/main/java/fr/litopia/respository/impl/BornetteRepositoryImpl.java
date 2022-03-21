@@ -3,6 +3,7 @@ package fr.litopia.respository.impl;
 import fr.litopia.model.Bornette;
 import fr.litopia.model.BornettePK;
 import fr.litopia.model.Station;
+import fr.litopia.model.enums.Etat;
 import fr.litopia.respository.api.BornetteRepository;
 
 import javax.persistence.EntityManager;
@@ -42,4 +43,24 @@ public class BornetteRepositoryImpl extends BaseRepositoryImpl implements Bornet
                 .setParameter("station", s)
                 .getFirstResult();
     }
+
+    @Override
+    public Set<Bornette> getBornettesStation(Station s) {
+        return Set.copyOf(
+                entityManager.createQuery("SELECT Bornette FROM Bornette WHERE Bornette.pk.station = :station")
+                        .setParameter("station", s)
+                        .getResultList()
+        );
+    }
+
+    @Override
+    public Set<Bornette> getBornettesStation(Station s, Etat e) {
+        return Set.copyOf(
+                entityManager.createQuery("SELECT b, v FROM Bornette b JOIN b.velo v WHERE b.pk.station.adresse = :station AND b.etat = :etat AND v.etat = :etat")
+                        .setParameter("station", s.getAdresse())
+                        .setParameter("etat", e)
+                        .getResultList()
+        );
+    }
+
 }
