@@ -37,7 +37,7 @@ public class EmprunAboView extends EmprunComonContext {
         LocationAbonne loc = this.emprunControler.emprunterVeloAbonne(this.bornette, abo);
 
         System.out.println("Merci d'avoir choisie VePick !");
-        System.out.println("Appuyez sur entrée pour prendre votre vélo à la bornette n°"+loc.getVelo().getBornette().getNumero());
+        System.out.println("Appuyez sur entrée pour prendre le vélo n°" + this.bornette.getVelo().getNumero() + " à la bornette n°"+this.bornette.getNumero());
         System.out.println("==================");
         ReadingConsole.readLine();
         this.emprunControler.prendreVelo(this.bornette);

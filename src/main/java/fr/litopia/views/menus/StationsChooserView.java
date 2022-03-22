@@ -34,7 +34,6 @@ public class StationsChooserView extends ViewImpl {
     protected void init() {
         StationsControler controler = ControlerFactory.getStationsControler();
         this.stationList = new ArrayList<>(controler.getAllStations());
-        bornView = new StationView(this);
     }
 
     @Override
@@ -50,6 +49,7 @@ public class StationsChooserView extends ViewImpl {
             HashMap <String, Object> context = new HashMap<>();
             context.put("station", stationList.get(selectedStation));
             ViewContext viewContext = new ViewContextImpl(this.name,context);
+            bornView = new StationView(this);
             bornView.setContext(viewContext);
             bornView.run();
         }

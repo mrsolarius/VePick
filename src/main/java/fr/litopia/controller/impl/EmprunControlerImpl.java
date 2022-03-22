@@ -5,6 +5,7 @@ import fr.litopia.model.*;
 import fr.litopia.model.enums.Etat;
 import fr.litopia.respository.RepositoryFactory;
 import fr.litopia.respository.api.BornetteRepository;
+import fr.litopia.respository.api.LocationAbonneRepository;
 import fr.litopia.respository.api.LocationNonAbonneRepository;
 
 import java.util.Set;
@@ -13,12 +14,14 @@ public class EmprunControlerImpl extends ControlerImp implements EmprunControler
 
     private BornetteRepository bornette;
     private LocationNonAbonneRepository locationNonAbonneRepository;
+    private LocationAbonneRepository locationAbonneRepository;
 
     @Override
     public void init() {
         RepositoryFactory repositoryFactory = new RepositoryFactory();
         bornette = repositoryFactory.newBornetteRepository(getEntityManager());
         locationNonAbonneRepository = repositoryFactory.newLocationNonAbonneRepository(getEntityManager());
+        locationAbonneRepository = repositoryFactory.newLocationAbonneRepository(getEntityManager());
     }
 
     @Override
@@ -49,6 +52,12 @@ public class EmprunControlerImpl extends ControlerImp implements EmprunControler
 
     @Override
     public LocationAbonne emprunterVeloAbonne(Bornette bornette, Abonne abo) {
-        return null;
+        LocationAbonne loc = new LocationAbonne();
+        loc.setAbonne(abo);
+        loc.setVelo(bornette.getVelo());
+        this.getEntityManager().getTransaction().begin();
+        this.locationAbonneRepository.save(loc);
+        this.getEntityManager().getTransaction().commit();
+        return loc;
     }
 }
