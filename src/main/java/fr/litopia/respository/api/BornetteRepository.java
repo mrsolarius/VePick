@@ -17,7 +17,7 @@ public interface BornetteRepository extends Repository<Bornette, BornettePK> {
     Set<Bornette> getBornettesStation(Station s);
 
     /**
-     * renvoie les bornettes en fonction de l'état
+     * renvoie les bornettes à l'état e qui contiennent des vélos à l'état e
      */
     Set<Bornette> getBornettesStation(Station s, Etat e);
 }

@@ -5,42 +5,50 @@ import fr.litopia.model.*;
 import fr.litopia.model.enums.Etat;
 import fr.litopia.respository.RepositoryFactory;
 import fr.litopia.respository.api.BornetteRepository;
-import fr.litopia.respository.api.StationRepository;
-import fr.litopia.respository.api.VeloRepository;
-import fr.litopia.respository.impl.BornetteRepositoryImpl;
+import fr.litopia.respository.api.LocationNonAbonneRepository;
 
 import java.util.Set;
 
 public class EmprunControlerImpl extends ControlerImp implements EmprunControler {
 
     private BornetteRepository bornette;
-    private VeloRepository velo;
+    private LocationNonAbonneRepository locationNonAbonneRepository;
 
     @Override
     public void init() {
         RepositoryFactory repositoryFactory = new RepositoryFactory();
         bornette = repositoryFactory.newBornetteRepository(getEntityManager());
-        velo = repositoryFactory.newVeloRepository(getEntityManager());
+        locationNonAbonneRepository = repositoryFactory.newLocationNonAbonneRepository(getEntityManager());
     }
 
     @Override
-    public boolean peutEmprunter(Station station) {
+    public Bornette peutEmprunter(Station station) {
         Set<Bornette> bornettesOK = bornette.getBornettesStation(station, Etat.OK);
-        return !bornettesOK.isEmpty();
+        if(bornettesOK.isEmpty()) return null;
+        return bornettesOK.iterator().next();
     }
 
     @Override
-    public LocationNonAbonne emprunterVeloNonAbonne(Station station, String cb) {
-        return null;
+    public LocationNonAbonne emprunterVeloNonAbonne(Bornette bornette, String cb) {
+        LocationNonAbonne loc = new LocationNonAbonne();
+        loc.setCb(cb);
+        loc.setVelo(bornette.getVelo());
+        loc.generateCode(this.locationNonAbonneRepository);
+        this.getEntityManager().getTransaction().begin();
+        this.locationNonAbonneRepository.save(loc);
+        this.getEntityManager().getTransaction().commit();
+        return loc;
     }
 
     @Override
-    public void prendreVelo(Location loc) {
-
+    public void prendreVelo(Bornette bornette) {
+        this.getEntityManager().getTransaction().begin();
+        bornette.setVelo(null);
+        this.getEntityManager().getTransaction().commit();
     }
 
     @Override
-    public LocationAbonne emprunterVeloAbonne(Station station, Abonne abo) {
+    public LocationAbonne emprunterVeloAbonne(Bornette bornette, Abonne abo) {
         return null;
     }
 }
