@@ -34,13 +34,13 @@ public class EmprunAboView extends EmprunComonContext {
         System.out.println("Vous êtes connecté en tant que " + abo.getLogin());
         System.out.println("Appuyez sur entrée pour louer un vélo");
         ReadingConsole.readLine();
-        LocationAbonne loc = this.emprunControler.emprunterVeloAbonne(station, abo);
+        LocationAbonne loc = this.emprunControler.emprunterVeloAbonne(this.bornette, abo);
 
-        System.out.println("Merci d'avoir choisi VePick !");
-        System.out.println("Appuyez sur entrée pour prendre votre vélo à la bornette n°"+loc.getVelo().getBornette().getNumero());
+        System.out.println("Merci d'avoir choisie VePick !");
+        System.out.println("Appuyez sur entrée pour prendre le vélo n°" + this.bornette.getVelo().getNumero() + " à la bornette n°"+this.bornette.getNumero());
         System.out.println("==================");
         ReadingConsole.readLine();
-        this.emprunControler.prendreVelo(loc);
+        this.emprunControler.prendreVelo(this.bornette);
         this.stop().stop();
     }
 

@@ -2,6 +2,7 @@ package fr.litopia.views.menus.station.emprun;
 
 import fr.litopia.controller.ControlerFactory;
 import fr.litopia.controller.api.EmprunControler;
+import fr.litopia.model.Bornette;
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.struct.api.View;
@@ -43,18 +44,21 @@ public class EmprunView extends ViewImpl {
         context.put("station", this.station);
         context.put("emprunControler", emprunControler);
 
-        ViewContext viewContext = new ViewContextImpl(this.name,context);
-
         emprunNonAboView = new EmprunNonAboView(this);
-        emprunNonAboView.setContext(viewContext);
 
         emprunAboView = new EmprunAboView(this);
-        emprunAboView.setContext(viewContext);
     }
 
     @Override
     protected void display() {
-        if(emprunControler.peutEmprunter(this.station)) {
+        Bornette bornette = emprunControler.peutEmprunter(this.station);
+        if(bornette != null) {
+            HashMap<String, Object> context = new HashMap<>();
+            context.put("bornette", bornette);
+            context.put("emprunControler",emprunControler);
+            ViewContext viewContext = new ViewContextImpl(this.name,context);
+            emprunNonAboView.setContext(viewContext);
+            emprunAboView.setContext(viewContext);
             displayEmprun();
         } else {
             displayError();
