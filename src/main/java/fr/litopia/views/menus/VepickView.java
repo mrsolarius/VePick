@@ -7,9 +7,11 @@ import fr.litopia.views.struct.enums.ViewStates;
 import fr.litopia.views.struct.impl.ViewContextImpl;
 import fr.litopia.views.struct.impl.ViewImpl;
 
+import java.util.HashMap;
+
 public class VepickView extends ViewImpl {
 
-    private StationsChooserView stationView;
+    private StationsChooserView stationsChooserView;
     private AbonnementView abonnementView;
     private DataBDDView dataBDDView;
 
@@ -28,10 +30,9 @@ public class VepickView extends ViewImpl {
     @Override
     protected void init() {
         ViewContext context = new ViewContextImpl(this.name);
-        stationView = new StationsChooserView(this);
+        stationsChooserView = new StationsChooserView(this);
         abonnementView = new AbonnementView(this);
         dataBDDView = new DataBDDView(this);
-        stationView.setContext(context);
         abonnementView.setContext(context);
         dataBDDView.setContext(context);
     }
@@ -54,19 +55,35 @@ public class VepickView extends ViewImpl {
         Integer choice = ReadingConsole.readInt(1,5);
 
         switch (choice) {
-            case 1 -> stationView.run();
+            case 1 -> {
+                stationsChooserView = new StationsChooserView(this);
+                stationsChooserView.setContext(getStattionsContext());
+                stationsChooserView.run();
+            }
             case 2 -> abonnementView.run();
             case 3 -> {
-                //@TODO Faire la vue d'administration
-                this.clean();
-                System.out.println("Vous êtes désormais administrateur (c'est faux)");
-                System.out.println("Appuyer sur enter pour continuer");
-                ReadingConsole.readLine();
+                stationsChooserView = new StationsChooserView(this);
+                stationsChooserView.setContext(getEditingContext());
+                stationsChooserView.run();
             }
             case 4 -> dataBDDView.run();
             case 5 -> this.state = ViewStates.END;
         }
     }
+
+    private ViewContext getEditingContext(){
+        HashMap<String,Object> context = new HashMap<>();
+        context.put("goto","admin");
+        return new ViewContextImpl(this.name,context);
+    }
+
+
+    private ViewContext getStattionsContext(){
+        HashMap<String,Object> context = new HashMap<>();
+        context.put("goto","station");
+        return new ViewContextImpl(this.name,context);
+    }
+
 
     @Override
     protected void close() {

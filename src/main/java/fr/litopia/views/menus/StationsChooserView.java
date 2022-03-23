@@ -4,6 +4,7 @@ import fr.litopia.controller.ControlerFactory;
 import fr.litopia.controller.api.StationsControler;
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
+import fr.litopia.views.menus.administration.EditionStationView;
 import fr.litopia.views.menus.station.StationView;
 import fr.litopia.views.struct.api.View;
 import fr.litopia.views.struct.api.ViewContext;
@@ -17,6 +18,8 @@ public class StationsChooserView extends ViewImpl {
 
     private ArrayList<Station> stationList;
     private StationView bornView;
+    private EditionStationView editionStationView;
+    private String whereWeGo;
 
     /**
      * @param parent la vue parente
@@ -27,6 +30,7 @@ public class StationsChooserView extends ViewImpl {
 
     @Override
     protected void onContextSet() {
+        whereWeGo=(String) viewContext.getContext().get("goto");
 
     }
 
@@ -34,6 +38,8 @@ public class StationsChooserView extends ViewImpl {
     protected void init() {
         StationsControler controler = ControlerFactory.getStationsControler();
         this.stationList = new ArrayList<>(controler.getAllStations());
+        this.editionStationView= new EditionStationView(this);
+        bornView = new StationView(this);
     }
 
     @Override
@@ -49,9 +55,17 @@ public class StationsChooserView extends ViewImpl {
             HashMap <String, Object> context = new HashMap<>();
             context.put("station", stationList.get(selectedStation));
             ViewContext viewContext = new ViewContextImpl(this.name,context);
-            bornView = new StationView(this);
-            bornView.setContext(viewContext);
-            bornView.run();
+
+            if (whereWeGo=="station"){
+                bornView.setContext(viewContext);
+                bornView.run();
+            }
+            if(whereWeGo=="admin"){
+                editionStationView.setContext(viewContext);
+                editionStationView.run();
+            }
+
+
         }
     }
 
