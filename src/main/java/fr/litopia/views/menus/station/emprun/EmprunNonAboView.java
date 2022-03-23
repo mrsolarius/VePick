@@ -22,7 +22,7 @@ public class EmprunNonAboView extends EmprunComonContext {
         System.out.println("==================");
         System.out.println("Veuillez renseigner votre numéro de carte bancaire : ");
         String cb = ReadingConsole.readLineNumeric(16);
-        LocationNonAbonne loc = this.emprunControler.emprunterVeloNonAbonne(this.station,cb);
+        LocationNonAbonne loc = this.emprunControler.emprunterVeloNonAbonne(this.bornette,cb);
         this.clean();
         System.out.println("=================");
         System.out.println("EMPRUNTER UN VÉLO");
@@ -34,8 +34,8 @@ public class EmprunNonAboView extends EmprunComonContext {
         System.out.println("Appuyez sur entrée pour prendre votre vélo à la bornette n°"+loc.getVelo().getBornette().getNumero());
         System.out.println("==================");
         ReadingConsole.readLine();
-        this.emprunControler.prendreVelo(loc);
-        //On stope cette vue ainci que la vue du dessus d'emprun de vélo
+        this.emprunControler.prendreVelo(this.bornette);
+        //On stop cette vue ainsi que la vue du dessus d'emprunt de vélo
         this.stop().stop();
     }
 

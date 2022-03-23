@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 public class Location {
     @Id
     @Column(name = "id", nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "temps")
@@ -18,7 +19,7 @@ public class Location {
     private Double prix;
 
     @Column(name = "depart")
-    private LocalDateTime depart;
+    private LocalDateTime depart = LocalDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "velo_numero")

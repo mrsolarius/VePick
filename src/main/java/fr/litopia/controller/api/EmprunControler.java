@@ -7,29 +7,29 @@ public interface EmprunControler extends Controler{
      * Permet de savoir si l'emprunt est possible
      * Dans la station passer en parametre
      * @param station la station ou l'on veut emprunter
-     * @return true si l'emprunt est possible false sinon
+     * @return bornette si l'emprunt est possible null sinon
      */
-    boolean peutEmprunter(Station station);
+    Bornette peutEmprunter(Station station);
 
     /**
      * Permet de créer une location NonAbonne
-     * @param station la station ou l'on veut emprunter
+     * @param bornette la bornette ou l'on va emprunter un vélo
      * @param cb carte bancaire de l'usager
      * @return la location créée
      */
-    LocationNonAbonne emprunterVeloNonAbonne(Station station, String cb);
+    LocationNonAbonne emprunterVeloNonAbonne(Bornette bornette, String cb);
 
     /**
-     * Permet de prendre le vélo de la station
-     * @param loc la location
+     * Permet de prendre le vélo de la bornette
+     * @param bornette la bornette
      */
-    void prendreVelo(Location loc);
+    void prendreVelo(Bornette bornette);
 
     /**
      * Permet de crée une location Abonne
-     * @param station la station ou l'on veut emprunter
+     * @param bornette la bornette ou l'on va emprunter un vélo
      * @param abo l'abonne qui emprunte
      * @return la location créée
      */
-    LocationAbonne emprunterVeloAbonne(Station station, Abonne abo);
+    LocationAbonne emprunterVeloAbonne(Bornette bornette, Abonne abo);
 }
