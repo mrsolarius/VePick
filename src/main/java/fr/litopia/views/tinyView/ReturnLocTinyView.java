@@ -19,7 +19,7 @@ public class ReturnLocTinyView extends TinyViewImpl<LocationNonAbonne> {
     protected void display() {
         System.out.println("==================");
         System.out.println("Veuillez renseigner votre code (-1 pour annuler): ");
-        code = ReadingConsole.readLineNumeric(20);
+        code = ReadingConsole.readLine(20);
         if (code.equals("-1")) this.cancel();
     }
 

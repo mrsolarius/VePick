@@ -9,7 +9,6 @@ import fr.litopia.views.tinyView.ReturnLocTinyView;
 import javax.persistence.ManyToOne;
 
 public class ReturnNonAboView extends ReturnComonContext{
-    @ManyToOne
     private LocationNonAbonne locationNonAbonne;
     private ReturnLocTinyView returnLocTinyView;
 

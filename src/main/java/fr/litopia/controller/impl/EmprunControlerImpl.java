@@ -26,7 +26,7 @@ public class EmprunControlerImpl extends ControlerImp implements EmprunControler
 
     @Override
     public Bornette peutEmprunter(Station station) {
-        Set<Bornette> bornettesOK = bornette.getBornettesStation(station, Etat.OK);
+        Set<Bornette> bornettesOK = bornette.getBornettesStationWithBike(station, Etat.OK);
         if(bornettesOK.isEmpty()) return null;
         return bornettesOK.iterator().next();
     }
