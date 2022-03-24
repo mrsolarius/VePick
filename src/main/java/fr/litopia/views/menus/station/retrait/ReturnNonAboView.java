@@ -56,7 +56,6 @@ public class ReturnNonAboView extends ReturnComonContext{
             case 3 -> this.stop();
         }
         System.out.println("==================");
-        retraitControler.clotureLocationNonAbonne(bornette,locationNonAbonne);
     }
 
     private void displayPaiement() {
@@ -68,7 +67,7 @@ public class ReturnNonAboView extends ReturnComonContext{
         Double prix = retraitControler.clotureLocationNonAbonne(bornette,locationNonAbonne);
         System.out.println("Vous avez été prélevé de "+prix+" euros");
         System.out.println("Toute l'équipe vous souhaite une bonne fin de journée");
-        System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°"+this.bornette);
+        System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°"+this.bornette.getNumero());
         System.out.println("========================");
         ReadingConsole.readLine();
         //On stop cette vue ainsi que la vue du dessus de retour vélo
@@ -82,7 +81,7 @@ public class ReturnNonAboView extends ReturnComonContext{
         System.out.println("========================");
         System.out.println("Veuillez nous excuser de l'état du vélo que vous avez emprunté");
         System.out.println("Vous ne serez pas prélevé");
-        System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°"+this.bornette);
+        System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°"+this.bornette.getNumero());
         System.out.println("========================");
         ReadingConsole.readLine();
         retraitControler.clotureLocationHSUnderFiveMinutes(bornette,locationNonAbonne); //dépose le vélo sur une bornette et complète location sans calcul prix
