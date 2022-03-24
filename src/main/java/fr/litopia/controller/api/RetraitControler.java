@@ -20,13 +20,19 @@ public interface RetraitControler extends Controler{
     LocationNonAbonne checkCode(String code);
 
     /**
+     * permet de vérifier si le vélo est rendu moins de 5 minutes après son emprunt
+     * @param loc la location (abonné ou non) qui contient la date de départ (d'emprunt)
+     * @return vrai si le rendu est fait en moins de 5 minutes, faux sinon
+     */
+    Boolean isUnderFiveMinutes(Location loc);
+
+    /**
      * gère le dépot du vélo dans le cadre d'une location non abonné à la bornette spécifiée (calcul du prix, calcul du temps de trajet, cloture de la location)
-     * @TODO possibilité à l'utilisateur de signaler une panne du vélo rendu.[A22]
-     * @todo Si ce vélo est rendu depuis moins de  min, cela annule la location.[A23]
      * @param bornette la bornette qui attend le vélo
      * @param loc la location à cloturer
+     * @return le prix calculé de la location
      */
-    void clotureLocationNonAbonne(Bornette bornette, LocationNonAbonne loc);
+    Double clotureLocationNonAbonne(Bornette bornette, LocationNonAbonne loc);
 
     /**
      * @param abonne un abonné
@@ -35,10 +41,16 @@ public interface RetraitControler extends Controler{
 
     /**
      * gère le dépot du vélo dans le cadre d'une location abonné à la bornette spécifiée (calcul du prix, calcul du temps de trajet, cloture de la location)
-     * @TODO possibilité à l'utilisateur de signaler une panne du vélo rendu.[A22]
-     * @todo Si ce vélo est rendu depuis moins de  min, cela annule la location.[A23]
+     * @param bornette la bornette qui attend le vélo
+     * @param loc la location à cloturer
+     * @return le prix calculé de la location
+     */
+    Double clotureLocationAbonne(Bornette bornette, LocationAbonne loc);
+
+    /**
+     * gère le dépot du vélo dans le cadre d'un vélo HS moins de 5 minutes après l'emprunt (calcul du prix à ne pas faire donc !)
      * @param bornette la bornette qui attend le vélo
      * @param loc la location à cloturer
      */
-    void clotureLocationAbonne(Bornette bornette, LocationAbonne loc);
+    void clotureLocationHSUnderFiveMinutes(Bornette bornette, Location loc);
 }
