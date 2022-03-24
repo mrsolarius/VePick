@@ -48,6 +48,12 @@ public class ReturnView extends ViewImpl {
     protected void display() {
         bornette = retraitControler.peutRendre(this.station);
         if(bornette!=null){
+            HashMap<String, Object> context = new HashMap<>();
+            context.put("bornette", bornette);
+            context.put("retourControler",retraitControler);
+            ViewContext viewContext = new ViewContextImpl(this.name,context);
+            returnNonAboView.setContext(viewContext);
+            returnAboView.setContext(viewContext);
             displayMenu();
         }else {
             displayError();
