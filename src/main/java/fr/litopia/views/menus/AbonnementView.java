@@ -46,10 +46,10 @@ public class AbonnementView extends ViewImpl {
 
     private void displayLogin(Abonne abo) {
         System.out.println("Choisissez un login :");
-        String login = ReadingConsole.readLine();
+        String login = ReadingConsole.readLine(20);
         while (controler.loginExist(login)) {
             System.out.println("Ce login existe déjà, choisissez un nouveau login :");
-            login = ReadingConsole.readLine();
+            login = ReadingConsole.readLine(20);
         }
         abo.setLogin(login);
     }
