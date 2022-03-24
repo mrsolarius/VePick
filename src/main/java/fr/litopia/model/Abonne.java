@@ -87,8 +87,8 @@ public class Abonne {
     }
 
     public void setCb(String cb) {
-        if (!ReadingConsole.isNumeric(cb))throw new Error("La CB doit être numérique");
-        if (cb.length()!=16)throw new Error("La CB doit faire exactement 16 caractères");
+        if (!ReadingConsole.isNumeric(cb))throw new IllegalArgumentException("La CB doit être numérique");
+        if (cb.length()!=16)throw new IllegalArgumentException("La CB doit faire exactement 16 caractères");
         this.cb = cb;
     }
 
@@ -117,7 +117,7 @@ public class Abonne {
     }
 
     public void setMdp(String code) {
-        if (code.length()>20)throw new Error("Le code doit faire moins de 20 caractères");
+        if (code.length()>20)throw new IllegalArgumentException("Le code doit faire moins de 20 caractères");
         this.mdp = code;
     }
 
@@ -126,7 +126,7 @@ public class Abonne {
     }
 
     public void setAdresse(String adresse) {
-        if (adresse.length()>255)throw new Error("L'adresse doit faire moins de 255 caractères");
+        if (adresse.length()>255)throw new IllegalArgumentException("L'adresse doit faire moins de 255 caractères");
         this.adresse = adresse;
     }
 
@@ -135,7 +135,7 @@ public class Abonne {
     }
 
     public void setPrenom(String prenom) {
-        if (prenom.length()>50)throw new Error("Le prenom doit faire moins de 50 caractères");
+        if (prenom.length()>50)throw new IllegalArgumentException("Le prenom doit faire moins de 50 caractères");
         this.prenom = prenom;
     }
 
@@ -144,7 +144,7 @@ public class Abonne {
     }
 
     public void setNom(String nom) {
-        if (nom.length()>50)throw new Error("Le nom doit faire moins de 50 caractères");
+        if (nom.length()>50)throw new IllegalArgumentException("Le nom doit faire moins de 50 caractères");
         this.nom = nom;
     }
 
@@ -153,7 +153,7 @@ public class Abonne {
     }
 
     public void setLogin(String login) {
-        if (login.length()>20)throw new Error("Le login doit faire moins de 20 caractères");
+        if (login.length()>20) throw new IllegalArgumentException("Le login doit faire moins de 20 caractères");
         this.login = login;
     }
 
