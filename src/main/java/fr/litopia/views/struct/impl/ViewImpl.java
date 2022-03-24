@@ -50,6 +50,7 @@ public abstract class ViewImpl implements View {
         this.state = ViewStates.RUNNING;
         while (this.state != ViewStates.END){
             this.clean();
+
             this.display();
         }
         this.close();

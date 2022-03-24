@@ -23,4 +23,7 @@ public class ControlerFactory {
     }
 
     public static AdministrationControler getAdministrationControler(){return null;}
+    public static AdministrationControler getStationStatusControler(){return null; }
+
+
 }
