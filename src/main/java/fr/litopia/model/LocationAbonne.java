@@ -8,6 +8,8 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class LocationAbonne extends Location {
+    static float REMISE_ABO=0.7f;
+
     @ManyToOne
     @JoinColumn(name = "abonne_id")
     private Abonne abonne;
@@ -18,5 +20,10 @@ public class LocationAbonne extends Location {
 
     public void setAbonne(Abonne abonne) {
         this.abonne = abonne;
+    }
+
+    @Override
+    public Double getPrix() {
+        return super.getPrix()*REMISE_ABO;
     }
 }

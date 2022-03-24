@@ -6,6 +6,7 @@ import fr.litopia.controller.api.RetraitControler;
 import fr.litopia.controller.api.StationsControler;
 import fr.litopia.controller.impl.AbonneControlerImpl;
 import fr.litopia.controller.impl.EmprunControlerImpl;
+import fr.litopia.controller.impl.RetraitControlerImpl;
 import fr.litopia.controller.impl.StationsControlerImpl;
 
 public class ControlerFactory {
@@ -22,6 +23,6 @@ public class ControlerFactory {
     }
 
     public static RetraitControler getRetraitControler(){
-        return null;
+        return new RetraitControlerImpl();
     }
 }
