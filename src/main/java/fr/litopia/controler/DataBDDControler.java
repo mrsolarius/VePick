@@ -9,9 +9,11 @@ import org.h2.engine.Mode;
 
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
+import java.time.format.ResolverStyle;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+import java.sql.*;
 
 public class DataBDDControler extends Controler {
     private AbonneRepository abonneRepository;
@@ -181,6 +183,14 @@ public class DataBDDControler extends Controler {
 
     public void deleteData() {
         //@TODO delete toutes les données de la BDD
+        entityManager.createNativeQuery("delete * from lesLocations").executeUpdate();
+        entityManager.createNativeQuery("delete * from lesAbonnes").executeUpdate();
+        entityManager.createNativeQuery("delete * from lesBornettes").executeUpdate();
+        entityManager.createNativeQuery("delete * from lesStations").executeUpdate();
+        entityManager.createNativeQuery("delete * from lesVelos").executeUpdate();
+        entityManager.createNativeQuery("delete * from lesModeles").executeUpdate();
+
+
     }
 
 
