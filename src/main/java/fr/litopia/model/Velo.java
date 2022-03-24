@@ -24,7 +24,7 @@ public class Velo {
     @OneToOne(mappedBy = "velo")
     private Bornette bornette;
 
-    @OneToMany(mappedBy = "velo")
+    @OneToMany(mappedBy = "velo",cascade = CascadeType.ALL)
     private Set<Location> locations = new LinkedHashSet<>();
 
     @ManyToOne(optional = false)

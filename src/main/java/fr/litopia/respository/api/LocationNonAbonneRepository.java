@@ -9,4 +9,11 @@ public interface LocationNonAbonneRepository extends Repository <LocationNonAbon
      * renvoie True si le code est unique
      */
     Boolean verifyCode(String code);
+
+    /**
+     * Permet de get la location non abonné voulus
+     * @param code le code de location
+     * @return LocationNonAbonne
+     */
+    LocationNonAbonne getLocNonAbonne(String code);
 }

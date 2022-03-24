@@ -45,7 +45,7 @@ public class BornetteRepositoryImpl extends BaseRepositoryImpl implements Bornet
     }
 
     @Override
-    public Set<Bornette> getBornettesStation(Station s) {
+    public Set<Bornette> getBornettesStationWithBike(Station s) {
         return Set.copyOf(
                 entityManager.createQuery("SELECT Bornette FROM Bornette WHERE Bornette.pk.station = :station")
                         .setParameter("station", s)
@@ -54,9 +54,19 @@ public class BornetteRepositoryImpl extends BaseRepositoryImpl implements Bornet
     }
 
     @Override
-    public Set<Bornette> getBornettesStation(Station s, Etat e) {
+    public Set<Bornette> getBornettesStationWithBike(Station s, Etat e) {
         return Set.copyOf(
                 entityManager.createQuery("SELECT b FROM Bornette b JOIN b.velo v WHERE b.pk.station.adresse = :station AND b.etat = :etat AND v.etat = :etat")
+                        .setParameter("station", s.getAdresse())
+                        .setParameter("etat", e)
+                        .getResultList()
+        );
+    }
+
+    @Override
+    public Set<Bornette> getBornettesStationWithoutBike(Station s, Etat e) {
+        return Set.copyOf(
+                entityManager.createQuery("SELECT b FROM Bornette b LEFT JOIN b.velo WHERE b.pk.station.adresse = :station AND  b.etat = :etat ")
                         .setParameter("station", s.getAdresse())
                         .setParameter("etat", e)
                         .getResultList()

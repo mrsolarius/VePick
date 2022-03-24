@@ -2,6 +2,8 @@ package fr.litopia.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import static java.lang.Math.toIntExact;
 
 @Entity
 @Table(name = "LesLocations")
@@ -53,11 +55,28 @@ public class Location {
         return temps;
     }
 
-    public void setTemps(Integer temps) {
-        this.temps = temps;
-    }
-
     public Long getId() {
         return id;
+    }
+
+    public void cloreLocation(Bornette bornette) {
+        velo.setBornette(bornette);
+        temps=toIntExact(ChronoUnit.MINUTES.between(depart,LocalDateTime.now()));
+        prix=temps*(velo.getModele().getPrixHoraire()/60);
+    }
+
+    public Boolean isUnderFiveMinutes(){
+        if(toIntExact(ChronoUnit.MINUTES.between(depart,LocalDateTime.now()))<5){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public void clotureLocationHSUnderFiveMinutes(Bornette bornette){
+        velo.setBornette(bornette);
+        temps=toIntExact(ChronoUnit.MINUTES.between(depart,LocalDateTime.now()));
+        prix=0d;
     }
 }
