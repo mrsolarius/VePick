@@ -38,11 +38,10 @@ public class DataBDDControler extends ControlerImp {
     private Set<Bornette> getBornettes(int nb, Station s){
         Set<Bornette> lesBornettes = new HashSet<>();
         for (int i = 0; i < nb; i++) {
-            Bornette b = new Bornette();
             BornettePK bpk = new BornettePK();
             bpk.setStation(s);
             bpk.autoGenerateNumero(getEntityManager());
-            b.setPk(bpk);
+            Bornette b = new Bornette(bpk);
             System.out.println("Id "+b.getNumero());
             lesBornettes.add(b);
         }

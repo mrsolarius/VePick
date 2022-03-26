@@ -22,8 +22,30 @@ public class Bornette {
         return velo;
     }
 
+    public Bornette(){
+
+    }
+
+    public Bornette(BornettePK pk){
+        this.pk = pk;
+    }
+
     public void setVelo(Velo velo) {
-        this.velo = velo;
+        if(this.velo == null) {
+            if (velo.getBornette() != this) velo.setBornette(this);
+            this.velo = velo;
+        }else {
+            throw new IllegalCallerException("La bornette possède déjà un velo");
+        }
+    }
+
+    public void takeVelo(){
+        if(this.velo != null) {
+            this.velo.setBornette(null);
+            this.velo = null;
+        }else {
+            throw new IllegalCallerException("La bornette ne possède pas de velo");
+        }
     }
 
     public Station getStation() {
@@ -40,9 +62,5 @@ public class Bornette {
 
     public void setEtat(Etat etat) {
         this.etat = etat;
-    }
-
-    public void setPk(BornettePK pk) {
-        this.pk = pk;
     }
 }

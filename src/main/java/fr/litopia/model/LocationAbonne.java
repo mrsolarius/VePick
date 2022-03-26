@@ -14,11 +14,19 @@ public class LocationAbonne extends Location {
     @JoinColumn(name = "abonne_id")
     private Abonne abonne;
 
+    public LocationAbonne() {
+        super();
+    }
+
+    public LocationAbonne(Abonne abonne) {
+        this.setAbonne(abonne);
+    }
+
     public Abonne getAbonne() {
         return abonne;
     }
 
-    public void setAbonne(Abonne abonne) {
+    protected void setAbonne(Abonne abonne) {
         if(this.abonne==null && abonne==null) return;
 
         if (this.abonne == null) {

@@ -28,23 +28,27 @@ public class Velo {
     private Set<Location> locations = new LinkedHashSet<>();
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "modele_name", nullable = false)
+    @JoinColumn(name = "modele_name", nullable = false, updatable = false)
     private Modele modele;
+
+    public Velo() {
+        locations = new LinkedHashSet<>();
+    }
+
+    public Velo(Date miseEnService, Etat etat, Modele modele) {
+        locations = new LinkedHashSet<>();
+        this.miseEnService = miseEnService;
+        this.etat = etat;
+        this.modele = modele;
+        modele.addVelo(this);
+    }
 
     public Modele getModele() {
         return modele;
     }
 
-    public void setModele(Modele modele) {
-        this.modele = modele;
-    }
-
     public Set<Location> getLocations() {
         return locations;
-    }
-
-    public void setLocations(Set<Location> locations) {
-        this.locations = locations;
     }
 
     public Bornette getBornette() {
@@ -52,7 +56,14 @@ public class Velo {
     }
 
     public void setBornette(Bornette bornette) {
-        this.bornette = bornette;
+        if(this.bornette==null){
+            this.bornette = bornette;
+            bornette.setVelo(this);
+        }
+        if(bornette==null){
+            this.bornette.takeVelo();
+            this.bornette = null;
+        }
     }
 
     public Etat getEtat() {
@@ -71,7 +82,8 @@ public class Velo {
         return numero;
     }
 
-    public void setNumero(Long numero) {
-        this.numero = numero;
+    public void addLocation(Location location) {
+        if (location.getVelo()!=this) location.setVelo(this);
+        this.locations.add(location);
     }
 }
