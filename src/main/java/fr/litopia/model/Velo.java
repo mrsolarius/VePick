@@ -61,7 +61,7 @@ public class Velo {
             bornette.setVelo(this);
         }
         if(bornette==null){
-            this.bornette.takeVelo();
+            if(this.bornette.getVelo()!=null)this.bornette.takeVelo();
             this.bornette = null;
         }
     }

@@ -15,6 +15,7 @@ public class EmprunControlerImpl extends ControlerImp implements EmprunControler
     private BornetteRepository bornette;
     private LocationNonAbonneRepository locationNonAbonneRepository;
     private LocationAbonneRepository locationAbonneRepository;
+    private BornetteRepository bornetteRepository;
 
     @Override
     public void init() {
@@ -22,6 +23,7 @@ public class EmprunControlerImpl extends ControlerImp implements EmprunControler
         bornette = repositoryFactory.newBornetteRepository(getEntityManager());
         locationNonAbonneRepository = repositoryFactory.newLocationNonAbonneRepository(getEntityManager());
         locationAbonneRepository = repositoryFactory.newLocationAbonneRepository(getEntityManager());
+        bornetteRepository = repositoryFactory.newBornetteRepository(getEntityManager());
     }
 
     @Override
@@ -46,6 +48,7 @@ public class EmprunControlerImpl extends ControlerImp implements EmprunControler
     public void prendreVelo(Bornette bornette) {
         this.getEntityManager().getTransaction().begin();
         bornette.takeVelo();
+        bornetteRepository.save(bornette);
         this.getEntityManager().getTransaction().commit();
     }
 

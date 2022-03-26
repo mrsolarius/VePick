@@ -41,8 +41,9 @@ public class Bornette {
 
     public void takeVelo(){
         if(this.velo != null) {
-            this.velo.setBornette(null);
+            Velo v = this.velo;
             this.velo = null;
+            v.setBornette(null);
         }else {
             throw new IllegalCallerException("La bornette ne possède pas de velo");
         }
