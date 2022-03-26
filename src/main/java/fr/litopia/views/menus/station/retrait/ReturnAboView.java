@@ -33,6 +33,7 @@ public class ReturnAboView extends ReturnComonContext{
         abonne = loginTinyView.startAndGetValue();
         if(abonne == null){
             this.stop().stop();
+            return;
         }
         locationsEnCours = new ArrayList<>(retraitControler.getLocationsEnCours(abonne)) ;
 
@@ -47,7 +48,7 @@ public class ReturnAboView extends ReturnComonContext{
         System.out.println("Entrez -1 pour quitter");
         int selection = ReadingConsole.readInt(-1,locationsEnCours.size()-1);
         if (selection == -1) {
-            this.stop();
+            this.stop().stop();
             return;
         }
         this.clean();
@@ -66,7 +67,6 @@ public class ReturnAboView extends ReturnComonContext{
                 retraitControler.changeBikeState(locationAbonne, Etat.HS);
                 if (retraitControler.isUnderFiveMinutes(locationAbonne)) {
                     displayAnnulationEmprunt();
-                    return;
                 }else {
                     displayPaiement();
                 }
