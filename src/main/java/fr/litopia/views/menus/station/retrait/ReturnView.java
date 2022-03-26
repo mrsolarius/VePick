@@ -42,6 +42,7 @@ public class ReturnView extends ViewImpl {
     @Override
     protected void display() {
         bornette = retraitControler.peutRendre(this.station);
+        this.clean();
         if(bornette!=null){
             displayMenu();
         }else {

@@ -31,8 +31,10 @@ public class ReturnNonAboView extends ReturnComonContext{
         System.out.println("RENDRE UN VÉLO");
         System.out.println("==================");
         locationNonAbonne = returnLocTinyView.startAndGetValue();
+        System.out.println("Vélo retourné "+locationNonAbonne);
         if (locationNonAbonne==null){
             this.stop().stop();
+            return;
         }
         this.clean();
         System.out.println("=================");

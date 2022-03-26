@@ -19,13 +19,15 @@ public class ReturnLocTinyView extends TinyViewImpl<LocationNonAbonne> {
     protected void display() {
         System.out.println("==================");
         System.out.println("Veuillez renseigner votre code (-1 pour annuler): ");
-        code = ReadingConsole.readLine(20);
+        code = ReadingConsole.readLineWithMaxChar(20);
+        if (code.equals("-1")) System.out.println("RETOUR");
         if (code.equals("-1")) this.cancel();
     }
 
     @Override
     protected LocationNonAbonne getValue() {
         LocationNonAbonne loc = retraitControler.checkCode(code);
+        System.out.println("ICI : "+loc);
         if (loc==null){
             System.out.println("=================");
             System.out.println("CODE INCORRECT, VEUILLEZ SAISIR A NOUVEAU ou -1 pour anuler");

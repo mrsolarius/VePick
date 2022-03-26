@@ -39,13 +39,7 @@ public class EmprunView extends ViewImpl {
     @Override
     protected void init() {
         emprunControler = ControlerFactory.getEmprunControler();
-
-        HashMap<String, Object> context = new HashMap<>();
-        context.put("station", this.station);
-        context.put("emprunControler", emprunControler);
-
         emprunNonAboView = new EmprunNonAboView(this);
-
         emprunAboView = new EmprunAboView(this);
     }
 
@@ -59,8 +53,10 @@ public class EmprunView extends ViewImpl {
             ViewContext viewContext = new ViewContextImpl(this.name,context);
             emprunNonAboView.setContext(viewContext);
             emprunAboView.setContext(viewContext);
+            this.clean();
             displayEmprun();
         } else {
+            this.clean();
             displayError();
         }
     }
