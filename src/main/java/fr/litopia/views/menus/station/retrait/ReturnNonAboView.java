@@ -48,7 +48,7 @@ public class ReturnNonAboView extends ReturnComonContext{
         switch (choice) {
             case 1 -> displayPaiement();
             case 2 -> {
-                locationNonAbonne.getVelo().setEtat(Etat.HS);   // On passe l'état du vélo à HS
+                retraitControler.changeBikeState(locationNonAbonne, Etat.HS);
                 if (retraitControler.isUnderFiveMinutes(locationNonAbonne)) {
                     displayAnnulationEmprunt();
                 }

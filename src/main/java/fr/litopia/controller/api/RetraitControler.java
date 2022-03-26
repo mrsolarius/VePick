@@ -1,6 +1,7 @@
 package fr.litopia.controller.api;
 
 import fr.litopia.model.*;
+import fr.litopia.model.enums.Etat;
 
 import java.util.Set;
 
@@ -53,4 +54,6 @@ public interface RetraitControler extends Controler{
      * @param loc la location à cloturer
      */
     void clotureLocationHSUnderFiveMinutes(Bornette bornette, Location loc);
+
+    void changeBikeState(Location location, Etat state);
 }

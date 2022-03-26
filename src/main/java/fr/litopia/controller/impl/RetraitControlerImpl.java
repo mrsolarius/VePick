@@ -80,4 +80,13 @@ public class RetraitControlerImpl extends ControlerImp implements RetraitControl
     public void clotureLocationHSUnderFiveMinutes(Bornette bornette, Location loc) {
         loc.clotureLocationHSUnderFiveMinutes(bornette);
     }
+
+    @Override
+    public void changeBikeState(Location location, Etat state){
+        Velo v = location.getVelo();   // On passe l'état du vélo à HS
+        v.setEtat(state);
+        getEntityManager().getTransaction().begin();
+        getEntityManager().merge(v);
+        getEntityManager().getTransaction().commit();
+    }
 }
