@@ -28,6 +28,7 @@ public class Station {
     }
 
     public Station (String adresse, VStatus vStatus){
+        this.setAdresse(adresse);
         this.vStatus = vStatus;
     }
 
