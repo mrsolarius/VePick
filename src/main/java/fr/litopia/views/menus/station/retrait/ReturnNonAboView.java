@@ -60,12 +60,12 @@ public class ReturnNonAboView extends ReturnComonContext{
     }
 
     private void displayPaiement() {
+        Double prix = retraitControler.clotureLocationNonAbonne(bornette,locationNonAbonne);
         this.clean();
         System.out.println("========================");
         System.out.println("PAIEMENT DE LA LOCATION");
         System.out.println("========================");
         System.out.println("VéPick vous remercie de votre Location");
-        Double prix = retraitControler.clotureLocationNonAbonne(bornette,locationNonAbonne);
         System.out.println("Vous avez été prélevé de "+prix+" euros");
         System.out.println("Toute l'équipe vous souhaite une bonne fin de journée");
         System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°"+this.bornette.getNumero());

@@ -7,27 +7,31 @@ import fr.litopia.respository.RepositoryFactory;
 import fr.litopia.respository.api.BornetteRepository;
 import fr.litopia.respository.api.LocationAbonneRepository;
 import fr.litopia.respository.api.LocationNonAbonneRepository;
+import fr.litopia.respository.api.VeloRepository;
+
 import java.util.Set;
 
 
 public class RetraitControlerImpl extends ControlerImp implements RetraitControler {
 
-    private BornetteRepository bornette;
+    private BornetteRepository bornetteRepository;
     private LocationNonAbonneRepository locationNonAbonneRepository;
     private LocationAbonneRepository locationAbonneRepository;
+    private VeloRepository veloRepository;
 
     @Override
     public void init() {
         RepositoryFactory repositoryFactory = new RepositoryFactory();
-        bornette = repositoryFactory.newBornetteRepository(getEntityManager());
+        bornetteRepository = repositoryFactory.newBornetteRepository(getEntityManager());
         locationNonAbonneRepository = repositoryFactory.newLocationNonAbonneRepository(getEntityManager());
         locationAbonneRepository = repositoryFactory.newLocationAbonneRepository(getEntityManager());
+        veloRepository = repositoryFactory.newVeloRepository(getEntityManager());
     }
 
     @Override
     public Bornette peutRendre(Station station) {
         Set<Bornette> set;
-        set=bornette.getBornettesStationWithoutBike(station, Etat.OK);
+        set= bornetteRepository.getBornettesStationWithoutBike(station, Etat.OK);
         if(set.isEmpty()){
             return null;
         }
@@ -38,7 +42,11 @@ public class RetraitControlerImpl extends ControlerImp implements RetraitControl
 
     @Override
     public LocationNonAbonne checkCode(String code) {
-        return locationNonAbonneRepository.getLocNonAbonne(code);
+        try{
+            return locationNonAbonneRepository.getLocNonAbonne(code);
+        }catch (Exception e){
+            return null;
+        }
     }
 
     @Override
@@ -49,7 +57,10 @@ public class RetraitControlerImpl extends ControlerImp implements RetraitControl
     @Override
     public Double clotureLocationNonAbonne(Bornette bornette, LocationNonAbonne loc) {
         loc.cloreLocation(bornette);
-        locationNonAbonneRepository.save(loc);
+        this.getEntityManager().getTransaction().begin();
+        this.bornetteRepository.save(bornette);
+        this.getEntityManager().merge(loc);
+        this.getEntityManager().getTransaction().commit();
         return loc.getPrix();
     }
 

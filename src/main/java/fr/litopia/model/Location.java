@@ -23,7 +23,7 @@ public class Location {
     @Column(name = "depart", updatable = false)
     private LocalDateTime depart = LocalDateTime.now();
 
-    @ManyToOne
+    @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name = "velo_numero")
     private Velo velo;
 
