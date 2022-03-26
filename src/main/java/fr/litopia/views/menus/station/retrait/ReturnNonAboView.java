@@ -6,8 +6,6 @@ import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.struct.api.View;
 import fr.litopia.views.tinyView.ReturnLocTinyView;
 
-import javax.persistence.ManyToOne;
-
 public class ReturnNonAboView extends ReturnComonContext{
     private LocationNonAbonne locationNonAbonne;
     private ReturnLocTinyView returnLocTinyView;
@@ -51,6 +49,7 @@ public class ReturnNonAboView extends ReturnComonContext{
                 retraitControler.changeBikeState(locationNonAbonne, Etat.HS);
                 if (retraitControler.isUnderFiveMinutes(locationNonAbonne)) {
                     displayAnnulationEmprunt();
+                    return;
                 }
                 displayPaiement();
             }
@@ -85,7 +84,7 @@ public class ReturnNonAboView extends ReturnComonContext{
         System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°"+this.bornette.getNumero());
         System.out.println("========================");
         ReadingConsole.readLine();
-        retraitControler.clotureLocationHSUnderFiveMinutes(bornette,locationNonAbonne); //dépose le vélo sur une bornette et complète location sans calcul prix
+        retraitControler.clotureLocationHSUnderFiveMinutesNonAbo(bornette,locationNonAbonne); //dépose le vélo sur une bornette et complète location sans calcul prix
         //On stop cette vue ainsi que la vue du dessus de retour vélo
         this.stop().stop();
     }

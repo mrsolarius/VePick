@@ -1,7 +1,5 @@
 package fr.litopia.model;
 
-import fr.litopia.model.Location;
-
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,6 +17,7 @@ public class LocationAbonne extends Location {
     }
 
     public LocationAbonne(Abonne abonne) {
+        super();
         this.setAbonne(abonne);
     }
 

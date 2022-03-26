@@ -2,17 +2,13 @@ package fr.litopia.views.menus.station.retrait;
 
 import fr.litopia.model.Abonne;
 import fr.litopia.model.LocationAbonne;
-import fr.litopia.model.LocationNonAbonne;
 import fr.litopia.model.enums.Etat;
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.struct.api.View;
 import fr.litopia.views.tinyView.LoginTinyView;
-import fr.litopia.views.tinyView.ReturnLocTinyView;
 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 public class ReturnAboView extends ReturnComonContext{
     private Abonne abonne;
@@ -40,18 +36,20 @@ public class ReturnAboView extends ReturnComonContext{
         }
         locationsEnCours = new ArrayList<>(retraitControler.getLocationsEnCours(abonne)) ;
 
-
-        //@TODO gérer le fait de rendre plusieurs vélos à la fois (optionnel si on a le temps)
+        this.clean();
         System.out.println("=================");
-        System.out.println("VEUILLEZ SELECTIONNER LES LOCATIONS QUE VOUS SOUHAITEZ TERMINER :");
+        System.out.println("VEUILLEZ SELECTIONNER LES LOCATIONS QUE VOUS SOUHAITEZ TERMINER :\n");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         for (int i = 0; i < locationsEnCours.size(); i++) {
             System.out.println("Location n°"+i+" démarrée le "+locationsEnCours.get(i).getDepart().format(formatter)+" avec le vélo n°"+locationsEnCours.get(i).getVelo().getNumero());
         }
         System.out.println("\n==========================");
-        System.out.println("Entrez 0 pour quitter");
-        int selection = ReadingConsole.readInt(0,locationsEnCours.size());
-        if (selection == 0) this.stop();
+        System.out.println("Entrez -1 pour quitter");
+        int selection = ReadingConsole.readInt(-1,locationsEnCours.size()-1);
+        if (selection == -1) {
+            this.stop();
+            return;
+        }
         this.clean();
         locationAbonne = locationsEnCours.get(selection);
         System.out.println("=================");
@@ -65,11 +63,13 @@ public class ReturnAboView extends ReturnComonContext{
         switch (choice) {
             case 1 -> displayPaiement();
             case 2 -> {
-                locationAbonne.getVelo().setEtat(Etat.HS);   // On passe l'état du vélo à HS
+                retraitControler.changeBikeState(locationAbonne, Etat.HS);
                 if (retraitControler.isUnderFiveMinutes(locationAbonne)) {
                     displayAnnulationEmprunt();
+                    return;
+                }else {
+                    displayPaiement();
                 }
-                displayPaiement();
             }
             case 3 -> this.stop();
         }
@@ -77,12 +77,12 @@ public class ReturnAboView extends ReturnComonContext{
     }
 
     private void displayPaiement() {
+        Double prix = retraitControler.clotureLocationAbonne(bornette, locationAbonne);
         this.clean();
         System.out.println("========================");
         System.out.println("PAIEMENT DE LA LOCATION");
         System.out.println("========================");
         System.out.println("VéPick vous remercie de votre Location");
-        Double prix = retraitControler.clotureLocationAbonne(bornette, locationAbonne);
         System.out.println("Vous avez été prélevé de " + prix + " euros");
         System.out.println("Toute l'équipe vous souhaite une bonne fin de journée");
         System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°" + this.bornette.getNumero());
@@ -102,7 +102,7 @@ public class ReturnAboView extends ReturnComonContext{
         System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°"+this.bornette.getNumero());
         System.out.println("========================");
         ReadingConsole.readLine();
-        retraitControler.clotureLocationHSUnderFiveMinutes(bornette,locationAbonne); //dépose le vélo sur une bornette et complète location sans calcul prix
+        retraitControler.clotureLocationHSUnderFiveMinutesAbo(bornette,locationAbonne); //dépose le vélo sur une bornette et complète location sans calcul prix
         //On stop cette vue
         this.stop();
     }

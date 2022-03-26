@@ -53,7 +53,7 @@ public interface RetraitControler extends Controler{
      * @param bornette la bornette qui attend le vélo
      * @param loc la location à cloturer
      */
-    void clotureLocationHSUnderFiveMinutes(Bornette bornette, Location loc);
-
+    void clotureLocationHSUnderFiveMinutesNonAbo(Bornette bornette, Location loc);
+    void clotureLocationHSUnderFiveMinutesAbo(Bornette bornette, Location loc);
     void changeBikeState(Location location, Etat state);
 }

@@ -66,7 +66,7 @@ public class BornetteRepositoryImpl extends BaseRepositoryImpl implements Bornet
     @Override
     public Set<Bornette> getBornettesStationWithoutBike(Station s, Etat e) {
         return Set.copyOf(
-                entityManager.createQuery("SELECT b FROM Bornette b LEFT JOIN b.velo WHERE b.pk.station.adresse = :station AND  b.etat = :etat ")
+                entityManager.createQuery("SELECT b FROM Bornette b WHERE b.pk.station.adresse = :station AND  b.etat = :etat AND b.velo is null")
                         .setParameter("station", s.getAdresse())
                         .setParameter("etat", e)
                         .getResultList()

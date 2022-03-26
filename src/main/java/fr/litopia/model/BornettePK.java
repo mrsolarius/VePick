@@ -15,10 +15,10 @@ public class BornettePK implements Serializable {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "station_adresse", nullable = false)
-    private Station station;
+    public Station station;
 
     @Column(name = "numero", nullable = false, updatable = false)
-    private Long numero;
+    public Long numero;
 
     public Station getStation() {
         return this.station;
@@ -26,9 +26,6 @@ public class BornettePK implements Serializable {
 
     public void setStation(Station station) {
         this.station = station;
-        if(this.numero == null) {
-
-        }
     }
 
     public void autoGenerateNumero(EntityManager entityManager) {
