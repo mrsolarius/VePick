@@ -19,7 +19,12 @@ public class LocationAbonne extends Location {
     }
 
     public void setAbonne(Abonne abonne) {
-        this.abonne = abonne;
+        if(this.abonne==null && abonne==null) return;
+
+        if (this.abonne == null) {
+            this.abonne = abonne;
+            abonne.addLocationAbonne(this);
+        }
     }
 
     @Override

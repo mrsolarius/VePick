@@ -18,8 +18,23 @@ public class Station {
     @Column(name = "v_status", length = 6,nullable = false)
     private VStatus vStatus;
     @OneToMany(mappedBy = "pk.station", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    //@Todo ATTENTION ICI IL ET POSSIBLE DE NE PAS AVOIR DE BORNETTE ASSOCIER OR LA SPEC EN DEMANDE AU MOINS 2 PAR STATIONS A GERER PLUS TARD !!!
     private Set<Bornette> bornettes = new LinkedHashSet<>();
+
+    public Station() {}
+
+    public Station(String adresse){
+
+        this.vStatus = VStatus.VNUL;
+    }
+
+    public Station (String adresse, VStatus vStatus){
+        this.vStatus = vStatus;
+    }
+
+    private void setAdresse(String adresse){
+        if(adresse.length()>255) throw new IllegalArgumentException("Adresse trop longue");
+        this.adresse = adresse;
+    }
 
     public Set<Bornette> getBornettes() {
         return bornettes;
@@ -39,10 +54,6 @@ public class Station {
 
     public String getAdresse() {
         return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
     }
 
     @Override

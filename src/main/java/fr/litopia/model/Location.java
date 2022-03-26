@@ -66,7 +66,7 @@ public class Location {
     }
 
     public Boolean isUnderFiveMinutes(){
-        return toIntExact(ChronoUnit.MINUTES.between(depart,LocalDateTime.now()))<5
+        return toIntExact(ChronoUnit.MINUTES.between(depart,LocalDateTime.now()))<5;
     }
 
     public void clotureLocationHSUnderFiveMinutes(Bornette bornette){

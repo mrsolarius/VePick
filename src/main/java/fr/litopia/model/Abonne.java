@@ -48,6 +48,15 @@ public class Abonne {
     private Boolean renouvAuto;
 
 
+    /**
+     * Constructeur de la classe Abonne
+     * @param login login de l'abonne
+     * @param mdp mot de passe de l'abonne
+     * @param nom nom de l'abonne
+     * @param prenom prenom de l'abonne
+     * @param adresse adresse de l'abonne
+     * @param cb carte bancaire de l'abonne
+     */
     public Abonne(String login, String mdp, String nom, String prenom, String adresse, String cb) {
         this();
         this.setLogin(login);
@@ -78,8 +87,8 @@ public class Abonne {
     }
 
     public void addLocationAbonne(LocationAbonne locationAbonne) {
+        if (locationAbonne.getAbonne()!=this) locationAbonne.setAbonne(this);
         this.locationAbonnes.add(locationAbonne);
-        locationAbonne.setAbonne(this);
     }
 
     public String getCb() {
