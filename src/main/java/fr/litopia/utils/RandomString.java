@@ -1,3 +1,9 @@
+/**
+ * Solution trouver sur stackoverflow
+ * @author Erickson
+ * @see https://stackoverflow.com/a/41156/12806467
+ */
+
 package fr.litopia.utils;
 
 import java.security.SecureRandom;
