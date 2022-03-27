@@ -79,8 +79,10 @@ n'existe pas avant ni après la location non abonné. Tous les attributs d'un cl
 suffisament de temps en amont pour partir directement sur une piste qui nous satisfaisait.
 
 ## Modification apportées au schéma conceptuel et relationnel
-=> manière utilisée pour valider le schéma conceptuel
-
+Durent la phase de réalisation nous somme réster fidèle au modèle conceptuel de notre projet. Nous avons cependant eu beaucoup
+de conception java à réaliser. Nous avons passez la deuxième semaine à trouver notre structure MVCR ainci que à crée
+la structure de nos view avec leur cycle de vie etc. 
+@todo continuer le paragraph
 
 ## Scénario de test
 
