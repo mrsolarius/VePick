@@ -1,17 +1,17 @@
 package fr.litopia.controler;
 
 import fr.litopia.controler.api.AbonneControler;
-import fr.litopia.controler.api.EmprunControler;
+import fr.litopia.controler.api.EmpruntControler;
 import fr.litopia.controler.api.RetourControler;
 import fr.litopia.controler.api.StationsControler;
 import fr.litopia.controler.impl.AbonneControlerImpl;
-import fr.litopia.controler.impl.EmprunControlerImpl;
+import fr.litopia.controler.impl.EmpruntControlerImpl;
 import fr.litopia.controler.impl.RetourControlerImpl;
 import fr.litopia.controler.impl.StationsControlerImpl;
 
 public class ControlerFactory {
-    public static EmprunControler getEmprunControler(){
-        return new EmprunControlerImpl();
+    public static EmpruntControler getEmprunControler(){
+        return new EmpruntControlerImpl();
     }
 
     public static AbonneControler getAbonneControler(){

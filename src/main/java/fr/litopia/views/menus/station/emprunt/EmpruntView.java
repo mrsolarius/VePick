@@ -1,7 +1,7 @@
 package fr.litopia.views.menus.station.emprunt;
 
 import fr.litopia.controler.ControlerFactory;
-import fr.litopia.controler.api.EmprunControler;
+import fr.litopia.controler.api.EmpruntControler;
 import fr.litopia.model.Bornette;
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class EmpruntView extends ViewImpl {
     private Station station;
     private EmpruntNonAboView empruntNonAboView;
-    private EmprunControler emprunControler;
+    private EmpruntControler empruntControler;
     private EmpruntAboView empruntAboView;
 
     /**
@@ -38,18 +38,18 @@ public class EmpruntView extends ViewImpl {
 
     @Override
     protected void init() {
-        emprunControler = ControlerFactory.getEmprunControler();
+        empruntControler = ControlerFactory.getEmprunControler();
         empruntNonAboView = new EmpruntNonAboView(this);
         empruntAboView = new EmpruntAboView(this);
     }
 
     @Override
     protected void display() {
-        Bornette bornette = emprunControler.peutEmprunter(this.station);
+        Bornette bornette = empruntControler.peutEmprunter(this.station);
         if(bornette != null) {
             HashMap<String, Object> context = new HashMap<>();
             context.put("bornette", bornette);
-            context.put("emprunControler",emprunControler);
+            context.put("emprunControler", empruntControler);
             ViewContext viewContext = new ViewContextImpl(this.name,context);
             empruntNonAboView.setContext(viewContext);
             empruntAboView.setContext(viewContext);

@@ -2,7 +2,7 @@ package fr.litopia.controler.api;
 
 import fr.litopia.model.*;
 
-public interface EmprunControler extends Controler{
+public interface EmpruntControler extends Controler{
     /**
      * Permet de savoir si l'emprunt est possible
      * Dans la station passer en parametre

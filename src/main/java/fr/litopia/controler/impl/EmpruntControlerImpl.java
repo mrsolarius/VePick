@@ -1,6 +1,6 @@
 package fr.litopia.controler.impl;
 
-import fr.litopia.controler.api.EmprunControler;
+import fr.litopia.controler.api.EmpruntControler;
 import fr.litopia.model.*;
 import fr.litopia.model.enums.Etat;
 import fr.litopia.repository.RepositoryFactory;
@@ -10,7 +10,7 @@ import fr.litopia.repository.api.LocationNonAbonneRepository;
 
 import java.util.Set;
 
-public class EmprunControlerImpl extends ControlerImpl implements EmprunControler {
+public class EmpruntControlerImpl extends ControlerImpl implements EmpruntControler {
 
     private BornetteRepository bornette;
     private LocationNonAbonneRepository locationNonAbonneRepository;

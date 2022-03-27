@@ -34,7 +34,7 @@ public class EmpruntAboView extends EmpruntComonContext {
         System.out.println("Vous êtes connecté en tant que " + abo.getLogin());
         System.out.println("Appuyez sur entrée pour louer un vélo");
         ReadingConsole.readLine();
-        LocationAbonne loc = this.emprunControler.emprunterVeloAbonne(this.bornette, abo);
+        LocationAbonne loc = this.empruntControler.emprunterVeloAbonne(this.bornette, abo);
         this.clean();
         System.out.println("=================");
         System.out.println("EMPRUNTER UN VÉLO");
@@ -43,7 +43,7 @@ public class EmpruntAboView extends EmpruntComonContext {
         System.out.println("Appuyez sur entrée pour prendre le vélo n°" + this.bornette.getVelo().getNumero() + " à la bornette n°"+this.bornette.getNumero());
         System.out.println("==================");
         ReadingConsole.readLine();
-        this.emprunControler.prendreVelo(this.bornette);
+        this.empruntControler.prendreVelo(this.bornette);
         this.stop().stop();
     }
 
