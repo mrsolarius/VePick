@@ -65,8 +65,8 @@ public class EmpruntView extends ViewImpl {
         System.out.println("=================");
         System.out.println("EMPRUNTER UN VÉLO");
         System.out.println("==================");
-        System.out.println("1. Vous êtes abonné ?");
-        System.out.println("2. Vous n'êtes pas abonné ?");
+        System.out.println("1. Vous êtes abonné(e) ?");
+        System.out.println("2. Vous n'êtes pas abonné(e) ?");
         System.out.println("3. Retour");
         System.out.println("Votre choix : ");
         Integer choice = ReadingConsole.readInt(1,3);
