@@ -20,14 +20,27 @@ public class BornettePK implements Serializable {
     @Column(name = "numero", nullable = false, updatable = false)
     public Long numero;
 
+    /**
+     * Recupere la station de la bornette
+     * @return la station de la bornette
+     */
     public Station getStation() {
         return this.station;
     }
 
+    /**
+     * Permet de definir la station de la bornette
+     * @param station la station de la bornette
+     */
     public void setStation(Station station) {
         this.station = station;
     }
 
+    /**
+     * Fonction permettant d'auto générer le numéro de bornette relativement à la station
+     * @param entityManager l'entity manager pour executer la requete
+     *                      (pour récupérer le dernier id de la bornettes de la station)
+     */
     public void autoGenerateNumero(EntityManager entityManager) {
         if(idList.containsKey(station)) {
             RepositoryFactory repositoryFactory = new RepositoryFactory();
@@ -44,6 +57,10 @@ public class BornettePK implements Serializable {
         this.numero = idList.get(station);
     }
 
+    /**
+     * Fonction permettant de récupérer le numéro de bornette
+     * @return le numéro de bornette
+     */
     public Long getNumero() {
         return this.numero;
     }
