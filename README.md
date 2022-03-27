@@ -17,8 +17,9 @@ Lancer le fichier `db.sh` pour démarer la base de donnée sur un docker puis le
 ## Documentation
 Toute la documentation de l'application se trouve [ici](doc)\
 Elle contiens : 
+- [Rapport](doc/rapportfinal.md)
 - [Glossaire](doc/glossaire.md)
 - [Fichier d'hypothèse](doc/hypothèse.md)
 - [Diagrame conceptuel](doc/model.svg)
-- [Mapping JPA](doc/JPA-HBM-Mapping.png)
-- [Schemas relationelle](doc/BDD-VPICK-SchemasRelationelle.png) 
+- [Mapping JPA](doc/JPA-HBM-Mapping.svg)
+- [Schemas relationelle](doc/BDD-VPICK-SchemasRelationelle.svg) 
