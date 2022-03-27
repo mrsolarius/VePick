@@ -46,4 +46,4 @@ On suppose ici qu'un **[abonnement](glossaire.md#abonnement)** de un an est auto
 
 ## [H10] Hypothèse 10
 Cf. *[A16] [A20]*\
-On estime ici que la taille maximal autorisé pour un **[mot de passe](glossaire.md#mot-de-passe)** ou un **[code](glossaire.md#code)** est de 20 caractères.
+On estime ici que la taille maximale autorisée pour un **[mot de passe](glossaire.md#mot-de-passe)** ou un **[code](glossaire.md#code)** est de 20 caractères.

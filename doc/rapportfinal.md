@@ -24,7 +24,7 @@ avons développé notre interface homme-machine directement en console.
 ## Déroulement du projet
 Pour réaliser ce projet, nous sommes passés par plusieurs phases de développement. 
 
-Nous avons débuté ce projet par une phase de comprehension du besoin du client (Vépick).
+Nous avons débuté ce projet par une phase de compréhension du besoin du client (Vépick).
 Au cours de cette phase, nous avons mis en place un glossaire permettant de bien définir les termes présentés par
 le client. Cette phase, nous a pris environ 4 heures.
 
@@ -39,7 +39,7 @@ nous avons généré notre modèle de données. Cette phase nous a pris environ 
 
 Nous avons ensuite débuté la phase de développement. Nous avons commencé par nous répartir différentes
 tâches (sous la forme de vues qui permettaient des actions précises) et à développer celles-ci. Cependant, au terme d'une
-semaine de développement, nous nous sommes rendu compte qu'une partie non négligeable du code était redondante (les mêmes
+semaine de développement, nous nous sommes rendu compte qu'une partie non-négligeable du code était redondante (les mêmes
 fonctionnalités avaient été implémentées plusieurs fois dans plusieurs classes différentes). En conséquence, nous avons dû
 réorganiser notre développement. Cette réorganisation a pris la forme d'une nouvelle phase de conception plus théorique.
 
@@ -61,7 +61,7 @@ Nous avons réalisé les fonctionnalités suivantes :
 1. Emprunt de vélos Cf. _[B1], [B2]_ \
    Dans notre interface, nous demandons à l'usager de sélectionner une station, puis, une fois sur la station, il se retrouve
    face à une vue lui proposant d'emprunter un vélo. Il peut alors indiquer s'il est abonné ou non et ainsi
-   récupérer un vélo à une bornette. Ici tous les types de cas d'erreurs possibles sont gérées.
+   récupérer un vélo à une bornette. Ici, tous les types de cas d'erreurs possibles sont gérés.
 2. Rendu d'un vélo  Cf. _[B3], [B4], [B5], [B6]_ \
    Dans notre interface, nous demandons à l'usager de sélectionner une station, puis, une fois sur la station, il se retrouve
    face à une vue lui proposant de rendre un vélo. Il peut alors indiquer s'il est abonné ou non.
@@ -70,7 +70,7 @@ Nous avons réalisé les fonctionnalités suivantes :
 -la location a démarré il y a 5 minutes ou plus : le client paye normalement.
 Dans les deux cas, le vélo est enregistré comme HS.
 3. L'abonnement au service Cf. _[B7] \
-   Ici notre interface propose à l'utilisateur de s'abonner au service, et, grâce à l'interface textuelle, il peut remplir
+   Ici, notre interface propose à l'utilisateur de s'abonner au service, et, grâce à l'interface textuelle, il peut remplir
    ses informations sans aucun souci.
 
 Nous avons donc réalisé les fonctionnalités obligatoires de l'application.
@@ -101,10 +101,10 @@ Les @ de JPA sont donc restés les mêmes. Voici donc ce à quoi ressemble le mo
 
 Comme indiqué dans le rapport précédent, nous avons mis en place quelques subtilités par rapport 
 au modèle conceptuel pour implémenter notre modèle JPA, tel qu'une identification relative entre la station et la 
-bornette, ce qui est justifié par le fait que, pour nous, le lien entre une station et une bornette est fort, et la suppression
+bornette, ce qui est justifié par le fait que, pour nous, le lien entre une station et une bornette est fort, et que la suppression
 d'une station doit obligatoirement impliquer la suppression de toutes les bornettes associées. 
 
-Cet identifiant et ici représenté par une classe embarquée (BornettePK).Cette classe a pour rôle de faire la relation
+Cet identifiant est ici représenté par une classe embarquée (BornettePK). Cette classe a pour rôle de faire la relation
 entre la station et la bornette dans une unique clé primaire.
 
 Nous avons aussi décidé d'implémenter l'héritage via la stratégie de JPA SINGLE_TABLE qui s'occupera de généraliser 
@@ -112,31 +112,31 @@ nos deux classes et notre classe abstraite en une seule table avec un critère d
 prendre la valeur LocationNonAbonné ou LocationAbonné.
 
 ### Schéma relationnel
-Une fois le mapping JPA fait nous avons généré la base de données afin d'observer le schéma généré et verifier
+Une fois le mapping JPA fait, nous avons généré la base de données afin d'observer le schéma généré et vérifier
 qu'il soit bien fondé. Voici donc ci-dessous le schéma relationnel complet de notre base de données.
 ![](./BDD-VPICK-SchemasRelationelle.svg)
 
-Ici le schéma représente bien notre identifiant relatif avec la table lesBornettes qui a station_adresse comme clé primaire 
+Ici, le schéma représente bien notre identifiant relatif avec la table lesBornettes qui a station_adresse comme clé primaire 
 et clé étrangère à la fois.
 
-Notre table de lesLocation est, elle aussi bien présentée avec notre méthode d'héritage par généralisation. En effet 
-tous les champs de LocationAbonné, LocationNonAbonnée et Locations sont présente. Le discriminant DTYPE peut ici prendre 
+Notre table lesLocation est, elle aussi, bien présentée avec notre méthode d'héritage par généralisation. En effet, 
+tous les champs de LocationAbonné, LocationNonAbonnée et Locations sont présents. Le discriminant DTYPE peut ici prendre 
 deux valeurs différentes en fonction de s'il s'agit d'une LocationAbonné ou s'il s'agit d'une LocationNonAbonné.
 
-### Implementation JAVA
+### Implémentation JAVA
 
-#### Modele JAVA
-Nous avons également beaucoup travaillé sur l'implémentation du modèle java en réalisant des getter,setter et add aux endroits où cela était nécessaire.
-Aussi nous avons beaucoup réfléchi à la bonne manière de conserver notre double associativité. Et nous avons tenté 
-de placer le plus de méthodes métier spécifiques directement dans le modèle.
+#### Modèle JAVA
+Nous avons également beaucoup travaillé sur l'implémentation du modèle Java en réalisant des getters, setters et add aux endroits où cela était nécessaire.
+Aussi, nous avons beaucoup réfléchi à la bonne manière de conserver notre double associativité. Nous avons fait tout notre possible 
+pour placer le plus de méthodes métiers spécifiques directement dans le modèle.
 
-Il a été nécessaire de mettre en place nous-même l'auto-génération des clés primaire pour la clés composites de
-BornettePK qui parts de 0 pour chaque nouvelle station.
+Il a été nécessaire de mettre en place nous-même l'auto-génération des clés primaires pour la clé composite de
+BornettePK, qui part de 0 pour chaque nouvelle station.
 
-Le calcule du prix de la location à était géré par une méthode abstraite réimplementée pour chaque type de location
-et appelée à la cloture de la location. 
+Le calcul du prix de la location a été géré par une méthode abstraite réimplementé pour chaque type de location
+et appelée à la clôture de la location. 
 
-Certaines doubles associations ne sont pas modifible une fois crée. C'est par exemple le cas de l'association entre "location"
+Certaines doubles associations ne sont pas modifiables une fois créées. C'est par exemple le cas de l'association entre "location"
 et "vélo" ou encore celle entre "location abonné" et "abonné."
 
 Voici donc le diagramme de classe du modèle de notre applicatif.
@@ -146,17 +146,17 @@ Voici donc le diagramme de classe du modèle de notre applicatif.
 #### Structure global de l'application
 
 Pour réaliser cette application, nous avons pris le parti d'organiser ce projet en MVCR (Modèle Vue Controler Répository).
-Ce schema de conception s'implémente chez nous de façon assez particulière car la vue n'a pas le droit de modifier le modèle. Pour toute action
-du modèle, il est obligatoire d'utiliser les controleurs. 
+Ce schéma de conception s'implémente chez nous de façon assez particulière, car la vue n'a pas le droit de modifier le modèle.
+Pour toute action du modèle, il est obligatoire d'utiliser les contrôleurs. 
 
-Cela nous a permis de plus facilement nous répartir le travail en proposant aux personnes implémentants la vue de les 
-créer en utilisant des méthodes de controleur non implémenté à ce moment-là. 
+Cela nous a permis de plus facilement nous répartir le travail en proposant aux personnes implémentant la vue de les 
+créer en utilisant des méthodes de contrôleur non implémenté à ce moment-là. 
 
-Ainsi, notre développement s'est dirigé vers la vue. En effet se sont les personnes chargées de la création des vues qui dictaient
-ce qu'elles s'attendaient à envoyer et à recevoir via des interfaces de controleurs implémenter plus tard. 
+Ainsi, notre développement s'est dirigé vers la vue. En effet, ce sont les personnes chargées de la création des vues qui dictaient
+ce qu'elles s'attendaient à envoyer et à recevoir via des interfaces de contrôleurs implémentés plus tard. 
 
-Enfin les controleurs ne sont pas autorisés à accéder directement à la BDD en effet leurs seules actions possibles et de 
-préparer les transactions, utiliser les repository et le commit. De cette manière notre travail est une fois de plus 
+Enfin, les contrôleurs ne sont pas autorisés à accéder directement à la BDD en effet leurs seules actions possibles et de 
+préparer les transactions, utiliser les repository et le commit. De cette manière, notre travail est une fois de plus 
 réparti et nous permet d'implémenter plusieurs fonctionnalités simultanément.
 
 ```mermaid
@@ -481,7 +481,7 @@ On suppose ici qu'un **[abonnement](glossaire.md#abonnement)** de un an est auto
 
 ### [H10] Hypothèse 10
 Cf. *[A16] [A20]*\
-On estime ici que la taille maximal autorisé pour un **[mot de passe](glossaire.md#mot-de-passe)** ou un **[code](glossaire.md#code)** est de 20 caractères.
+On estime ici que la taille maximale autorisée pour un **[mot de passe](glossaire.md#mot-de-passe)** ou un **[code](glossaire.md#code)** est de 20 caractères.
 
 ## Annexe 3: Mapping JPA
 ![](./JPA-HBM-Mapping.svg)
