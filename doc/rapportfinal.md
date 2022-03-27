@@ -44,9 +44,9 @@ Nous sommes ensuite entrés dans une phase d'implémentation de notre modèle co
 que nous avons mappé nos classes avec JPA. Une fois cette phase effectuée, nous avons pu réaliser un schéma de mapping JPA puis
 nous avons généré notre modèle de données. Cette phase nous a pris environ 2 heures.
 
-Nous avons ensuite commencé la phase de développement. Nous avons commencé par nous répartir différentes
+Nous avons ensuite débuté la phase de développement. Nous avons commencé par nous répartir différentes
 tâches (sous la forme de vues qui permettaient des actions précises) et à développer celles-ci. Cependant, au terme d'une
-semaine de développement, nous nous sommes rendu compte qu'une partie non négligeable du code était redondant (les mêmes
+semaine de développement, nous nous sommes rendu compte qu'une partie non négligeable du code était redondante (les mêmes
 fonctionnalités avaient été implémentées plusieurs fois dans plusieurs classes différentes). En conséquence, nous avons dû
 réorganiser notre développement. Cette réorganisation a pris la forme d'une nouvelle phase de conception plus théorique.
 
@@ -61,24 +61,24 @@ nous accorder sur la conceptualisation de notre modèle de données.
 à une ou deux personnes maximum. Pour correctement répartir les tâches et éviter les conflits, nous avons utilisé
 les interfaces java afin de répartir le travail entre ceux qui utilisent et spécifient les interfaces et ceux qui les
 implémentent. De cette façon, nous avons pu nous répartir le travail entre la mise en place de la vue, celle
-des repository et celle des contrôleurs.
+des repositories et celle des contrôleurs.
 
 ## Fonctionalités réalisées
 Nous avons réalisé les fonctionnalités suivantes :
 1. Emprunt de vélos Cf. _[B1], [B2]_ \
-   Dans notre interface nous demmandons à l'usager de séléctionner une station puis une fois sur la station il se retrouve
-   face à une vue de station lui proposant d'emprunter un vélo. Il peut alors indiquer si il et abonnée ou non et ainci
-   récupérer un vélo à une bornette. Ici tous les type de cas d'erreur possible sont gérer
+   Dans notre interface, nous demandons à l'usager de sélectionner une station, puis, une fois sur la station, il se retrouve
+   face à une vue lui proposant d'emprunter un vélo. Il peut alors indiquer s'il est abonné ou non et ainsi
+   récupérer un vélo à une bornette. Ici tous les types de cas d'erreurs possibles sont gérées.
 2. Rendu d'un vélo  Cf. _[B3], [B4], [B5], [B6]_ \
-   Dans notre interface, nous demandons à l'usager de sélectionner une station puis une fois sur la station il se retrouve
-   face à une vue de station lui proposant de rendre un vélo. Il peut alors indiquer s'il est abonné ou non.
-   une fois indiqué, le système demande à l'utilisateur l'état du vélo. S'il est HS, deux cas se présentent :
--la location a démarré il y a moins de 5 minutes : le client n'est pas débité la location est annulée.
--la location a démarré il y a plus de 5 minutes : le client paye normalement.
+   Dans notre interface, nous demandons à l'usager de sélectionner une station, puis, une fois sur la station, il se retrouve
+   face à une vue lui proposant de rendre un vélo. Il peut alors indiquer s'il est abonné ou non.
+   Une fois l'information transmise, le système demande à l'utilisateur l'état du vélo. S'il est HS, deux cas se présentent :
+-la location a démarré il y a moins de 5 minutes : le client n'est pas débité, la location est annulée.
+-la location a démarré il y a 5 minutes ou plus : le client paye normalement.
 Dans les deux cas, le vélo est enregistré comme HS.
 3. L'abonnement au service Cf. _[B7] \
-   Ici notre interface propose à l'utilisateur de s'abonner au service et grâce à l'interface textuelle, il peut simplement
-   le faire sans aucun souci.
+   Ici notre interface propose à l'utilisateur de s'abonner au service, et, grâce à l'interface textuelle, il peut remplir
+   ses informations sans aucun souci.
 
 Nous avons donc réalisé les fonctionnalités obligatoires de l'application.
 
@@ -87,21 +87,48 @@ L'un des points névralgiques de nos discussions était sur la représentation d
 initialement pensé à une classe associative "Location" entre la classe "Client" et la classe "Vélo". Les classes "Abonne" et "NonAbonne"
 héritant toutes les deux de "Client" et les classes "LocationAbonne" et "LocationNonAbonne" héritant de "Location". Cela semblait être la
 modélisation "naïve" en lisant l'énoncé du projet. Ce choix n'avait finalement pas beaucoup de sens dans la mesure où un client non abonné
-n'existe pas avant ni après la location non abonné. Tous les attributs d'un client non abonné peuvent donc être stokés dans la classe
+n'existe pas avant ni après la location non abonné. Tous les attributs d'un client non abonné peuvent donc être stockés dans la classe
 "LocationNonAbonne" et le système ne va pas conserver de trace de clients anonymes.
 
 En outre, nous n'avons pas apporté de modification supplémentaire au modèle conceptuel depuis le rapport intermédiaire.
-Nous avions passé suffisamment de temps en amont pour partir directement sur une piste qui nous satisfaisait. 
-e fait de ne pas avoir eu besoin de toucher à notre modèle conceptuel est un point positif. Car cela implique que notre
-conception été suffisamment réfléchie pour nous permettre de réaliser tous les scenarios obligatoires du projet.
+Nous avions passé suffisamment de temps en amont pour partir directement sur une piste satisfaisante pour tout le monde. 
+Le fait de ne pas avoir eu besoin de toucher à notre modèle conceptuel est un point positif. Cela implique que notre
+conception été suffisamment réfléchie pour nous permettre de réaliser tous les scénarios obligatoires du projet.
 
 ### Modèle conceptuel de données
-Voici donc notre modèle conceptuelle de donnée :
+Voici donc notre modèle conceptuel de données :
 À noter que chaque [XX] fait référence à une phrase du texte ou à une de nos hypothèses en annexes.
 ![](./model.svg)
 
 
-### Implementation JPA
+### Implémentation JPA
+Notre implémentation JPA n'a pas beaucoup évolué depuis la dernière fois, nous avons laissé le même mapping de classe.
+Les @ de JPA sont donc restés les mêmes. Voici donc ce à quoi ressemble le modèle JPA : 
+![](./JPA-HBM-Mapping.svg)
+
+Comme indiqué dans le rapport précédent, nous avons mis en place quelques subtilités par rapport 
+au modèle conceptuel pour implémenter notre modèle JPA, tel qu'une identification relative entre la station et la 
+bornette, ce qui est justifié par le fait que, pour nous, le lien entre une station et une bornette est fort, et la suppression
+d'une station doit obligatoirement impliquer la suppression de toutes les bornettes associées. 
+
+Cet identifiant et ici représenté par une classe embarquée (BornettePK).Cette classe a pour rôle de faire la relation
+entre la station et la bornette dans une unique clé primaire.
+
+Nous avons aussi décidé d'implémenter l'héritage via la stratégie de JPA SINGLE_TABLE qui s'occupera de généraliser 
+nos deux classes et notre classe abstraite en une seule table avec un critère discriminant le DTYPE qui pourra à souhait
+prendre la valeur LocationNonAbonné ou LocationAbonné.
+
+### Schéma relationnel
+Une fois le mapping JPA fait nous avons généré la base de données afin d'observer le schéma généré et verifier
+qu'il soit bien fondé. Voici donc ci-dessous le schéma relationnel complet de notre base de données.
+![](./BDD-VPICK-SchemasRelationelle.svg)
+
+Ici le schéma représente bien notre identifiant relatif avec la table lesBornettes qui a station_adresse comme clé primaire 
+et clé étrangère à la fois.
+
+Notre table de lesLocation est, elle aussi bien présentée avec notre méthode d'héritage par généralisation. En effet 
+tous les champs de LocationAbonné, LocationNonAbonnée et Locations sont présente. Le discriminant DTYPE peut ici prendre 
+deux valeurs différentes en fonction de s'il s'agit d'une LocationAbonné ou s'il s'agit d'une LocationNonAbonné.
 
 ### Implementation JAVA
 
@@ -277,7 +304,7 @@ bon fonctionnement des tests les uns avec les autres.
 
 ## Conclusion
 
-    La partie obligatoire du cahier des charges a été respectée. L'implémentation des fonctionnalités optionnelles nous
+La partie obligatoire du cahier des charges a été respectée. L'implémentation des fonctionnalités optionnelles nous
 aurait probablement pris une semaine de cours supplémentaire. Nous estimons qu'il nous faudrait environ huit heures de
 plus. En ce qui concerne les jeux de test, bien qu'ils couvrent tous les cas basiques de l'utilisation du projet, ils
 mériteraient probablement également quelques ajouts. Globalement ce projet nous aura permis de mobiliser des compétences
