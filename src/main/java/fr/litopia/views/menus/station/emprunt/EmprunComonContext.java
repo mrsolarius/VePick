@@ -1,4 +1,4 @@
-package fr.litopia.views.menus.station.emprun;
+package fr.litopia.views.menus.station.emprunt;
 
 import fr.litopia.controler.api.EmprunControler;
 import fr.litopia.model.Bornette;
