@@ -48,4 +48,9 @@ public class LocationNonAbonne extends Location {
         if (cb.length()!=16)throw new IllegalArgumentException("La CB doit faire exactement 16 caractères");
         this.cb = cb;
     }
+
+    @Override
+    public double calculerPrix() {
+        return getTemps() * (getVelo().getModele().getPrixHoraire() / 60);
+    }
 }

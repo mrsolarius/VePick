@@ -8,7 +8,7 @@ import static java.lang.Math.toIntExact;
 @Entity
 @Table(name = "LesLocations")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Location {
+public abstract class Location {
     @Id
     @Column(name = "id", nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -61,9 +61,11 @@ public class Location {
     public void cloreLocation(Bornette bornette) {
         velo.setBornette(bornette);
         temps=toIntExact(ChronoUnit.MINUTES.between(depart,LocalDateTime.now()));
-        prix= (double) Math.round(temps * (velo.getModele().getPrixHoraire() / 60));
-        this.getPrix();
+        System.out.println("prix : "+calculerPrix());
+        prix=calculerPrix();
     }
+
+    abstract public double calculerPrix();
 
     public Boolean isUnderFiveMinutes(){
         return toIntExact(ChronoUnit.MINUTES.between(depart,LocalDateTime.now()))<5;

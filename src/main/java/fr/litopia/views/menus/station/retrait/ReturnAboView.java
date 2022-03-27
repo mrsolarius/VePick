@@ -7,16 +7,15 @@ import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.struct.api.View;
 import fr.litopia.views.tinyView.LoginTinyView;
 
+import java.text.DecimalFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ReturnAboView extends ReturnComonContext{
-    private Abonne abonne;
     public ReturnAboView(View view) {
         super(view);
     }
 
-    private ArrayList<LocationAbonne> locationsEnCours;
     private LoginTinyView loginTinyView;
     private LocationAbonne locationAbonne;
 
@@ -30,23 +29,23 @@ public class ReturnAboView extends ReturnComonContext{
         System.out.println("=================");
         System.out.println("RENDRE UN VÉLO");
         System.out.println("==================");
-        abonne = loginTinyView.startAndGetValue();
+        Abonne abonne = loginTinyView.startAndGetValue();
         if(abonne == null){
             this.stop().stop();
             return;
         }
-        locationsEnCours = new ArrayList<>(retraitControler.getLocationsEnCours(abonne)) ;
+        ArrayList<LocationAbonne> locationsEnCours = new ArrayList<>(retraitControler.getLocationsEnCours(abonne));
 
         this.clean();
         System.out.println("=================");
         System.out.println("VEUILLEZ SELECTIONNER LES LOCATIONS QUE VOUS SOUHAITEZ TERMINER :\n");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         for (int i = 0; i < locationsEnCours.size(); i++) {
-            System.out.println("Location n°"+i+" démarrée le "+locationsEnCours.get(i).getDepart().format(formatter)+" avec le vélo n°"+locationsEnCours.get(i).getVelo().getNumero());
+            System.out.println("Location n°"+i+" démarrée le "+ locationsEnCours.get(i).getDepart().format(formatter)+" avec le vélo n°"+ locationsEnCours.get(i).getVelo().getNumero());
         }
         System.out.println("\n==========================");
         System.out.println("Entrez -1 pour quitter");
-        int selection = ReadingConsole.readInt(-1,locationsEnCours.size()-1);
+        int selection = ReadingConsole.readInt(-1, locationsEnCours.size()-1);
         if (selection == -1) {
             this.stop().stop();
             return;
@@ -78,12 +77,14 @@ public class ReturnAboView extends ReturnComonContext{
 
     private void displayPaiement() {
         Double prix = retraitControler.clotureLocationAbonne(bornette, locationAbonne);
+        DecimalFormat df = new DecimalFormat("#.###");
+        String prixString = df.format(prix);
         this.clean();
         System.out.println("========================");
         System.out.println("PAIEMENT DE LA LOCATION");
         System.out.println("========================");
         System.out.println("VéPick vous remercie de votre Location");
-        System.out.println("Vous avez été prélevé de " + prix + " euros");
+        System.out.println("Vous avez été prélevé de " + prixString + " euros");
         System.out.println("Toute l'équipe vous souhaite une bonne fin de journée");
         System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°" + this.bornette.getNumero());
         System.out.println("========================");

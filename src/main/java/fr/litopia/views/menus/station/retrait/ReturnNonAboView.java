@@ -6,6 +6,8 @@ import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.struct.api.View;
 import fr.litopia.views.tinyView.ReturnLocTinyView;
 
+import java.text.DecimalFormat;
+
 public class ReturnNonAboView extends ReturnComonContext{
     private LocationNonAbonne locationNonAbonne;
     private ReturnLocTinyView returnLocTinyView;
@@ -60,12 +62,15 @@ public class ReturnNonAboView extends ReturnComonContext{
 
     private void displayPaiement() {
         Double prix = retraitControler.clotureLocationNonAbonne(bornette,locationNonAbonne);
+        //formatage du prix à 3 chiffres après la virgule
+        DecimalFormat df = new DecimalFormat("#.###");
+        String prixString = df.format(prix);
         this.clean();
         System.out.println("========================");
         System.out.println("PAIEMENT DE LA LOCATION");
         System.out.println("========================");
         System.out.println("VéPick vous remercie de votre Location");
-        System.out.println("Vous avez été prélevé de "+prix+" euros");
+        System.out.println("Vous avez été prélevé de "+prixString+" euros");
         System.out.println("Toute l'équipe vous souhaite une bonne fin de journée");
         System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°"+this.bornette.getNumero());
         System.out.println("========================");
