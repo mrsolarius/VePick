@@ -3,7 +3,7 @@ package fr.litopia.views.menus.station;
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.menus.station.emprunt.EmpruntView;
-import fr.litopia.views.menus.station.retrait.ReturnView;
+import fr.litopia.views.menus.station.retour.ReturnView;
 import fr.litopia.views.struct.api.View;
 import fr.litopia.views.struct.api.ViewContext;
 import fr.litopia.views.struct.impl.ViewContextImpl;

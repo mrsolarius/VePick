@@ -1,4 +1,4 @@
-package fr.litopia.views.menus.station.retrait;
+package fr.litopia.views.menus.station.retour;
 
 import fr.litopia.controler.ControlerFactory;
 import fr.litopia.controler.api.RetraitControler;
