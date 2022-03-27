@@ -1,27 +1,28 @@
 package fr.litopia.views.menus.station.retour;
 
-import fr.litopia.model.Abonne;
-import fr.litopia.model.LocationAbonne;
+import fr.litopia.model.LocationNonAbonne;
 import fr.litopia.model.enums.Etat;
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.struct.api.View;
-import fr.litopia.views.tinyView.LoginTinyView;
+import fr.litopia.views.tinyView.ReturnLocTinyView;
 
 import java.text.DecimalFormat;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
-public class ReturnAboView extends ReturnComonContext{
-    public ReturnAboView(View view) {
+public class RetourNonAboView extends RetourComonContext {
+    private LocationNonAbonne locationNonAbonne;
+    private ReturnLocTinyView returnLocTinyView;
+
+    public LocationNonAbonne getLocationNonAbonne() {
+        return locationNonAbonne;
+    }
+
+    public RetourNonAboView(View view) {
         super(view);
     }
 
-    private LoginTinyView loginTinyView;
-    private LocationAbonne locationAbonne;
-
     @Override
     protected void init() {
-        loginTinyView = new LoginTinyView();
+        returnLocTinyView = new ReturnLocTinyView();
     }
 
     @Override
@@ -29,31 +30,15 @@ public class ReturnAboView extends ReturnComonContext{
         System.out.println("=================");
         System.out.println("RENDRE UN VÉLO");
         System.out.println("==================");
-        Abonne abonne = loginTinyView.startAndGetValue();
-        if(abonne == null){
-            this.stop().stop();
-            return;
-        }
-        ArrayList<LocationAbonne> locationsEnCours = new ArrayList<>(retraitControler.getLocationsEnCours(abonne));
-
-        this.clean();
-        System.out.println("=================");
-        System.out.println("VEUILLEZ SELECTIONNER LES LOCATIONS QUE VOUS SOUHAITEZ TERMINER :\n");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        for (int i = 0; i < locationsEnCours.size(); i++) {
-            System.out.println("Location n°"+i+" démarrée le "+ locationsEnCours.get(i).getDepart().format(formatter)+" avec le vélo n°"+ locationsEnCours.get(i).getVelo().getNumero());
-        }
-        System.out.println("\n==========================");
-        System.out.println("Entrez -1 pour quitter");
-        int selection = ReadingConsole.readInt(-1, locationsEnCours.size()-1);
-        if (selection == -1) {
+        locationNonAbonne = returnLocTinyView.startAndGetValue();
+        System.out.println("Vélo retourné "+locationNonAbonne);
+        if (locationNonAbonne==null){
             this.stop().stop();
             return;
         }
         this.clean();
-        locationAbonne = locationsEnCours.get(selection);
         System.out.println("=================");
-        System.out.println("VEUILLEZ RENSEIGNER L'ETAT DE VOTRE VÉLO :");
+        System.out.println("CODE CORRECT, VEUILLEZ RENSEIGNER L'ETAT DE VOTRE VÉLO :");
         System.out.println("==================");
         System.out.println("1. OK");
         System.out.println("2. HS");
@@ -63,12 +48,12 @@ public class ReturnAboView extends ReturnComonContext{
         switch (choice) {
             case 1 -> displayPaiement();
             case 2 -> {
-                retraitControler.changeBikeState(locationAbonne, Etat.HS);
-                if (retraitControler.isUnderFiveMinutes(locationAbonne)) {
+                retraitControler.changeBikeState(locationNonAbonne, Etat.HS);
+                if (retraitControler.isUnderFiveMinutes(locationNonAbonne)) {
                     displayAnnulationEmprunt();
-                }else {
-                    displayPaiement();
+                    return;
                 }
+                displayPaiement();
             }
             case 3 -> this.stop().stop();
         }
@@ -76,7 +61,8 @@ public class ReturnAboView extends ReturnComonContext{
     }
 
     private void displayPaiement() {
-        Double prix = retraitControler.clotureLocationAbonne(bornette, locationAbonne);
+        Double prix = retraitControler.clotureLocationNonAbonne(bornette,locationNonAbonne);
+        //formatage du prix à 3 chiffres après la virgule
         DecimalFormat df = new DecimalFormat("#.###");
         String prixString = df.format(prix);
         this.clean();
@@ -84,12 +70,12 @@ public class ReturnAboView extends ReturnComonContext{
         System.out.println("PAIEMENT DE LA LOCATION");
         System.out.println("========================");
         System.out.println("VéPick vous remercie de votre Location");
-        System.out.println("Vous avez été prélevé de " + prixString + " euros");
+        System.out.println("Vous avez été prélevé de "+prixString+" euros");
         System.out.println("Toute l'équipe vous souhaite une bonne fin de journée");
-        System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°" + this.bornette.getNumero());
+        System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°"+this.bornette.getNumero());
         System.out.println("========================");
         ReadingConsole.readLine();
-        //On stop cette vue
+        //On stop cette vue ainsi que la vue du dessus de retour vélo
         this.stop().stop();
     }
 
@@ -103,8 +89,8 @@ public class ReturnAboView extends ReturnComonContext{
         System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°"+this.bornette.getNumero());
         System.out.println("========================");
         ReadingConsole.readLine();
-        retraitControler.clotureLocationHSUnderFiveMinutesAbo(bornette,locationAbonne); //dépose le vélo sur une bornette et complète location sans calcul prix
-        //On stop cette vue
+        retraitControler.clotureLocationHSUnderFiveMinutesNonAbo(bornette,locationNonAbonne); //dépose le vélo sur une bornette et complète location sans calcul prix
+        //On stop cette vue ainsi que la vue du dessus de retour vélo
         this.stop().stop();
     }
 

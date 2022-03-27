@@ -12,17 +12,17 @@ import fr.litopia.views.struct.impl.ViewImpl;
 
 import java.util.HashMap;
 
-public class ReturnView extends ViewImpl {
+public class RetourView extends ViewImpl {
     private Station station;
     private Bornette bornette;
     private RetraitControler retraitControler;
-    private ReturnAboView returnAboView;
-    private ReturnNonAboView returnNonAboView;
+    private RetourAboView retourAboView;
+    private RetourNonAboView retourNonAboView;
 
     /**
      * @param parent la vue parente
      */
-    public ReturnView(View parent) {
+    public RetourView(View parent) {
         super(parent);
     }
 
@@ -30,7 +30,7 @@ public class ReturnView extends ViewImpl {
     protected void onContextSet() {
         this.station = (Station) this.viewContext.getContext().get("station");
         if(this.station == null) {
-            System.out.println("Erreur : ReturnView n'a pas pu récupérer la station");
+            System.out.println("Erreur : RetourView n'a pas pu récupérer la station");
             ReadingConsole.readLine();
             this.stop();
         }
@@ -39,8 +39,8 @@ public class ReturnView extends ViewImpl {
     @Override
     protected void init() {
         retraitControler = ControlerFactory.getRetraitControler();
-        returnAboView = new ReturnAboView(this);
-        returnNonAboView = new ReturnNonAboView(this);
+        retourAboView = new RetourAboView(this);
+        retourNonAboView = new RetourNonAboView(this);
     }
 
     @Override
@@ -71,11 +71,11 @@ public class ReturnView extends ViewImpl {
         System.out.println("3. Retour");
         System.out.println("Votre choix : ");
         Integer choice = ReadingConsole.readInt(1,3);
-        returnAboView.setContext(createViewContext());
-        returnNonAboView.setContext(createViewContext());
+        retourAboView.setContext(createViewContext());
+        retourNonAboView.setContext(createViewContext());
         switch (choice){
-            case 1 -> returnAboView.run();
-            case 2 -> returnNonAboView.run();
+            case 1 -> retourAboView.run();
+            case 2 -> retourNonAboView.run();
             case 3 -> this.stop();
         }
     }
