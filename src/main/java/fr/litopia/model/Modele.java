@@ -17,6 +17,16 @@ public class Modele {
     @Column(name = "prix_horaire")
     private Double prixHoraire;
 
+    public Modele() {
+        velos = new LinkedHashSet<>();
+    }
+
+    public Modele(String name, Double prixHoraire) {
+        velos = new LinkedHashSet<>();
+        this.name = name;
+        this.prixHoraire = prixHoraire;
+    }
+
     public Double getPrixHoraire() {
         return prixHoraire;
     }
@@ -29,8 +39,8 @@ public class Modele {
         return velos;
     }
 
-    public void setVelos(Set<Velo> velos) {
-        this.velos = velos;
+    public void addVelo(Velo velo) {
+        velos.add(velo);
     }
 
     public String getName() {

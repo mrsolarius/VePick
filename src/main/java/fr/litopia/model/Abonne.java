@@ -1,8 +1,9 @@
 package fr.litopia.model;
 
+import fr.litopia.utils.ReadingConsole;
+
 import javax.persistence.*;
 import java.sql.Date;
-import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -10,8 +11,9 @@ import java.util.Set;
 @Entity
 @Table(name = "LesAbonnes")
 public class Abonne {
+
     @Id
-    @Column(name = "login", nullable = false, updatable = false)
+    @Column(name = "login", nullable = false, updatable = false, length = 20)
     private String login;
 
     @Column(name = "nom", length = 50)
@@ -27,19 +29,46 @@ public class Abonne {
     private String mdp;
 
     @Column(name = "date_fin")
-    private Date dateFin = addOneYear();
+    private Date dateFin;
 
     @Column(name = "credit_temps")
-    private Integer creditTemps = 0;
+    private Integer creditTemps;
 
     @Column(name = "cb", length = 16)
     private String cb;
 
     @OneToMany(mappedBy = "abonne")
-    private Set<LocationAbonne> locationAbonnes = new LinkedHashSet<>();
+    private final Set<LocationAbonne> locationAbonnes;
 
     @Column(name = "renouv_auto")
-    private Boolean renouvAuto = true;
+    private Boolean renouvAuto;
+
+
+    /**
+     * Constructeur de la classe Abonne
+     * @param login login de l'abonne
+     * @param mdp mot de passe de l'abonne
+     * @param nom nom de l'abonne
+     * @param prenom prenom de l'abonne
+     * @param adresse adresse de l'abonne
+     * @param cb carte bancaire de l'abonne
+     */
+    public Abonne(String login, String mdp, String nom, String prenom, String adresse, String cb) {
+        this();
+        this.setLogin(login);
+        this.setMdp(mdp);
+        this.setNom(nom);
+        this.setPrenom(prenom);
+        this.setAdresse(adresse);
+        this.setCb(cb);
+    }
+
+    public Abonne() {
+        this.dateFin = addOneYear();
+        this.creditTemps = 0;
+        this.renouvAuto = true;
+        this.locationAbonnes = new LinkedHashSet<>();
+    }
 
     public Boolean getRenouvAuto() {
         return renouvAuto;
@@ -53,8 +82,9 @@ public class Abonne {
         return locationAbonnes;
     }
 
-    public void setLocationAbonnes(Set<LocationAbonne> locationAbonnes) {
-        this.locationAbonnes = locationAbonnes;
+    public void addLocationAbonne(LocationAbonne locationAbonne) {
+        if (locationAbonne.getAbonne()!=this) locationAbonne.setAbonne(this);
+        this.locationAbonnes.add(locationAbonne);
     }
 
     public String getCb() {
@@ -62,6 +92,8 @@ public class Abonne {
     }
 
     public void setCb(String cb) {
+        if (!ReadingConsole.isNumeric(cb))throw new IllegalArgumentException("La CB doit être numérique");
+        if (cb.length()!=16)throw new IllegalArgumentException("La CB doit faire exactement 16 caractères");
         this.cb = cb;
     }
 
@@ -69,16 +101,20 @@ public class Abonne {
         return creditTemps;
     }
 
-    public void setCreditTemps(Integer creditTemps) {
-        this.creditTemps = creditTemps;
+    public void addCreditTemps(Integer creditTemps) {
+        this.creditTemps += creditTemps;
+    }
+
+    public void removeCreditTemps(Integer creditTemps){
+        this.creditTemps -= creditTemps;
     }
 
     public Date getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(Date dateFin) {
-        this.dateFin = dateFin;
+    public void renewAbo() {
+        this.dateFin = this.addOneYear();
     }
 
     public String getMdp() {
@@ -86,6 +122,7 @@ public class Abonne {
     }
 
     public void setMdp(String code) {
+        if (code.length()>20)throw new IllegalArgumentException("Le code doit faire moins de 20 caractères");
         this.mdp = code;
     }
 
@@ -94,6 +131,7 @@ public class Abonne {
     }
 
     public void setAdresse(String adresse) {
+        if (adresse.length()>255)throw new IllegalArgumentException("L'adresse doit faire moins de 255 caractères");
         this.adresse = adresse;
     }
 
@@ -102,6 +140,7 @@ public class Abonne {
     }
 
     public void setPrenom(String prenom) {
+        if (prenom.length()>50)throw new IllegalArgumentException("Le prenom doit faire moins de 50 caractères");
         this.prenom = prenom;
     }
 
@@ -110,6 +149,7 @@ public class Abonne {
     }
 
     public void setNom(String nom) {
+        if (nom.length()>50)throw new IllegalArgumentException("Le nom doit faire moins de 50 caractères");
         this.nom = nom;
     }
 
@@ -117,7 +157,10 @@ public class Abonne {
         return login;
     }
 
-    public void setLogin(String login) { this.login = login; }
+    public void setLogin(String login) {
+        if (login.length()>20) throw new IllegalArgumentException("Le login doit faire moins de 20 caractères");
+        this.login = login;
+    }
 
     private Date addOneYear(){
         Calendar c = Calendar.getInstance();

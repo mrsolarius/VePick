@@ -1,13 +1,11 @@
 package fr.litopia.model;
 
-import fr.litopia.respository.RepositoryFactory;
-import fr.litopia.respository.api.BornetteRepository;
+import fr.litopia.repository.RepositoryFactory;
+import fr.litopia.repository.api.BornetteRepository;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 
 @Embeddable
 public class BornettePK implements Serializable {
@@ -15,10 +13,10 @@ public class BornettePK implements Serializable {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "station_adresse", nullable = false)
-    private Station station;
+    public Station station;
 
     @Column(name = "numero", nullable = false, updatable = false)
-    private Long numero;
+    public Long numero;
 
     public Station getStation() {
         return this.station;
@@ -26,9 +24,6 @@ public class BornettePK implements Serializable {
 
     public void setStation(Station station) {
         this.station = station;
-        if(this.numero == null) {
-
-        }
     }
 
     public void autoGenerateNumero(EntityManager entityManager) {
