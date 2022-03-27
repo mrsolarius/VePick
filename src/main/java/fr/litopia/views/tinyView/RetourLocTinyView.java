@@ -6,7 +6,7 @@ import fr.litopia.model.LocationNonAbonne;
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.struct.impl.TinyViewImpl;
 
-public class ReturnLocTinyView extends TinyViewImpl<LocationNonAbonne> {
+public class RetourLocTinyView extends TinyViewImpl<LocationNonAbonne> {
     private RetraitControler retraitControler;
     private String code;
 

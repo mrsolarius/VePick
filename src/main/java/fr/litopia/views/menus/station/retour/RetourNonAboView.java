@@ -4,13 +4,13 @@ import fr.litopia.model.LocationNonAbonne;
 import fr.litopia.model.enums.Etat;
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.struct.api.View;
-import fr.litopia.views.tinyView.ReturnLocTinyView;
+import fr.litopia.views.tinyView.RetourLocTinyView;
 
 import java.text.DecimalFormat;
 
 public class RetourNonAboView extends RetourComonContext {
     private LocationNonAbonne locationNonAbonne;
-    private ReturnLocTinyView returnLocTinyView;
+    private RetourLocTinyView retourLocTinyView;
 
     public LocationNonAbonne getLocationNonAbonne() {
         return locationNonAbonne;
@@ -22,7 +22,7 @@ public class RetourNonAboView extends RetourComonContext {
 
     @Override
     protected void init() {
-        returnLocTinyView = new ReturnLocTinyView();
+        retourLocTinyView = new RetourLocTinyView();
     }
 
     @Override
@@ -30,7 +30,7 @@ public class RetourNonAboView extends RetourComonContext {
         System.out.println("=================");
         System.out.println("RENDRE UN VÉLO");
         System.out.println("==================");
-        locationNonAbonne = returnLocTinyView.startAndGetValue();
+        locationNonAbonne = retourLocTinyView.startAndGetValue();
         System.out.println("Vélo retourné "+locationNonAbonne);
         if (locationNonAbonne==null){
             this.stop().stop();
