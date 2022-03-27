@@ -84,7 +84,7 @@ public class RetourAboView extends RetourComonContext {
         System.out.println("PAIEMENT DE LA LOCATION");
         System.out.println("========================");
         System.out.println("VéPick vous remercie de votre Location");
-        System.out.println("Vous avez été prélevé de " + prixString + " euros");
+        System.out.println("Vous avez été prélevé(e) de " + prixString + " euros");
         System.out.println("Toute l'équipe vous souhaite une bonne fin de journée");
         System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°" + this.bornette.getNumero());
         System.out.println("========================");
@@ -98,7 +98,7 @@ public class RetourAboView extends RetourComonContext {
         System.out.println("========================");
         System.out.println("ANNULATION DE L'EMPRUNT");
         System.out.println("========================");
-        System.out.println("Veuillez nous excuser de l'état du vélo que vous avez emprunté");
+        System.out.println("Veuillez nous excuser");
         System.out.println("Vous ne serez pas prélevé");
         System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°"+this.bornette.getNumero());
         System.out.println("========================");
