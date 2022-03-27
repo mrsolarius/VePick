@@ -1,13 +1,11 @@
 package fr.litopia.model;
 
-import fr.litopia.respository.RepositoryFactory;
-import fr.litopia.respository.api.BornetteRepository;
+import fr.litopia.repository.RepositoryFactory;
+import fr.litopia.repository.api.BornetteRepository;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 
 @Embeddable
 public class BornettePK implements Serializable {

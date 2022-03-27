@@ -8,7 +8,7 @@ import static java.lang.Math.toIntExact;
 @Entity
 @Table(name = "LesLocations")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Location {
+public abstract class Location {
     @Id
     @Column(name = "id", nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,7 +18,7 @@ public class Location {
     private Integer temps;
 
     @Column(name = "prix")
-    private Double prix;
+    protected Double prix;
 
     @Column(name = "depart", updatable = false)
     private LocalDateTime depart = LocalDateTime.now();
@@ -91,8 +91,11 @@ public class Location {
     public void cloreLocation(Bornette bornette) {
         velo.setBornette(bornette);
         temps=toIntExact(ChronoUnit.MINUTES.between(depart,LocalDateTime.now()));
-        prix=temps*(velo.getModele().getPrixHoraire()/60);
+        System.out.println("prix : "+calculerPrix());
+        prix=calculerPrix();
     }
+
+    abstract public double calculerPrix();
 
     /**
      * Permet de savoir si la location à était effectuer il y a moins de 5 minutes

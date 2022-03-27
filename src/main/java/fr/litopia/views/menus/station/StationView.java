@@ -2,8 +2,8 @@ package fr.litopia.views.menus.station;
 
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
-import fr.litopia.views.menus.station.emprun.EmprunView;
-import fr.litopia.views.menus.station.retrait.ReturnView;
+import fr.litopia.views.menus.station.emprunt.EmpruntView;
+import fr.litopia.views.menus.station.retour.RetourView;
 import fr.litopia.views.struct.api.View;
 import fr.litopia.views.struct.api.ViewContext;
 import fr.litopia.views.struct.impl.ViewContextImpl;
@@ -13,8 +13,8 @@ import java.util.HashMap;
 
 public class StationView extends ViewImpl {
     private Station station;
-    private EmprunView emprunView;
-    private ReturnView returnView;
+    private EmpruntView empruntView;
+    private RetourView retourView;
 
     /**
      * @param parent la vue parente
@@ -43,11 +43,11 @@ public class StationView extends ViewImpl {
         context.put("station", this.station);
         ViewContext viewContext = new ViewContextImpl(this.name, context);
 
-        emprunView = new EmprunView(this);
-        emprunView.setContext(viewContext);
+        empruntView = new EmpruntView(this);
+        empruntView.setContext(viewContext);
 
-        returnView = new ReturnView(this);
-        returnView.setContext(viewContext);
+        retourView = new RetourView(this);
+        retourView.setContext(viewContext);
     }
 
     @Override
@@ -61,8 +61,8 @@ public class StationView extends ViewImpl {
         System.out.println("Votre choix : ");
         Integer choice = ReadingConsole.readInt(1,3);
         switch (choice) {
-            case 1 -> emprunView.run();
-            case 2 -> returnView.run();
+            case 1 -> empruntView.run();
+            case 2 -> retourView.run();
             case 3 -> this.stop();
         }
     }

@@ -45,7 +45,7 @@ public class VepickView extends ViewImpl {
         //**[B1][B2][B3][B4][B5][B6]**[B8][B9]
         System.out.println("1. vous rendre à une station pour louer ou rendre un vélo");
         //**[B7]**
-        System.out.println("2. vous abonné au service VePick");
+        System.out.println("2. vous abonner au service VePick");
         //[B10][A31][A32]
         System.out.println("3. administrer les stations");
         System.out.println("4. administrer les jeux de données");
@@ -59,8 +59,8 @@ public class VepickView extends ViewImpl {
             case 3 -> {
                 //@TODO Faire la vue d'administration
                 this.clean();
-                System.out.println("Vous êtes désormais administrateur (c'est faux)");
-                System.out.println("Appuyer sur enter pour continuer");
+                System.out.println("Vous êtes désormais administrateur");
+                System.out.println("Appuyez sur entée pour continuer");
                 ReadingConsole.readLine();
             }
             case 4 -> dataBDDView.run();

@@ -1,6 +1,6 @@
 package fr.litopia.model;
 
-import fr.litopia.respository.api.LocationNonAbonneRepository;
+import fr.litopia.repository.api.LocationNonAbonneRepository;
 import fr.litopia.utils.RandomString;
 import fr.litopia.utils.ReadingConsole;
 
@@ -71,5 +71,10 @@ public class LocationNonAbonne extends Location {
         if (!ReadingConsole.isNumeric(cb))throw new IllegalArgumentException("La CB doit être numérique");
         if (cb.length()!=16)throw new IllegalArgumentException("La CB doit faire exactement 16 caractères");
         this.cb = cb;
+    }
+
+    @Override
+    public double calculerPrix() {
+        return getTemps() * (getVelo().getModele().getPrixHoraire() / 60);
     }
 }

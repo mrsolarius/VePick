@@ -3,6 +3,8 @@ package fr.litopia.model;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 @Entity
 public class LocationAbonne extends Location {
@@ -55,7 +57,7 @@ public class LocationAbonne extends Location {
      * @return le prix de la location
      */
     @Override
-    public Double getPrix() {
-        return super.getPrix()*REMISE_ABO;
+    public double calculerPrix() {
+        return getTemps() * (getVelo().getModele().getPrixHoraire() / 60) * REMISE_ABO;
     }
 }
