@@ -67,7 +67,8 @@ des repository et celle des contrôleurs.
 
 ## Etat du projet rendu
 
-## Choix de modélisation
+
+## Choix de modélisation et évolution entre les deux rapports
  L'un des points névralgiques de nos discussions était sur la représentation d'une location d'un vélo par un client. Nous avions
 initialement pensé à une classe associative "Location" entre la classe "Client" et la classe "Vélo". Les classes "Abonne" et "NonAbonne"
 héritant toutes les deux de "Client" et les classes "LocationAbonne" et "LocationNonAbonne" héritant de "Location". Cela semblait être la
