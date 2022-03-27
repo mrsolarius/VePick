@@ -8,13 +8,6 @@ Membres du projet :
 * *Lucas ZAETTA*
 * *Hubert ZODJIHOUE*
 
-```
-@todo indiquer l'avancement du projet
-@todo présenter nos scénarios de test
-@todo présenter notre peuplement de données et nos testes
-@todo discuter de nos choix de modélisation conceptuelle
-@todo retour critique sur notre travail
-```
 
 ## Objectifs du projet
  Le but du projet était de développer un système de gestion de vélos partagés similaire à ceux utilisés par Velo'v à
