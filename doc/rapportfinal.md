@@ -69,22 +69,34 @@ des repository et celle des contrôleurs.
 
 
 ## Choix de modélisation et évolution entre les deux rapports
- L'un des points névralgiques de nos discussions était sur la représentation d'une location d'un vélo par un client. Nous avions
+L'un des points névralgiques de nos discussions était sur la représentation d'une location d'un vélo par un client. Nous avions
 initialement pensé à une classe associative "Location" entre la classe "Client" et la classe "Vélo". Les classes "Abonne" et "NonAbonne"
 héritant toutes les deux de "Client" et les classes "LocationAbonne" et "LocationNonAbonne" héritant de "Location". Cela semblait être la
 modélisation "naïve" en lisant l'énoncé du projet. Ce choix n'avait finalement pas beaucoup de sens dans la mesure où un client non abonné
 n'existe pas avant ni après la location non abonné. Tous les attributs d'un client non abonné peuvent donc être stokés dans la classe
 "LocationNonAbonne" et le système ne va pas conserver de trace de clients anonymes.
- En outre, nous n'avons pas apporté de modification supplémentaire au modèle conceptuel depuis le rapport intermédiaire. Nous avions passé
+
+En outre, nous n'avons pas apporté de modification supplémentaire au modèle conceptuel depuis le rapport intermédiaire. Nous avions passé
 suffisament de temps en amont pour partir directement sur une piste qui nous satisfaisait.
 
 ## Modification apportées au schéma conceptuel et relationnel
 Durent la phase de réalisation nous somme réster fidèle au modèle conceptuel de notre projet. Nous avons cependant eu beaucoup
-de conception java à réaliser. Nous avons passez la deuxième semaine à trouver notre structure MVCR ainci que à crée
-la structure de nos view avec leur cycle de vie etc. 
-@todo continuer le paragraph
+de conception java à réaliser. Nous avons passez la deuxième semaine à trouver notre structure MVCR (model vue controler repository) ainci que à crée
+la structure de nos view avec leur cycle de vie etc.
+
+Le fait de ne pas avoir eu besoin de toucher à notre modèle conceptuel est un point positif. Car cela implique que notre
+conception été suffisamment réfléchie pour nous permettre de réaliser toutes les scenarios obligatoires du projet.
 
 ## Scénario de test
 
 ## Test réalisés
 
+Afin d'assurer à notre model de parfaitement fonctioner sur sa partie critique à savoir la locations et la gestions des
+abonnées. Nous avons réalisé quelle que test unitaire s'assurant du bon fonctionnement de la double association entre les classes.
+Ainci que du fonctionement de l'emprun et du rendu.
+
+Nous avons aussi tous au long du projet spécifié et séparer au mieux notre code dans le but de le rendre le plus lisible 
+possible. Et le moins compliqué à débugger.
+
+Aussi à chaque étape de l'implementation des test d'intégration été réalisé manuelement pour s'assurer du 
+bon fonctionnement des test les un avec les autres.
