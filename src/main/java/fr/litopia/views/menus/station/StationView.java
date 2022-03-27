@@ -2,7 +2,7 @@ package fr.litopia.views.menus.station;
 
 import fr.litopia.model.Station;
 import fr.litopia.utils.ReadingConsole;
-import fr.litopia.views.menus.station.emprunt.EmprunView;
+import fr.litopia.views.menus.station.emprunt.EmpruntView;
 import fr.litopia.views.menus.station.retrait.ReturnView;
 import fr.litopia.views.struct.api.View;
 import fr.litopia.views.struct.api.ViewContext;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 public class StationView extends ViewImpl {
     private Station station;
-    private EmprunView emprunView;
+    private EmpruntView empruntView;
     private ReturnView returnView;
 
     /**
@@ -43,8 +43,8 @@ public class StationView extends ViewImpl {
         context.put("station", this.station);
         ViewContext viewContext = new ViewContextImpl(this.name, context);
 
-        emprunView = new EmprunView(this);
-        emprunView.setContext(viewContext);
+        empruntView = new EmpruntView(this);
+        empruntView.setContext(viewContext);
 
         returnView = new ReturnView(this);
         returnView.setContext(viewContext);
@@ -61,7 +61,7 @@ public class StationView extends ViewImpl {
         System.out.println("Votre choix : ");
         Integer choice = ReadingConsole.readInt(1,3);
         switch (choice) {
-            case 1 -> emprunView.run();
+            case 1 -> empruntView.run();
             case 2 -> returnView.run();
             case 3 -> this.stop();
         }

@@ -12,16 +12,16 @@ import fr.litopia.views.struct.impl.ViewImpl;
 
 import java.util.HashMap;
 
-public class EmprunView extends ViewImpl {
+public class EmpruntView extends ViewImpl {
     private Station station;
-    private EmprunNonAboView emprunNonAboView;
+    private EmpruntNonAboView empruntNonAboView;
     private EmprunControler emprunControler;
-    private EmprunAboView emprunAboView;
+    private EmpruntAboView empruntAboView;
 
     /**
      * @param parent la vue parente
      */
-    public EmprunView(View parent) {
+    public EmpruntView(View parent) {
         super(parent);
     }
 
@@ -39,8 +39,8 @@ public class EmprunView extends ViewImpl {
     @Override
     protected void init() {
         emprunControler = ControlerFactory.getEmprunControler();
-        emprunNonAboView = new EmprunNonAboView(this);
-        emprunAboView = new EmprunAboView(this);
+        empruntNonAboView = new EmpruntNonAboView(this);
+        empruntAboView = new EmpruntAboView(this);
     }
 
     @Override
@@ -51,8 +51,8 @@ public class EmprunView extends ViewImpl {
             context.put("bornette", bornette);
             context.put("emprunControler",emprunControler);
             ViewContext viewContext = new ViewContextImpl(this.name,context);
-            emprunNonAboView.setContext(viewContext);
-            emprunAboView.setContext(viewContext);
+            empruntNonAboView.setContext(viewContext);
+            empruntAboView.setContext(viewContext);
             this.clean();
             displayEmprun();
         } else {
@@ -71,8 +71,8 @@ public class EmprunView extends ViewImpl {
         System.out.println("Votre choix : ");
         Integer choice = ReadingConsole.readInt(1,3);
         switch (choice){
-            case 1 -> emprunAboView.run();
-            case 2 -> emprunNonAboView.run();
+            case 1 -> empruntAboView.run();
+            case 2 -> empruntNonAboView.run();
             case 3 -> this.stop();
         }
     }

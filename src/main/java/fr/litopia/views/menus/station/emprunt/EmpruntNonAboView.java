@@ -4,9 +4,9 @@ import fr.litopia.model.LocationNonAbonne;
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.struct.api.View;
 
-public class EmprunNonAboView extends EmprunComonContext {
+public class EmpruntNonAboView extends EmpruntComonContext {
 
-    public EmprunNonAboView(View view) {
+    public EmpruntNonAboView(View view) {
         super(view);
     }
 

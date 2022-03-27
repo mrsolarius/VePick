@@ -6,10 +6,10 @@ import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.struct.api.View;
 import fr.litopia.views.tinyView.LoginTinyView;
 
-public class EmprunAboView extends EmprunComonContext {
+public class EmpruntAboView extends EmpruntComonContext {
     private LoginTinyView login;
 
-    public EmprunAboView(View view) {
+    public EmpruntAboView(View view) {
         super(view);
     }
 
