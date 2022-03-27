@@ -71,7 +71,7 @@ public class ReturnAboView extends ReturnComonContext{
                     displayPaiement();
                 }
             }
-            case 3 -> this.stop();
+            case 3 -> this.stop().stop();
         }
         System.out.println("==================");
     }
@@ -89,7 +89,7 @@ public class ReturnAboView extends ReturnComonContext{
         System.out.println("========================");
         ReadingConsole.readLine();
         //On stop cette vue
-        this.stop();
+        this.stop().stop();
     }
 
     private void displayAnnulationEmprunt() {
@@ -104,7 +104,7 @@ public class ReturnAboView extends ReturnComonContext{
         ReadingConsole.readLine();
         retraitControler.clotureLocationHSUnderFiveMinutesAbo(bornette,locationAbonne); //dépose le vélo sur une bornette et complète location sans calcul prix
         //On stop cette vue
-        this.stop();
+        this.stop().stop();
     }
 
     @Override

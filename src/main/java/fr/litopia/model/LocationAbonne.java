@@ -36,6 +36,7 @@ public class LocationAbonne extends Location {
 
     @Override
     public Double getPrix() {
-        return super.getPrix()*REMISE_ABO;
+        this.prix = super.getPrix()*REMISE_ABO;
+        return this.prix;
     }
 }

@@ -18,7 +18,7 @@ public class Location {
     private Integer temps;
 
     @Column(name = "prix")
-    private Double prix;
+    protected Double prix;
 
     @Column(name = "depart", updatable = false)
     private LocalDateTime depart = LocalDateTime.now();
@@ -61,7 +61,8 @@ public class Location {
     public void cloreLocation(Bornette bornette) {
         velo.setBornette(bornette);
         temps=toIntExact(ChronoUnit.MINUTES.between(depart,LocalDateTime.now()));
-        prix=temps*(velo.getModele().getPrixHoraire()/60);
+        prix= (double) Math.round(temps * (velo.getModele().getPrixHoraire() / 60));
+        this.getPrix();
     }
 
     public Boolean isUnderFiveMinutes(){

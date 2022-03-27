@@ -53,7 +53,7 @@ public class ReturnNonAboView extends ReturnComonContext{
                 }
                 displayPaiement();
             }
-            case 3 -> this.stop();
+            case 3 -> this.stop().stop();
         }
         System.out.println("==================");
     }
