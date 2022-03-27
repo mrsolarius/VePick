@@ -6,7 +6,7 @@ import fr.litopia.repository.api.StationRepository;
 
 import java.util.Set;
 
-public class StationsControlerImpl extends ControlerImp implements StationsControler {
+public class StationsControlerImpl extends ControlerImpl implements StationsControler {
 
     private StationRepository stationRepository;
 

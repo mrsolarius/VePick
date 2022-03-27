@@ -11,7 +11,7 @@ import fr.litopia.repository.api.LocationNonAbonneRepository;
 import java.util.Set;
 
 
-public class RetraitControlerImpl extends ControlerImp implements RetraitControler {
+public class RetraitControlerImpl extends ControlerImpl implements RetraitControler {
 
     private BornetteRepository bornetteRepository;
     private LocationNonAbonneRepository locationNonAbonneRepository;

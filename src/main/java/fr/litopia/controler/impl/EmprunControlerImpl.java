@@ -10,7 +10,7 @@ import fr.litopia.repository.api.LocationNonAbonneRepository;
 
 import java.util.Set;
 
-public class EmprunControlerImpl extends ControlerImp implements EmprunControler {
+public class EmprunControlerImpl extends ControlerImpl implements EmprunControler {
 
     private BornetteRepository bornette;
     private LocationNonAbonneRepository locationNonAbonneRepository;

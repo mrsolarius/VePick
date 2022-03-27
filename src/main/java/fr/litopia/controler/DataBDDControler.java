@@ -1,6 +1,6 @@
 package fr.litopia.controler;
 
-import fr.litopia.controler.impl.ControlerImp;
+import fr.litopia.controler.impl.ControlerImpl;
 import fr.litopia.model.*;
 import fr.litopia.model.enums.Etat;
 import fr.litopia.model.enums.VStatus;
@@ -11,7 +11,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-public class DataBDDControler extends ControlerImp {
+public class DataBDDControler extends ControlerImpl {
     private AbonneRepository abonneRepository;
     private BornetteRepository bornetteRepository;
     private LocationAbonneRepository locationAbonneRepository;

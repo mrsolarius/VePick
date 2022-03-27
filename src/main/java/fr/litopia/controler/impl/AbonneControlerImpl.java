@@ -4,7 +4,7 @@ import fr.litopia.controler.api.AbonneControler;
 import fr.litopia.model.Abonne;
 import fr.litopia.repository.api.AbonneRepository;
 
-public class AbonneControlerImpl extends ControlerImp implements AbonneControler {
+public class AbonneControlerImpl extends ControlerImpl implements AbonneControler {
 
     private AbonneRepository aboRepository;
 

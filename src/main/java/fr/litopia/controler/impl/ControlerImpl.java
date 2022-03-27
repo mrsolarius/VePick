@@ -6,11 +6,11 @@ import fr.litopia.repository.RepositoryFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-public abstract class ControlerImp implements Controler {
+public abstract class ControlerImpl implements Controler {
     private final EntityManager entityManager;
     private final RepositoryFactory daoFactory = new RepositoryFactory();
 
-    public ControlerImp() {
+    public ControlerImpl() {
         entityManager = Persistence.createEntityManagerFactory("VePick").createEntityManager();
         this.init();
     }
