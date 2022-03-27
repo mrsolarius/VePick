@@ -2,11 +2,11 @@ package fr.litopia.controler;
 
 import fr.litopia.controler.api.AbonneControler;
 import fr.litopia.controler.api.EmprunControler;
-import fr.litopia.controler.api.RetraitControler;
+import fr.litopia.controler.api.RetourControler;
 import fr.litopia.controler.api.StationsControler;
 import fr.litopia.controler.impl.AbonneControlerImpl;
 import fr.litopia.controler.impl.EmprunControlerImpl;
-import fr.litopia.controler.impl.RetraitControlerImpl;
+import fr.litopia.controler.impl.RetourControlerImpl;
 import fr.litopia.controler.impl.StationsControlerImpl;
 
 public class ControlerFactory {
@@ -22,7 +22,7 @@ public class ControlerFactory {
         return new StationsControlerImpl();
     }
 
-    public static RetraitControler getRetraitControler(){
-        return new RetraitControlerImpl();
+    public static RetourControler getRetraitControler(){
+        return new RetourControlerImpl();
     }
 }

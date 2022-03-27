@@ -1,6 +1,6 @@
 package fr.litopia.controler.impl;
 
-import fr.litopia.controler.api.RetraitControler;
+import fr.litopia.controler.api.RetourControler;
 import fr.litopia.model.*;
 import fr.litopia.model.enums.Etat;
 import fr.litopia.repository.RepositoryFactory;
@@ -11,7 +11,7 @@ import fr.litopia.repository.api.LocationNonAbonneRepository;
 import java.util.Set;
 
 
-public class RetraitControlerImpl extends ControlerImpl implements RetraitControler {
+public class RetourControlerImpl extends ControlerImpl implements RetourControler {
 
     private BornetteRepository bornetteRepository;
     private LocationNonAbonneRepository locationNonAbonneRepository;

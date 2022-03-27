@@ -1,18 +1,18 @@
 package fr.litopia.views.tinyView;
 
 import fr.litopia.controler.ControlerFactory;
-import fr.litopia.controler.api.RetraitControler;
+import fr.litopia.controler.api.RetourControler;
 import fr.litopia.model.LocationNonAbonne;
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.struct.impl.TinyViewImpl;
 
 public class RetourLocTinyView extends TinyViewImpl<LocationNonAbonne> {
-    private RetraitControler retraitControler;
+    private RetourControler retourControler;
     private String code;
 
     @Override
     protected void init() {
-        retraitControler = ControlerFactory.getRetraitControler();
+        retourControler = ControlerFactory.getRetraitControler();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class RetourLocTinyView extends TinyViewImpl<LocationNonAbonne> {
 
     @Override
     protected LocationNonAbonne getValue() {
-        LocationNonAbonne loc = retraitControler.checkCode(code);
+        LocationNonAbonne loc = retourControler.checkCode(code);
         if (loc==null){
             System.out.println("=================");
             System.out.println("CODE INCORRECT, VEUILLEZ SAISIR A NOUVEAU ou -1 pour anuler");

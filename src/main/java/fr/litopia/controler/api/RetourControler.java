@@ -5,7 +5,7 @@ import fr.litopia.model.enums.Etat;
 
 import java.util.Set;
 
-public interface RetraitControler extends Controler{
+public interface RetourControler extends Controler{
     /**
      * Permet de savoir si le retrait est possible à la station
      * @param station la station ou se fait le retrait

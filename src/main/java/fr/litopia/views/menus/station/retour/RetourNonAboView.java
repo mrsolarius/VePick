@@ -48,8 +48,8 @@ public class RetourNonAboView extends RetourComonContext {
         switch (choice) {
             case 1 -> displayPaiement();
             case 2 -> {
-                retraitControler.changeBikeState(locationNonAbonne, Etat.HS);
-                if (retraitControler.isUnderFiveMinutes(locationNonAbonne)) {
+                retourControler.changeBikeState(locationNonAbonne, Etat.HS);
+                if (retourControler.isUnderFiveMinutes(locationNonAbonne)) {
                     displayAnnulationEmprunt();
                     return;
                 }
@@ -61,7 +61,7 @@ public class RetourNonAboView extends RetourComonContext {
     }
 
     private void displayPaiement() {
-        Double prix = retraitControler.clotureLocationNonAbonne(bornette,locationNonAbonne);
+        Double prix = retourControler.clotureLocationNonAbonne(bornette,locationNonAbonne);
         //formatage du prix à 3 chiffres après la virgule
         DecimalFormat df = new DecimalFormat("#.###");
         String prixString = df.format(prix);
@@ -89,7 +89,7 @@ public class RetourNonAboView extends RetourComonContext {
         System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°"+this.bornette.getNumero());
         System.out.println("========================");
         ReadingConsole.readLine();
-        retraitControler.clotureLocationHSUnderFiveMinutesNonAbo(bornette,locationNonAbonne); //dépose le vélo sur une bornette et complète location sans calcul prix
+        retourControler.clotureLocationHSUnderFiveMinutesNonAbo(bornette,locationNonAbonne); //dépose le vélo sur une bornette et complète location sans calcul prix
         //On stop cette vue ainsi que la vue du dessus de retour vélo
         this.stop().stop();
     }
