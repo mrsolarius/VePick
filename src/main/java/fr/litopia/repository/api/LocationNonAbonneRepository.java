@@ -3,10 +3,12 @@ package fr.litopia.repository.api;
 import fr.litopia.model.LocationNonAbonne;
 
 public interface LocationNonAbonneRepository extends Repository <LocationNonAbonne, Long> {
-    //@Todo ajouter des methods utiles pour la gestion des locations non abonnes
+
     /**
      * Verifie que le code généré est unique parmi les codes dans les locations qui ne sont pas terminées
      * renvoie True si le code est unique
+     * @param code le code à vérifier
+     * @return boolean true si le code existe
      */
     Boolean verifyCode(String code);
 

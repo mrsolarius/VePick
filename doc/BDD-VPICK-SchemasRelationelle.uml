@@ -6,6 +6,7 @@
     <node x="219.375" y="0.0">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesModeles</node>
     <node x="561.9333333333332" y="356.5">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesAbonnes</node>
     <node x="211.375" y="526.86875">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesStations</node>
+    <node x="875.3199170679504" y="7.854166666666686">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.hibernate_sequence</node>
     <node x="185.375" y="325.9125">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesBornettes</node>
     <node x="195.375" y="134.95625000000004">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesVelos</node>
     <node x="554.4333333333332" y="7.854166666666686">623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.LesLocations</node>
@@ -33,8 +34,10 @@
       <point x="0.0" y="29.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.9382530120481928" showDependencies="false" x="459.99999999999994" y="322.0" />
-  <SelectedNodes />
+  <settings layout="Hierarchic" zoom="0.9382530120481928" showDependencies="false" x="566.0" y="290.0" />
+  <SelectedNodes>
+    <node>623a8e7f-b0d2-4abe-ab1e-a2a70a6a491b.TABLE:vepick.hibernate_sequence</node>
+  </SelectedNodes>
   <Categories>
     <Category>Columns</Category>
     <Category>Comments</Category>
