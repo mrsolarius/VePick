@@ -12,19 +12,35 @@ public class LocationAbonne extends Location {
     @JoinColumn(name = "abonne_id")
     private Abonne abonne;
 
+    /**
+     * Constructeur par défaut de la classe LocationAbonne
+     */
     public LocationAbonne() {
         super();
     }
 
+    /**
+     * Constructeur de la classe LocationAbonne
+     * @param abonne l'abonné qui loue
+     */
     public LocationAbonne(Abonne abonne) {
         super();
         this.setAbonne(abonne);
     }
 
+    /**
+     * Retourne l'abonné qui loue
+     * @return l'abonné qui loue
+     */
     public Abonne getAbonne() {
         return abonne;
     }
 
+    /**
+     * Modifie l'abonné qui loue
+     * Ajouter la location à l'abonné et définir l'abonné comme loueur
+     * @param abonne l'abonné qui loue
+     */
     protected void setAbonne(Abonne abonne) {
         if(this.abonne==null && abonne==null) return;
 
@@ -34,6 +50,10 @@ public class LocationAbonne extends Location {
         }
     }
 
+    /**
+     * Retourne le prix de la location avec la remise abonne
+     * @return le prix de la location
+     */
     @Override
     public Double getPrix() {
         return super.getPrix()*REMISE_ABO;
