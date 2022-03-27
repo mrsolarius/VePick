@@ -25,6 +25,7 @@ public class ReadingConsole {
      * avant de la retourner.
      * @param n la longueur de la chaine de caractere
      *          n est obligatoire et doit etre superieur a 0
+     * @return String la chaine de caractere ecrit par l'utilisateur
      */
     public static String readLine(int n) {
         if (n <= 0) {
@@ -41,6 +42,12 @@ public class ReadingConsole {
         return s;
     }
 
+    /**
+     * Fonction qui va attendre que l'utilise ecrive une chaine de caracter inférieur à la longueur n dans la console
+     * avant de la retourner.
+     * @param n la longueur de la chaine de caractere
+     * @return String la chaine de caractere ecrit par l'utilisateur
+     */
     public static String readLineWithMaxChar(int n) {
         String s = null;
         while (s == null) {
@@ -95,7 +102,6 @@ public class ReadingConsole {
     /**
      * Fonction qui va attendre que l'utilisateur ecrive un entier dans la console
      * avant de le retourner.
-     *
      * @return Integer l'entier écrit par l'utilisateur
      */
     public static Integer readInt() {
@@ -113,7 +119,8 @@ public class ReadingConsole {
     /**
      * Fonction qui attend que l'utilisateur ecrive un integer compris entre min et max
      * avant de le retourner.
-     *
+     * @param min le minimum de l'intervalle
+     * @param max le maximum de l'intervalle
      * @return Integer l'entier compris entre min et max
      */
     public static Integer readInt(Integer min, Integer max) {
@@ -130,7 +137,6 @@ public class ReadingConsole {
     /**
      * Fonction qui va attendre que l'utilisateur ecrive un double dans la console
      * avant de le retourner.
-     *
      * @return Double l'entier écrit par l'utilisateur
      */
     public static Double readDouble() {
@@ -148,7 +154,6 @@ public class ReadingConsole {
     /**
      * Fonction qui attend que l'utilisateur ecrive un double compris entre min et max
      * avant de le retourner.
-     *
      * @return Double l'entier compris entre min et max
      */
     public static Double readDouble(Double min, Double max) {
@@ -165,7 +170,6 @@ public class ReadingConsole {
     /**
      * Fonction qui va attendre que l'utilisateur ecrive un boolean dans la console
      * avant de le retourner.
-     *
      * @return Boolean écrit par l'utilisateur
      */
     public static Boolean readBoolean() {
@@ -186,7 +190,6 @@ public class ReadingConsole {
     /**
      * Fonction qui va attendre que l'utilisateur ecrive une des valeur de l'enum passer en parametre
      * avant de la retourner.
-     *
      * @param <T> l'enum
      * @return T la valeur de l'enum
      **/
@@ -206,6 +209,11 @@ public class ReadingConsole {
         return t;
     }
 
+    /**
+     * Fonction qui vérifie que un string est un bien numérique.
+     * @param strNum le string à vérifier
+     * @return boolean true si le string est un numérique, false sinon
+     */
     public static boolean isNumeric(String strNum) {
         final Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
         if (strNum == null) {
