@@ -28,22 +28,22 @@ MariaDB pour le développement, et Oracle pour la mise en production. Afin de no
 avons développé notre interface homme-machine directement en console.
 
 ## Déroulement du projet
-Pour réaliser ce projet nous sommes passé par plusieurs phase de développement. 
+Pour réaliser ce projet, nous sommes passé par plusieurs phases de développement. 
 
- Nous avons débuté ce projet par une phase de comprehension du besoin du client (Vépick).
-Au cours de cette phase, nous avons mis en place un glossaire permettant de bien définir les termes présentés par 
+Nous avons débuté ce projet par une phase de comprehension du besoin du client (Vépick).
+Au cours de cette phase, nous avons mis en place un glossaire permettant de bien définir les termes présentés par
 le client. Cette phase, nous a pris environ 4h.
 
- Puis, à partir de notre compréhension de ces besoins, nous avons nous avons poursuivi par une phase de définition 
-du modèle conceptuel de donnée. Ce modèle de données à beaucoup évolué au cours de cette phase.
+Puis, à partir de notre compréhension de ces besoins, nous avons nous avons poursuivi par une phase de définition
+du modèle conceptuel de donnée. Le modèle de données à beaucoup évolué au cours de cette phase.
 C'est également lors de cette phase que nous avons émis des hypothèses sur les besoins de l'utilisateur que nous avons alors
 répertorié dans un document. Cette phase nous a pris environ 8h.
 
- Nous sommes ensuite entré dans la phase d'implementation de notre modèle conceptuel de donnée. C'est dans cette phase
-que nous avons mappé nos classe avec JPA.  Une fois fait, nous avons pus réaliser un schema de mapping JPA puis 
+Nous sommes ensuite entré dans une phase implementation de notre modèle conceptuel de donnée. C'est dans cette phase
+que nous avons mappé nos classes avec JPA.  Une fois fait nous avons pus réaliser un schema de mapping JPA puis
 nous avons généré notre modèle de donnée. Cette phase nous a pris environ 2h.
 
- Nous avons ensuite commencé tous azimuts la phase de développement. Nous avons commencé par nous répartir différentes
+Nous avons ensuite commencé tous azimuts la phase de développement. Nous avons commencé par nous répartir différentes
 tâches (sous le forme de vue qui permettaient des actions précises) et à développer celles-ci. Cependant, au terme d'une
 semaine de développement, nous nous somme rendus compte qu'une partie non négligeable du code était redondant (les mêmes
 fonctionnalitées avaient été implémentées plusieurs fois dans plusieurs classes différentes). En conséquence, nous avons dû
@@ -71,8 +71,10 @@ modélisation "naïve" en lisant l'énoncé du projet. Ce choix n'avait finaleme
 n'existe pas avant ni après la location non abonné. Tous les attributs d'un client non abonné peuvent donc être stokés dans la classe
 "LocationNonAbonne" et le système ne va pas conserver de trace de clients anonymes.
 
-
-
-
-
+## Développement de l'application et interraction avec la base de donnée
+Par la suite nous avons répartie le travail dans des "issues" sur notre projet github. Chaque "issue" été alors attribué 
+à une ou deux personnes maximal. Pour correctement répartir les tâches et éviter les conflits, nous avons utilisé
+les interfaces java afin de répartir le travail entre ceux qui utilise et spécifie les interfaces et ceux qui les
+implémente. De cette façon nous avons pu nous répartir le travail entre la mise en place de la vue la mise en place
+des repository et la mise en place des contrôleurs.
 
