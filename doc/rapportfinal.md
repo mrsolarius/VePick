@@ -65,17 +65,18 @@ les interfaces java afin de répartir le travail entre ceux qui utilisent et sp�
 implémentent. De cette façon, nous avons pu nous répartir le travail entre la mise en place de la vue, celle
 des repository et celle des contrôleurs.
 
-## Etat du projet rendus
+## Etat du projet rendu
 
-## Choix de modélisation
+
+## Choix de modélisation et évolution entre les deux rapports
  L'un des points névralgiques de nos discussions était sur la représentation d'une location d'un vélo par un client. Nous avions
 initialement pensé à une classe associative "Location" entre la classe "Client" et la classe "Vélo". Les classes "Abonne" et "NonAbonne"
 héritant toutes les deux de "Client" et les classes "LocationAbonne" et "LocationNonAbonne" héritant de "Location". Cela semblait être la
 modélisation "naïve" en lisant l'énoncé du projet. Ce choix n'avait finalement pas beaucoup de sens dans la mesure où un client non abonné
 n'existe pas avant ni après la location non abonné. Tous les attributs d'un client non abonné peuvent donc être stokés dans la classe
 "LocationNonAbonne" et le système ne va pas conserver de trace de clients anonymes.
-
-
+ En outre, nous n'avons pas apporté de modification supplémentaire au modèle conceptuel depuis le rapport intermédiaire. Nous avions passé
+suffisament de temps en amont pour partir directement sur une piste qui nous satisfaisait.
 
 ## Modification apportées au schéma conceptuel et relationnel
 => manière utilisée pour valider le schéma conceptuel
