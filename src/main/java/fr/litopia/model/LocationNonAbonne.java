@@ -1,6 +1,6 @@
 package fr.litopia.model;
 
-import fr.litopia.respository.api.LocationNonAbonneRepository;
+import fr.litopia.repository.api.LocationNonAbonneRepository;
 import fr.litopia.utils.RandomString;
 import fr.litopia.utils.ReadingConsole;
 
