@@ -1,68 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Diagram>
   <ID>Persistence</ID>
-  <OriginalElement>JavaeeElement:/4538d84c/JPA-HBM/ProjetBDD.main/jpa/JPA/PersistenceModel</OriginalElement>
+  <OriginalElement>JavaeeElement:/4538d84c/VePick/ProjetBDD.main/jpa/JPA/PersistenceModel</OriginalElement>
   <nodes>
-    <node x="354.25" y="225.0">LocationAbonne#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/LocationAbonne.java</node>
-    <node x="152.71666666666673" y="-24.879166666666606">Modele#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Modele.java</node>
-    <node x="533.25" y="225.0">LocationNonAbonne#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/LocationNonAbonne.java</node>
-    <node x="180.7166666666667" y="334.35833333333323">Bornette#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Bornette.java</node>
-    <node x="114.46354166666666" y="453.2395833333333">Station#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Station.java</node>
-    <node x="-18.81562500000001" y="334.35833333333323">BornettePK#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/BornettePK.java</node>
-    <node x="350.25" y="347.0">Abonne#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Abonne.java</node>
-    <node x="438.7875" y="0.0">Location#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Location.java</node>
-    <node x="151.21666666666667" y="142.23958333333331">Velo#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Velo.java</node>
+    <node x="321.75" y="285.0">LocationAbonne#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/LocationAbonne.java</node>
+    <node x="131.75" y="-16.0">Modele#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Modele.java</node>
+    <node x="594.279411764706" y="285.0">LocationNonAbonne#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/LocationNonAbonne.java</node>
+    <node x="159.75" y="424.0">Bornette#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Bornette.java</node>
+    <node x="84.75" y="556.8823529411765">Station#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Station.java</node>
+    <node x="-36.970588235294144" y="424.0">BornettePK#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/BornettePK.java</node>
+    <node x="317.25" y="395.5">Abonne#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Abonne.java</node>
+    <node x="460.75" y="59.0">Location#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Location.java</node>
+    <node x="130.25" y="198.0">Velo#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Velo.java</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="Velo#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Velo.java" target="Location#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Location.java" relationship="RELATION">
-      <point x="70.05729166666666" y="-43.90625" />
-      <point x="302.7739583333333" y="78.26874999999998" />
-      <point x="481.2875" y="78.26874999999998" />
-      <point x="-42.5" y="67.0" />
-    </edge>
     <edge source="BornettePK#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/BornettePK.java" target="Station#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Station.java" relationship="RELATION">
-      <point x="0.0" y="29.5" />
-      <point x="43.18437499999999" y="495.2395833333333" />
+      <point x="-15.0" y="31.0" />
+      <point x="10.029411764705856" y="601.8823529411765" />
       <point x="-67.0" y="0.0" />
     </edge>
+    <edge source="Velo#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Velo.java" target="Location#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Location.java" relationship="RELATION">
+      <point x="62.25" y="-52.0" />
+      <point x="274.0" y="136.0" />
+      <point x="-69.25" y="4.0" />
+    </edge>
     <edge source="Station#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Station.java" target="Bornette#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Bornette.java" relationship="RELATION">
-      <point x="51.25312500000001" y="-42.0" />
-      <point x="0.0" y="29.5" />
+      <point x="59.5" y="-45.0" />
+      <point x="-0.5" y="31.0" />
     </edge>
     <edge source="Bornette#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Bornette.java" target="BornettePK#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/BornettePK.java" relationship="EMBEDDING_ID">
       <point x="-52.0" y="0.0" />
       <point x="62.0" y="0.0" />
     </edge>
     <edge source="LocationNonAbonne#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/LocationNonAbonne.java" target="Location#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Location.java" relationship="INHERITANCE">
-      <point x="0.0" y="-42.0" />
-      <point x="629.75" y="165.0" />
-      <point x="553.190625" y="165.0" />
-      <point x="29.403124999999932" y="60.729166666666686" />
+      <point x="2.75" y="-37.0" />
+      <point x="693.529411764706" y="261.25" />
+      <point x="583.0" y="261.25" />
+      <point x="37.25" y="69.5" />
     </edge>
     <edge source="Abonne#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Abonne.java" target="LocationAbonne#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/LocationAbonne.java" relationship="RELATION">
-      <point x="0.0" y="-117.0" />
+      <point x="0.0" y="-143.0" />
       <point x="0.0" y="15.5" />
     </edge>
     <edge source="LocationAbonne#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/LocationAbonne.java" target="Location#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Location.java" relationship="INHERITANCE">
-      <point x="0.0" y="-15.5" />
-      <point x="433.75" y="165.0" />
-      <point x="493.09062500000005" y="165.0" />
-      <point x="-30.696874999999977" y="65.73750000000001" />
+      <point x="1.75" y="-6.5" />
+      <point x="403.0" y="262.5" />
+      <point x="502.0" y="262.5" />
+      <point x="-43.75" y="58.5" />
     </edge>
     <edge source="Bornette#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Bornette.java" target="Velo#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Velo.java" relationship="RELATION">
-      <point x="-2.8421709430404007E-14" y="-29.5" />
-      <point x="0.0" y="54.5" />
+      <point x="0.0" y="-31.0" />
+      <point x="0.0" y="59.0" />
     </edge>
     <edge source="Velo#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Velo.java" target="Modele#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Modele.java" relationship="RELATION">
-      <point x="0.0" y="-54.5" />
-      <point x="232.71666666666667" y="161.6208333333334" />
-      <point x="232.71666666666673" y="161.6208333333334" />
-      <point x="0.0" y="29.5" />
+      <point x="0.0" y="-59.0" />
+      <point x="0.0" y="45.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.7986688851913477" showDependencies="false" x="599.0" y="359.0" />
-  <SelectedNodes />
+  <settings layout="Hierarchic" zoom="0.8500000000000001" showDependencies="false" x="440.0" y="386.0" />
+  <SelectedNodes>
+    <node>Station#file:///home/louis/IdeaProjects/ProjetBDD/src/main/java/fr/litopia/model/Station.java</node>
+  </SelectedNodes>
   <Categories>
     <Category>Embeddables</Category>
     <Category>Properties</Category>
