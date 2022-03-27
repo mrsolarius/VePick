@@ -38,11 +38,10 @@ public class DataBDDControler extends ControlerImp {
     private Set<Bornette> getBornettes(int nb, Station s){
         Set<Bornette> lesBornettes = new HashSet<>();
         for (int i = 0; i < nb; i++) {
-            Bornette b = new Bornette();
             BornettePK bpk = new BornettePK();
             bpk.setStation(s);
             bpk.autoGenerateNumero(getEntityManager());
-            b.setPk(bpk);
+            Bornette b = new Bornette(bpk);
             System.out.println("Id "+b.getNumero());
             lesBornettes.add(b);
         }
@@ -55,10 +54,7 @@ public class DataBDDControler extends ControlerImp {
     //   station victor hugo
     /*------------------------------------------------------------------*/
         Set<Station> stations  = new HashSet<>();
-        Station victor_hugo= new Station();
-
-        victor_hugo.setVStatus(VStatus.VMOINS);
-        victor_hugo.setAdresse("12 place felix poulat 38000");
+        Station victor_hugo= new Station("12 place felix poulat 38000",VStatus.VMOINS);
 
     /*----------les bornettes de victor hugo---------------------------*/
         victor_hugo.setBornettes(this.getBornettes(3, victor_hugo));
@@ -66,17 +62,13 @@ public class DataBDDControler extends ControlerImp {
    /*-----------------------------------------------------------------------------*/
    /*-----------------------------------------------------------------------------*/
 
-       Station  malherbe = new Station();
-        malherbe.setAdresse("7 rue des invalide 38000");
-        malherbe.setVStatus(VStatus.VNUL);
+       Station  malherbe = new Station("7 rue des invalide 38000",VStatus.VNUL);
        malherbe.setBornettes(this.getBornettes(6, malherbe));
        stations.add(malherbe);
 
 
 
-        Station gare = new Station();
-        gare.setVStatus(VStatus.VPLUS);
-        gare.setAdresse("19 rue paul janet 38000");
+        Station gare = new Station("19 rue paul janet 38000",VStatus.VPLUS);
        gare.setBornettes(this.getBornettes(10,gare));
 
         stations.add(gare);

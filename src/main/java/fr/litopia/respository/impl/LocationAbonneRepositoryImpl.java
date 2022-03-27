@@ -1,5 +1,6 @@
 package fr.litopia.respository.impl;
 
+import fr.litopia.model.Abonne;
 import fr.litopia.model.LocationAbonne;
 import fr.litopia.respository.api.LocationAbonneRepository;
 
@@ -31,6 +32,14 @@ public class LocationAbonneRepositoryImpl extends BaseRepositoryImpl implements 
     public Set<LocationAbonne> getAll() {
         return Set.copyOf(
                 entityManager.createQuery("SELECT LocationAbonne FROM LocationAbonne ",LocationAbonne.class)
+                        .getResultList());
+    }
+
+    @Override
+    public Set<LocationAbonne> getLocationsEnCours(Abonne abonne) {
+        return Set.copyOf(
+                entityManager.createQuery("SELECT la FROM LocationAbonne la WHERE la.abonne = :abonne AND la.temps IS NULL",LocationAbonne.class)
+                        .setParameter("abonne",abonne)
                         .getResultList());
     }
 }

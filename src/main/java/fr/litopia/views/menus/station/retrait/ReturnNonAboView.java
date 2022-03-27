@@ -6,8 +6,6 @@ import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.struct.api.View;
 import fr.litopia.views.tinyView.ReturnLocTinyView;
 
-import javax.persistence.ManyToOne;
-
 public class ReturnNonAboView extends ReturnComonContext{
     private LocationNonAbonne locationNonAbonne;
     private ReturnLocTinyView returnLocTinyView;
@@ -31,8 +29,10 @@ public class ReturnNonAboView extends ReturnComonContext{
         System.out.println("RENDRE UN VÉLO");
         System.out.println("==================");
         locationNonAbonne = returnLocTinyView.startAndGetValue();
+        System.out.println("Vélo retourné "+locationNonAbonne);
         if (locationNonAbonne==null){
             this.stop().stop();
+            return;
         }
         this.clean();
         System.out.println("=================");
@@ -46,9 +46,10 @@ public class ReturnNonAboView extends ReturnComonContext{
         switch (choice) {
             case 1 -> displayPaiement();
             case 2 -> {
-                locationNonAbonne.getVelo().setEtat(Etat.HS);   // On passe l'état du vélo à HS
+                retraitControler.changeBikeState(locationNonAbonne, Etat.HS);
                 if (retraitControler.isUnderFiveMinutes(locationNonAbonne)) {
                     displayAnnulationEmprunt();
+                    return;
                 }
                 displayPaiement();
             }
@@ -58,12 +59,12 @@ public class ReturnNonAboView extends ReturnComonContext{
     }
 
     private void displayPaiement() {
+        Double prix = retraitControler.clotureLocationNonAbonne(bornette,locationNonAbonne);
         this.clean();
         System.out.println("========================");
         System.out.println("PAIEMENT DE LA LOCATION");
         System.out.println("========================");
         System.out.println("VéPick vous remercie de votre Location");
-        Double prix = retraitControler.clotureLocationNonAbonne(bornette,locationNonAbonne);
         System.out.println("Vous avez été prélevé de "+prix+" euros");
         System.out.println("Toute l'équipe vous souhaite une bonne fin de journée");
         System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°"+this.bornette.getNumero());
@@ -83,7 +84,7 @@ public class ReturnNonAboView extends ReturnComonContext{
         System.out.println("Appuyez sur entrée pour déposer votre vélo à la bornette n°"+this.bornette.getNumero());
         System.out.println("========================");
         ReadingConsole.readLine();
-        retraitControler.clotureLocationHSUnderFiveMinutes(bornette,locationNonAbonne); //dépose le vélo sur une bornette et complète location sans calcul prix
+        retraitControler.clotureLocationHSUnderFiveMinutesNonAbo(bornette,locationNonAbonne); //dépose le vélo sur une bornette et complète location sans calcul prix
         //On stop cette vue ainsi que la vue du dessus de retour vélo
         this.stop().stop();
     }

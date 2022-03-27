@@ -16,6 +16,8 @@ public class ReturnView extends ViewImpl {
     private Station station;
     private Bornette bornette;
     private RetraitControler retraitControler;
+    private ReturnAboView returnAboView;
+    private ReturnNonAboView returnNonAboView;
 
     /**
      * @param parent la vue parente
@@ -37,11 +39,14 @@ public class ReturnView extends ViewImpl {
     @Override
     protected void init() {
         retraitControler = ControlerFactory.getRetraitControler();
+        returnAboView = new ReturnAboView(this);
+        returnNonAboView = new ReturnNonAboView(this);
     }
 
     @Override
     protected void display() {
         bornette = retraitControler.peutRendre(this.station);
+        this.clean();
         if(bornette!=null){
             displayMenu();
         }else {
@@ -66,8 +71,6 @@ public class ReturnView extends ViewImpl {
         System.out.println("3. Retour");
         System.out.println("Votre choix : ");
         Integer choice = ReadingConsole.readInt(1,3);
-        ReturnAboView returnAboView = new ReturnAboView(this);
-        ReturnNonAboView returnNonAboView = new ReturnNonAboView(this);
         returnAboView.setContext(createViewContext());
         returnNonAboView.setContext(createViewContext());
         switch (choice){
@@ -81,7 +84,7 @@ public class ReturnView extends ViewImpl {
         System.out.println("==============");
         System.out.println("RENDRE UN VÉLO");
         System.out.println("===============");
-        System.out.println("Vous ne pouvez plus emprunter de vélo à cette station");
+        System.out.println("Vous ne pouvez plus rendre de vélo à cette station");
         System.out.println("Appuyez sur une touche pour revenir au menu");
         ReadingConsole.readLine();
         this.stop();
