@@ -1,13 +1,14 @@
 package fr.litopia.controller;
 
 import fr.litopia.controller.impl.ControlerImp;
-import fr.litopia.model.Bornette;
-import fr.litopia.model.BornettePK;
-import fr.litopia.model.Station;
+import fr.litopia.model.*;
+import fr.litopia.model.enums.Etat;
 import fr.litopia.model.enums.VStatus;
 import fr.litopia.respository.api.*;
 
+import java.sql.Date;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 public class DataBDDControler extends ControlerImp {
@@ -78,6 +79,24 @@ public class DataBDDControler extends ControlerImp {
         return stations;
    }
 
+    public Set<Modele> allModele() {
+
+        Set<Modele> velo_modeles = new HashSet<>();
+        double val_non_null_prix = 5.0;
+        String tupeModels[] = {"Velo électrique", "velo tout terrain",
+                "Velo de ville", "velo pour enfant", "velo de descente"};
+
+        for (int i = 0; i < tupeModels.length; i++) {
+            Modele model = new Modele();
+
+            model.setName(tupeModels[i]);
+            model.setPrixHoraire(i * 2 + val_non_null_prix);
+            velo_modeles.add(model);
+        }
+
+        return velo_modeles;
+    }
+
 
 
 
@@ -92,7 +111,30 @@ public class DataBDDControler extends ControlerImp {
             System.out.println("Station : "+stat.getAdresse()+" nb:"+stat.getBornettes().size());
             stationRepository.save(stat);
         }
+
+        for(Modele mod :allModele()){
+            modeleRepository.save(mod);
+            for(Velo velos :getVelos(12,mod)){
+                veloRepository.save(velos);
+            }
+        }
+
+
+
         getEntityManager().getTransaction().commit();
+    }
+
+    public Set<Velo> getVelos(int nb, Modele m) {
+        Set<Velo> lesVelos = new HashSet<>();
+        for (int i = 0; i < nb; i++) {
+
+            int t = new Random().nextInt(Etat.values().length);
+           Date date =new Date(2022,04,17);
+            Velo v = new Velo(date,Etat.values()[t],m);
+
+            lesVelos.add(v);
+        }
+        return lesVelos;
     }
 
     public void deleteData() {
