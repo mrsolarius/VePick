@@ -1,7 +1,7 @@
 package fr.litopia.controler.impl;
 
 import fr.litopia.controler.api.Controler;
-import fr.litopia.respository.RepositoryFactory;
+import fr.litopia.repository.RepositoryFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;

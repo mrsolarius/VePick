@@ -1,7 +1,7 @@
-package fr.litopia.respository;
+package fr.litopia.repository;
 
-import fr.litopia.respository.api.*;
-import fr.litopia.respository.impl.*;
+import fr.litopia.repository.api.*;
+import fr.litopia.repository.impl.*;
 
 import javax.persistence.EntityManager;
 

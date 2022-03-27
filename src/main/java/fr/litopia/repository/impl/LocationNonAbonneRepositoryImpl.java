@@ -1,8 +1,7 @@
-package fr.litopia.respository.impl;
+package fr.litopia.repository.impl;
 
-import fr.litopia.model.Abonne;
 import fr.litopia.model.LocationNonAbonne;
-import fr.litopia.respository.api.LocationNonAbonneRepository;
+import fr.litopia.repository.api.LocationNonAbonneRepository;
 
 import javax.persistence.EntityManager;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package fr.litopia.respository.impl;
+package fr.litopia.repository.impl;
 
 import javax.persistence.EntityManager;
 

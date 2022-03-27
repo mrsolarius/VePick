@@ -1,6 +1,6 @@
 package fr.litopia.controler.api;
 
-import fr.litopia.respository.RepositoryFactory;
+import fr.litopia.repository.RepositoryFactory;
 
 import javax.persistence.EntityManager;
 

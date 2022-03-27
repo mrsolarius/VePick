@@ -3,10 +3,10 @@ package fr.litopia.controler.impl;
 import fr.litopia.controler.api.RetraitControler;
 import fr.litopia.model.*;
 import fr.litopia.model.enums.Etat;
-import fr.litopia.respository.RepositoryFactory;
-import fr.litopia.respository.api.BornetteRepository;
-import fr.litopia.respository.api.LocationAbonneRepository;
-import fr.litopia.respository.api.LocationNonAbonneRepository;
+import fr.litopia.repository.RepositoryFactory;
+import fr.litopia.repository.api.BornetteRepository;
+import fr.litopia.repository.api.LocationAbonneRepository;
+import fr.litopia.repository.api.LocationNonAbonneRepository;
 
 import java.util.Set;
 

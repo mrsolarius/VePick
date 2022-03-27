@@ -1,10 +1,10 @@
-package fr.litopia.respository.impl;
+package fr.litopia.repository.impl;
 
 import fr.litopia.model.Bornette;
 import fr.litopia.model.BornettePK;
 import fr.litopia.model.Station;
 import fr.litopia.model.enums.Etat;
-import fr.litopia.respository.api.BornetteRepository;
+import fr.litopia.repository.api.BornetteRepository;
 
 import javax.persistence.EntityManager;
 import java.util.Set;

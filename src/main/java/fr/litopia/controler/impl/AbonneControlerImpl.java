@@ -2,7 +2,7 @@ package fr.litopia.controler.impl;
 
 import fr.litopia.controler.api.AbonneControler;
 import fr.litopia.model.Abonne;
-import fr.litopia.respository.api.AbonneRepository;
+import fr.litopia.repository.api.AbonneRepository;
 
 public class AbonneControlerImpl extends ControlerImp implements AbonneControler {
 

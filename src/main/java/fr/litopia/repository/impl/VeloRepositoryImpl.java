@@ -1,7 +1,7 @@
-package fr.litopia.respository.impl;
+package fr.litopia.repository.impl;
 
 import fr.litopia.model.Velo;
-import fr.litopia.respository.api.VeloRepository;
+import fr.litopia.repository.api.VeloRepository;
 
 import javax.persistence.EntityManager;
 import java.util.Set;

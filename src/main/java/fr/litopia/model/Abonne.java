@@ -1,15 +1,11 @@
 package fr.litopia.model;
 
-import fr.litopia.respository.RepositoryFactory;
-import fr.litopia.respository.api.AbonneRepository;
 import fr.litopia.utils.ReadingConsole;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.LinkedHashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity

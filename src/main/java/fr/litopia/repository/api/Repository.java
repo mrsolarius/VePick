@@ -1,4 +1,4 @@
-package fr.litopia.respository.api;
+package fr.litopia.repository.api;
 
 import java.util.Set;
 
