@@ -3,131 +3,172 @@
   <ID>JAVA</ID>
   <OriginalElement>fr.litopia.model</OriginalElement>
   <nodes>
-    <node x="928.0" y="0.0">fr.litopia.model.enums</node>
-    <node x="0.0" y="994.0">fr.litopia.model.LocationNonAbonne</node>
-    <node x="216.99999999999997" y="658.0">fr.litopia.model.Abonne</node>
-    <node x="256.8173076923077" y="1006.5">fr.litopia.model.LocationAbonne</node>
-    <node x="5.0" y="0.0">fr.litopia.model.Station</node>
-    <node x="36.0" y="186.0">fr.litopia.model.Bornette</node>
-    <node x="12.0" y="708.0">fr.litopia.model.Location</node>
-    <node x="548.0" y="0.0">fr.litopia.model.VePick</node>
-    <node x="9.5" y="397.0">fr.litopia.model.Velo</node>
-    <node x="759.0" y="0.0">fr.litopia.model.Model</node>
+    <node x="-1000.353765551607" y="1424.3996019595384">fr.litopia.model.enums</node>
+    <node x="-356.5507306363374" y="1265.8996019595384">fr.litopia.model.Modele</node>
+    <node x="-53.82398089715164" y="2721.724562586241">fr.litopia.model.Abonne</node>
+    <node x="366.6097403990559" y="2316.8045074986494">fr.litopia.model.LocationNonAbonne</node>
+    <node x="24.176019102848358" y="2312.0">fr.litopia.model.LocationAbonne</node>
+    <node x="-661.3606580007207" y="3035.730408699271">fr.litopia.model.Station</node>
+    <node x="-345.3851852776222" y="2608.0">fr.litopia.model.Bornette</node>
+    <node x="142.80465280822364" y="1739.1813993665417">fr.litopia.model.Location</node>
+    <node x="-359.5507306363374" y="1814.1813993665419">fr.litopia.model.Velo</node>
+    <node x="-1006.353765551607" y="1265.8996019595384">fr.litopia.model.VePick</node>
+    <node x="-991.7496400806219" y="2608.0">fr.litopia.model.BornettePK</node>
   </nodes>
   <notes />
   <edges>
+    <edge source="fr.litopia.model.BornettePK" target="fr.litopia.model.Station" relationship="TO_ONE">
+      <point x="-11.158229474031486" y="131.71543985637345" />
+      <point x="-848.4078695546534" y="3257.6423147169085" />
+      <point x="110.63399261573545" y="19.911906017637648" />
+    </edge>
+    <edge source="fr.litopia.model.Bornette" target="fr.litopia.model.BornettePK" relationship="TO_ONE">
+      <point x="-95.0" y="15.0" />
+      <point x="154.5" y="71.0" />
+    </edge>
     <edge source="fr.litopia.model.LocationAbonne" target="fr.litopia.model.Abonne" relationship="TO_ONE">
-      <point x="0.0" y="-43.0" />
-      <point x="345.3173076923077" y="964.0" />
-      <point x="288.5" y="964.0" />
-      <point x="-71.5" y="143.0" />
+      <point x="-42.681017842459255" y="115.82187336901461" />
+      <point x="89.5270223007403" y="2545.8218733690146" />
+      <point x="-39.64899680210806" y="-496.0454688768559" />
     </edge>
-    <edge source="fr.litopia.model.Station" target="fr.litopia.model.Bornette" relationship="TO_MANY">
-      <point x="49.75" y="68.0" />
-      <point x="154.25" y="161.0" />
-      <point x="138.75" y="161.0" />
-      <point x="34.25" y="-80.5" />
-    </edge>
-    <edge source="fr.litopia.model.Bornette" target="fr.litopia.model.Station" relationship="DEPENDENCY">
-      <point x="-34.25" y="-80.5" />
-      <point x="70.25" y="161.0" />
-      <point x="54.75" y="161.0" />
-      <point x="-49.75" y="68.0" />
-    </edge>
-    <edge source="fr.litopia.model.Velo" target="fr.litopia.model.Bornette" relationship="TO_ONE">
-      <point x="-47.5" y="-105.5" />
-      <point x="57.0" y="372.0" />
-      <point x="70.25" y="372.0" />
-      <point x="-34.25" y="80.5" />
-    </edge>
-    <edge source="fr.litopia.model.Bornette" target="fr.litopia.model.Velo" relationship="TO_ONE">
-      <point x="-34.25" y="80.5" />
-      <point x="70.25" y="372.0" />
-      <point x="57.0" y="372.0" />
-      <point x="-47.5" y="-105.5" />
-    </edge>
-    <edge source="fr.litopia.model.Station" target="fr.litopia.model.Bornette" relationship="DEPENDENCY">
-      <point x="-49.75" y="68.0" />
-      <point x="54.75" y="161.0" />
-      <point x="70.25" y="161.0" />
-      <point x="-34.25" y="-80.5" />
-    </edge>
-    <edge source="fr.litopia.model.Abonne" target="fr.litopia.model.LocationAbonne" relationship="DEPENDENCY">
-      <point x="71.5" y="143.0" />
-      <point x="431.5" y="974.0" />
-      <point x="404.3173076923077" y="974.0" />
-      <point x="59.0" y="-43.0" />
+    <edge source="fr.litopia.model.BornettePK" target="fr.litopia.model.Station" relationship="TO_MANY">
+      <point x="30.919010336028123" y="110.69347306071313" />
+      <point x="-806.3306297445938" y="3208.1219840430645" />
+      <point x="113.38512209761564" y="-29.608424656206353" />
     </edge>
     <edge source="fr.litopia.model.LocationAbonne" target="fr.litopia.model.Abonne" relationship="DEPENDENCY">
-      <point x="59.0" y="-43.0" />
-      <point x="404.3173076923077" y="974.0" />
-      <point x="431.5" y="974.0" />
-      <point x="71.5" y="143.0" />
+      <point x="-83.02536582884463" y="115.84724593343026" />
+      <point x="47.24421987792357" y="2545.8472459334303" />
+      <point x="-81.93179922492479" y="-497.4534433275976" />
     </edge>
-    <edge source="fr.litopia.model.LocationNonAbonne" target="fr.litopia.model.Location" relationship="GENERALIZATION">
-      <point x="0.0" y="-55.5" />
-      <point x="0.0" y="93.0" />
+    <edge source="fr.litopia.model.Abonne" target="fr.litopia.model.LocationAbonne" relationship="DEPENDENCY">
+      <point x="72.30992643742289" y="-497.1444841281141" />
+      <point x="72.30992643742289" y="116.25464779123331" />
     </edge>
-    <edge source="fr.litopia.model.Location" target="fr.litopia.model.Velo" relationship="DEPENDENCY">
-      <point x="-46.25" y="-93.0" />
-      <point x="58.25" y="633.0" />
-      <point x="57.0" y="633.0" />
-      <point x="-47.5" y="105.5" />
-    </edge>
-    <edge source="fr.litopia.model.Velo" target="fr.litopia.model.Location" relationship="DEPENDENCY">
-      <point x="-47.5" y="105.5" />
-      <point x="57.0" y="633.0" />
-      <point x="58.25" y="633.0" />
-      <point x="-46.25" y="-93.0" />
-    </edge>
-    <edge source="fr.litopia.model.Bornette" target="fr.litopia.model.Station" relationship="TO_ONE">
-      <point x="34.25" y="-80.5" />
-      <point x="138.75" y="161.0" />
-      <point x="154.25" y="161.0" />
-      <point x="49.75" y="68.0" />
-    </edge>
-    <edge source="fr.litopia.model.Velo" target="fr.litopia.model.Bornette" relationship="DEPENDENCY">
-      <point x="47.5" y="-105.5" />
-      <point x="152.0" y="372.0" />
-      <point x="138.75" y="372.0" />
-      <point x="34.25" y="80.5" />
-    </edge>
-    <edge source="fr.litopia.model.Bornette" target="fr.litopia.model.Velo" relationship="DEPENDENCY">
-      <point x="34.25" y="80.5" />
-      <point x="138.75" y="372.0" />
-      <point x="152.0" y="372.0" />
-      <point x="47.5" y="-105.5" />
+    <edge source="fr.litopia.model.Location" target="fr.litopia.model.Modele" relationship="DEPENDENCY">
+      <point x="0.0" y="-230.0" />
+      <point x="327.30465280822364" y="1439.8996019595384" />
+      <point x="110.0" y="0.0" />
     </edge>
     <edge source="fr.litopia.model.Abonne" target="fr.litopia.model.LocationAbonne" relationship="TO_MANY">
-      <point x="-71.5" y="143.0" />
-      <point x="288.5" y="964.0" />
-      <point x="345.3173076923077" y="964.0" />
-      <point x="0.0" y="-43.0" />
+      <point x="15.0" y="-496.0" />
+      <point x="144.17601910284836" y="2623.2138078153785" />
+      <point x="144.1760191028484" y="2623.2138078153785" />
+      <point x="15.000000000000028" y="118.0" />
+    </edge>
+    <edge source="fr.litopia.model.Modele" target="fr.litopia.model.Velo" relationship="DEPENDENCY">
+      <point x="69.59581814169314" y="172.3517411075984" />
+      <point x="-176.95491249464425" y="1818.4812547819433" />
+      <point x="-67.43004691769903" y="-253.70014458459855" />
+    </edge>
+    <edge source="fr.litopia.model.Velo" target="fr.litopia.model.Modele" relationship="DEPENDENCY">
+      <point x="-70.10984798885437" y="-258.0" />
+      <point x="-71.60984798885437" y="174.0" />
+    </edge>
+    <edge source="fr.litopia.model.Modele" target="fr.litopia.model.Velo" relationship="TO_MANY">
+      <point x="-42.66774221211978" y="167.09774667058718" />
+      <point x="-288.39504741198164" y="1606.9973486301255" />
+      <point x="-40.344316775644245" y="-259.73940433577604" />
+    </edge>
+    <edge source="fr.litopia.model.Station" target="fr.litopia.model.Bornette" relationship="TO_MANY">
+      <point x="119.01916304994597" y="19.564324920918352" />
+      <point x="-250.3851852776222" y="3257.294733620189" />
+      <point x="0.0" y="188.0" />
+    </edge>
+    <edge source="fr.litopia.model.Velo" target="fr.litopia.model.Modele" relationship="TO_ONE">
+      <point x="20.177452805305904" y="-254.79885171692285" />
+      <point x="-219.63902346627637" y="1817.382547649619" />
+      <point x="26.91170717006102" y="176.5671391900555" />
+    </edge>
+    <edge source="fr.litopia.model.Bornette" target="fr.litopia.model.Velo" relationship="TO_ONE">
+      <point x="-15.0" y="-188.0" />
+      <point x="-17.33445464128482" y="258.0" />
+    </edge>
+    <edge source="fr.litopia.model.Velo" target="fr.litopia.model.Bornette" relationship="TO_ONE">
+      <point x="7.7529426505428205" y="257.48261087846595" />
+      <point x="-240.29778798579457" y="2468.8320051225037" />
+      <point x="-240.94694421878313" y="2468.8320051225037" />
+      <point x="9.438241058839083" y="-186.54965333691916" />
+    </edge>
+    <edge source="fr.litopia.model.Station" target="fr.litopia.model.Bornette" relationship="DEPENDENCY">
+      <point x="117.05329474012262" y="71.26632301273548" />
+      <point x="-200.82909228332852" y="3308.9967317120063" />
+      <point x="-200.82909228332852" y="2617.5" />
+      <point x="94.9997306363374" y="-178.5" />
+    </edge>
+    <edge source="fr.litopia.model.Bornette" target="fr.litopia.model.Station" relationship="DEPENDENCY">
+      <point x="-48.907801638729154" y="189.593414770261" />
+      <point x="-299.29298691635137" y="3207.7306180283817" />
+      <point x="125.5" y="-29.99979067088907" />
+    </edge>
+    <edge source="fr.litopia.model.LocationNonAbonne" target="fr.litopia.model.Location" relationship="GENERALIZATION">
+      <point x="0.0" y="-132.0" />
+      <point x="542.1097403990559" y="2275.0" />
+      <point x="428.0286711073871" y="2275.0" />
+      <point x="100.72401829916345" y="218.5250097848823" />
+    </edge>
+    <edge source="fr.litopia.model.BornettePK" target="fr.litopia.model.Station" relationship="DEPENDENCY">
+      <point x="154.49964008062193" y="0.0" />
+      <point x="-882.5206463195692" y="2740.0" />
+      <point x="-882.5206463195692" y="3305.328559069499" />
+      <point x="-98.45184800716174" y="67.59815037022827" />
+    </edge>
+    <edge source="fr.litopia.model.Velo" target="fr.litopia.model.Location" relationship="DEPENDENCY">
+      <point x="112.47572542036221" y="-1.2598590902966862" />
+      <point x="2.272906968254091" y="2070.921540276245" />
+      <point x="2.272906968254091" y="2070.451809291884" />
+      <point x="-180.1016054386808" y="101.27040992534216" />
+    </edge>
+    <edge source="fr.litopia.model.Location" target="fr.litopia.model.Velo" relationship="DEPENDENCY">
+      <point x="-185.7383772510167" y="-53.250753154509084" />
+      <point x="2.272906968254091" y="1915.9306462120326" />
+      <point x="2.272906968254091" y="1915.9306462120326" />
+      <point x="100.73245081132907" y="-156.2507531545093" />
+    </edge>
+    <edge source="fr.litopia.model.Location" target="fr.litopia.model.Bornette" relationship="DEPENDENCY">
+      <point x="-177.75835992492028" y="191.72074033750687" />
+      <point x="-68.0" y="2160.9021397040487" />
+      <point x="-68.0" y="2722.6175830157867" />
+      <point x="90.58277018241012" y="-73.38241698421325" />
+    </edge>
+    <edge source="fr.litopia.model.Bornette" target="fr.litopia.model.BornettePK" relationship="DEPENDENCY">
+      <point x="-95.0" y="-41.0" />
+      <point x="154.5" y="15.0" />
+    </edge>
+    <edge source="fr.litopia.model.Bornette" target="fr.litopia.model.Velo" relationship="DEPENDENCY">
+      <point x="94.9997306363374" y="0.0" />
+      <point x="-329.13138686131384" y="2796.0" />
+      <point x="-329.13138686131384" y="2072.181" />
+      <point x="111.4997306363374" y="-3.993665418420278E-4" />
+    </edge>
+    <edge source="fr.litopia.model.Velo" target="fr.litopia.model.Bornette" relationship="DEPENDENCY">
+      <point x="35.01750443606272" y="258.13176711145434" />
+      <point x="-213.68238243326323" y="2330.313166477996" />
+      <point x="36.702802844358985" y="-184.60218463795354" />
     </edge>
     <edge source="fr.litopia.model.LocationAbonne" target="fr.litopia.model.Location" relationship="GENERALIZATION">
-      <point x="-59.0" y="-43.0" />
-      <point x="286.3173076923077" y="974.0" />
-      <point x="104.5" y="974.0" />
-      <point x="0.0" y="93.0" />
+      <point x="2.8421709430404007E-14" y="-118.0" />
+      <point x="129.1760191028484" y="2275.0" />
+      <point x="253.703240440493" y="2275.0" />
+      <point x="-73.60141236773063" y="212.90160879562768" />
     </edge>
     <edge source="fr.litopia.model.Location" target="fr.litopia.model.Velo" relationship="TO_ONE">
-      <point x="46.25" y="-93.0" />
-      <point x="150.75" y="633.0" />
-      <point x="152.0" y="633.0" />
-      <point x="47.5" y="105.5" />
+      <point x="-184.5" y="-15.0" />
+      <point x="111.5" y="-118.00000000000023" />
     </edge>
     <edge source="fr.litopia.model.Velo" target="fr.litopia.model.Location" relationship="TO_MANY">
-      <point x="47.5" y="105.5" />
-      <point x="152.0" y="633.0" />
-      <point x="150.75" y="633.0" />
-      <point x="46.25" y="-93.0" />
+      <point x="96.06213431016738" y="-53.54783735338924" />
+      <point x="4.039314474069471" y="2018.6335620131526" />
+      <point x="4.039314474069471" y="2018.6335620131526" />
+      <point x="-181.22483867161702" y="49.45216264661099" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.7217777777777777" showDependencies="true" x="541.0" y="552.5" />
+  <settings layout="Hierarchic" zoom="0.47887808829485645" showDependencies="true" x="182.35237478731256" y="2480.8149448132954" />
   <SelectedNodes />
   <Categories>
     <Category>Constructors</Category>
     <Category>Fields</Category>
+    <Category>Methods</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
