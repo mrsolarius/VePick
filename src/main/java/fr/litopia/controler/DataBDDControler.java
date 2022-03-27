@@ -139,5 +139,14 @@ public class DataBDDControler extends ControlerImpl {
 
     public void deleteData() {
         //@TODO delete toutes les données de la BDD
+        getEntityManager().getTransaction().begin();
+        getEntityManager().createNativeQuery("drop table LesBornettes").executeUpdate();
+        getEntityManager().createNativeQuery("drop table LesLocations").executeUpdate();
+        getEntityManager().createNativeQuery("drop table LesAbonnes").executeUpdate();
+        getEntityManager().createNativeQuery("drop table LesStations").executeUpdate();
+        getEntityManager().createNativeQuery("drop table LesVelos").executeUpdate();
+        getEntityManager().createNativeQuery("drop table LesModeles").executeUpdate();
+        getEntityManager().createNativeQuery("drop table hibernate_sequence").executeUpdate();
+        getEntityManager().getTransaction().commit();
     }
 }
