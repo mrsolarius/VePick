@@ -1,8 +1,7 @@
 package fr.litopia.utils;
 
 import java.io.Console;
-
-import static org.hibernate.query.criteria.internal.ValueHandlerFactory.isNumeric;
+import java.util.regex.Pattern;
 
 public class ReadingConsole {
 
@@ -36,6 +35,18 @@ public class ReadingConsole {
             s = readLine();
             if (s.length() != n) {
                 System.out.println("Veuillez saisir une chaine de caractere de longueur " + n + ".");
+                s = null;
+            }
+        }
+        return s;
+    }
+
+    public static String readLineWithMaxChar(int n) {
+        String s = null;
+        while (s == null) {
+            s = readLine();
+            if (s.length() > n) {
+                System.out.println("Veuillez saisir une chaine de caractere de longueur inferieur ou égal a " + n + ".");
                 s = null;
             }
         }
@@ -193,6 +204,14 @@ public class ReadingConsole {
             }
         }
         return t;
+    }
+
+    public static boolean isNumeric(String strNum) {
+        final Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
+        if (strNum == null) {
+            return false;
+        }
+        return pattern.matcher(strNum).matches();
     }
 
 

@@ -34,4 +34,18 @@ public class LocationNonAbonneRepositoryImpl extends BaseRepositoryImpl implemen
                 entityManager.createQuery("SELECT LocationNonAbonne FROM LocationNonAbonne ",LocationNonAbonne.class)
                         .getResultList());
     }
+
+    @Override
+    public Boolean verifyCode(String c) {
+        return entityManager.createQuery("SELECT l FROM LocationNonAbonne l WHERE l.code = :code AND l.temps is null")
+                .setParameter("code", c)
+                .getResultList().isEmpty();
+    }
+
+    @Override
+    public LocationNonAbonne getLocNonAbonne(String code){
+        return (LocationNonAbonne) entityManager.createQuery("SELECT l FROM LocationNonAbonne l WHERE l.code = :code and l.temps is null")
+                .setParameter("code", code)
+                .getSingleResult();
+    }
 }
