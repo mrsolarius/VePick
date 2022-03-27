@@ -49,22 +49,31 @@ public class EditingStationStatusView extends ViewImpl {
     protected void display() {
 
         System.out.println("================================");
-        System.out.println("veuillez choisir un  status  ");
+        System.out.println("veuillez choisir un  statut  \n\n");
+        System.out.println("Selectionnez 1 pour VMoins");
+        System.out.println("Selectionnez 2  pour VNul");
+        System.out.println("Selectionnez 3 pour VPlus");
+
+
+
         System.out.println("================================");
 
-        this.stationStatusList = new ArrayList<>(stationStatusControler.getStationStatusPossible());
+       // this.stationStatusList = [VStatus.VMOINS,VStatus.VNUL,VStatus.VPLUS];
 
-        System.out.println("0 - quitter ");
+        System.out.println("0 pour quitter ");
 
 
-        Integer selectedStatus = ReadingConsole.readInt(-1, this.stationStatusList.size() - 1);
+        Integer selectedStatus = ReadingConsole.readInt(0, 3);
         if (selectedStatus == 0) {
             this.stop();
         } else {
             //comment recuperer la valeur associer a un nombre(choix)
             // recupérer la station actuelle dans laquelle on se trouve
             station.setVStatus(stationStatusControler.getStatusValueSelected(selectedStatus));
-            System.out.println("le status de la station a été modifier merci !!!!!");
+            System.out.println("le statut de la station a été mis à jour avec succès");
+            System.out.println("Appuyez sur entrée pour continuer");
+            ReadingConsole.readLine();
+
             this.stop().stop();
 
         }

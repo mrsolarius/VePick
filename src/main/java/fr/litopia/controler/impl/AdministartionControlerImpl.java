@@ -19,7 +19,19 @@ public class AdministartionControlerImpl extends  ControlerImpl implements Admin
 
     @Override
     public VStatus getStatusValueSelected(int number) {
-        return null;
+        VStatus statut = null;
+        switch (number){
+            case 1:
+                statut = VStatus.VMOINS;
+                break;
+            case 2:
+                statut = VStatus.VNUL;
+                break;
+            case 3:
+                statut = VStatus.VPLUS;
+        }
+
+        return statut;
     }
 
     @Override
