@@ -27,7 +27,7 @@ public class EmpruntNonAboView extends EmpruntComonContext {
         System.out.println("=================");
         System.out.println("EMPRUNTER UN VÉLO");
         System.out.println("==================");
-        System.out.println("Merci d'avoir choisie VePick !");
+        System.out.println("Merci d'avoir choisi VePick !");
         System.out.println("Votre code d'emprunt est : "+loc.getCode());
         System.out.println("Veuillez le garder précieusement !");
         System.out.println("Il vous sera demandé lorsque vous retourner le vélo.");
