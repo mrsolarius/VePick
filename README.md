@@ -23,3 +23,4 @@ Elle contiens :
 - [Diagrame conceptuel](doc/model.svg)
 - [Mapping JPA](doc/JPA-HBM-Mapping.svg)
 - [Schemas relationelle](doc/BDD-VPICK-SchemasRelationelle.svg) 
+- [Diagrame de classes](doc/https://github.com/mrsolarius/ProjetBDD/blob/main/doc/AutoGenClassDiagram.svg)
