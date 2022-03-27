@@ -1,7 +1,15 @@
 package fr.litopia.respository.api;
 
+import fr.litopia.model.Abonne;
 import fr.litopia.model.LocationAbonne;
 
+import java.util.Set;
+
 public interface LocationAbonneRepository extends Repository <LocationAbonne, Long> {
-    //@Todo ajouter des methods utiles pour la gestion des locations
+    /**
+     * Retourne la liste des locations en cours d'un abonne
+     * @param abonne l'abonne
+     * @return Set<LocationAbonne>
+     */
+    Set<LocationAbonne> getLocationsEnCours(Abonne abonne);
 }

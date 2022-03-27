@@ -20,6 +20,7 @@ public abstract class TinyViewImpl<T> implements TinyView<T> {
         if (cancele){
             value = null;
         }
+        clean();
         return value;
     }
 

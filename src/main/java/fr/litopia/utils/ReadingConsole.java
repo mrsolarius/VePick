@@ -41,6 +41,18 @@ public class ReadingConsole {
         return s;
     }
 
+    public static String readLineWithMaxChar(int n) {
+        String s = null;
+        while (s == null) {
+            s = readLine();
+            if (s.length() > n) {
+                System.out.println("Veuillez saisir une chaine de caractere de longueur inferieur ou égal a " + n + ".");
+                s = null;
+            }
+        }
+        return s;
+    }
+
     /**
      * Fonction qui va attendre que l'utilisateur ecrive une chaine de caracters numérique dans la console
      * avant de la retourner.
