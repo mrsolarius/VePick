@@ -1,7 +1,7 @@
 package fr.litopia.views.menus;
 
-import fr.litopia.controller.api.AbonneControler;
-import fr.litopia.controller.ControlerFactory;
+import fr.litopia.controler.api.AbonneControler;
+import fr.litopia.controler.ControlerFactory;
 import fr.litopia.model.Abonne;
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.struct.api.View;

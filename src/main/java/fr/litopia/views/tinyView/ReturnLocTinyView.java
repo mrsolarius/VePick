@@ -1,7 +1,7 @@
 package fr.litopia.views.tinyView;
 
-import fr.litopia.controller.ControlerFactory;
-import fr.litopia.controller.api.RetraitControler;
+import fr.litopia.controler.ControlerFactory;
+import fr.litopia.controler.api.RetraitControler;
 import fr.litopia.model.LocationNonAbonne;
 import fr.litopia.utils.ReadingConsole;
 import fr.litopia.views.struct.impl.TinyViewImpl;

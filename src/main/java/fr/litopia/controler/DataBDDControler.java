@@ -1,6 +1,6 @@
-package fr.litopia.controller;
+package fr.litopia.controler;
 
-import fr.litopia.controller.impl.ControlerImp;
+import fr.litopia.controler.impl.ControlerImp;
 import fr.litopia.model.*;
 import fr.litopia.model.enums.Etat;
 import fr.litopia.model.enums.VStatus;

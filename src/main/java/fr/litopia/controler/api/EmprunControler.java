@@ -1,4 +1,4 @@
-package fr.litopia.controller.api;
+package fr.litopia.controler.api;
 
 import fr.litopia.model.*;
 

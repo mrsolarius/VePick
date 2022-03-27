@@ -1,6 +1,6 @@
-package fr.litopia.controller.impl;
+package fr.litopia.controler.impl;
 
-import fr.litopia.controller.api.AbonneControler;
+import fr.litopia.controler.api.AbonneControler;
 import fr.litopia.model.Abonne;
 import fr.litopia.respository.api.AbonneRepository;
 
