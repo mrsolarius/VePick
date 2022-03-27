@@ -1,6 +1,6 @@
 package fr.litopia.views.menus.administration;
 
-import fr.litopia.controller.api.AdministrationControler;
+import fr.litopia.controler.api.AdministrationControler;
 import fr.litopia.model.Velo;
 import fr.litopia.views.struct.api.View;
 import fr.litopia.views.struct.api.ViewContext;

@@ -1,7 +1,7 @@
 package fr.litopia.views.menus.administration;
 
-import fr.litopia.controller.ControlerFactory;
-import fr.litopia.controller.api.AdministrationControler;
+import fr.litopia.controler.ControlerFactory;
+import fr.litopia.controler.api.AdministrationControler;
 import fr.litopia.model.Station;
 import fr.litopia.model.enums.VStatus;
 import fr.litopia.utils.ReadingConsole;
@@ -23,17 +23,14 @@ public class EditingStationStatusView extends ViewImpl {
     private AdministrationControler stationStatusControler;
     private ArrayList<VStatus> stationStatusList;
     private EditingStationStatusView editingStationStatusView;
-
-    Station station =(Station) viewContext.getContext().get("station");
-
+    private Station station;
     public EditingStationStatusView(View parent) {
         super(parent);
     }
 
     @Override
     protected void onContextSet() {
-
-        viewContext.getContext().get("context");
+        station = (Station) viewContext.getContext().get("station");
 
 
     }

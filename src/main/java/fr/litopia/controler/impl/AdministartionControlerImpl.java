@@ -1,12 +1,12 @@
-package fr.litopia.controller.impl;
+package fr.litopia.controler.impl;
 
-import fr.litopia.controller.api.AdministrationControler;
+import fr.litopia.controler.api.AdministrationControler;
 import fr.litopia.model.Station;
 import fr.litopia.model.enums.VStatus;
 
 import java.util.Set;
 
-public class AdministartionControlerImpl extends  ControlerImp implements AdministrationControler {
+public class AdministartionControlerImpl extends  ControlerImpl implements AdministrationControler {
     @Override
     public Set<VStatus> getStationStatusPossible() {
         return null;
