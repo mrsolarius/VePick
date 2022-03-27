@@ -149,13 +149,13 @@ Pour réaliser cette application, nous avons pris le parti d'organiser ce projet
 Ce schéma de conception s'implémente chez nous de façon assez particulière, car la vue n'a pas le droit de modifier le modèle.
 Pour toute action du modèle, il est obligatoire d'utiliser les contrôleurs. 
 
-Cela nous a permis de plus facilement nous répartir le travail en proposant aux personnes implémentant la vue de les 
+Cela nous a permis de plus facilement nous répartir le travail en proposant aux personnes implémentant les vues de les 
 créer en utilisant des méthodes de contrôleur non implémenté à ce moment-là. 
 
 Ainsi, notre développement s'est dirigé vers la vue. En effet, ce sont les personnes chargées de la création des vues qui dictaient
-ce qu'elles s'attendaient à envoyer et à recevoir via des interfaces de contrôleurs implémentés plus tard. 
+ce qu'elles s'attendaient à envoyer et à recevoir via des interfaces de contrôleurs implémentées plus tard. 
 
-Enfin, les contrôleurs ne sont pas autorisés à accéder directement à la BDD en effet leurs seules actions possibles et de 
+Enfin, les contrôleurs ne sont pas autorisés à accéder directement à la BDD, en effet leurs seules actions possibles sont de 
 préparer les transactions, utiliser les repository et le commit. De cette manière, notre travail est une fois de plus 
 réparti et nous permet d'implémenter plusieurs fonctionnalités simultanément.
 
