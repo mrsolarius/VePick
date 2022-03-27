@@ -11,11 +11,13 @@ import java.util.Set;
 @Table(name = "LesVelos")
 public class Velo {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "numero", nullable = false)
     private Long numero;
 
     @Column(name = "mise_en_service", nullable = false, updatable = false)
-    private Date miseEnService;
+    //date par defaut
+    private Date miseEnService= new Date(20210406);
 
     @Enumerated(EnumType.STRING)
     @Column(name = "etat",length = 11, nullable = false)
